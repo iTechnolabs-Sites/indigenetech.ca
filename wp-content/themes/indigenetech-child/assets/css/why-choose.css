@@ -1,0 +1,79 @@
+.breadcrumb {
+    display: none !important;
+}
+.why-choose { text-align: center; background: #fff; padding: 20px 0; }
+.slider-container { position: relative; max-width: 1200px; margin: auto; overflow: hidden; }
+.slider-track { display: flex; transition: transform 0.5s ease-in-out; }
+.feature-box { flex: 0 0 24%; box-sizing: border-box; padding: 20px; background: #f9f9f9;
+  border-radius: 10px; margin: 5px; border: 1px solid #e5e5e5; transition: transform .3s, box-shadow .3s; text-align: left; }
+.feature-box:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.feature-box .number { font-size: 16px; font-weight: bold; background: #000; color: #fff; padding: 6px 12px; border-radius: 6px; display: inline-block; margin-bottom: 15px; }
+.feature-box h3 { font-size: 20px; color: #111; margin-bottom: 10px; }
+.feature-box p { font-size: 15px; color: #555; line-height: 1.6; }
+.slider-buttons { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
+.arrow { background: #000; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 6px; }
+@media (max-width:900px){.feature-box{flex:0 0 50%;}} 
+@media (max-width:600px){.feature-box{flex:0 0 100%;}}
+.load-item {
+    display: none; /* Initially hide last column */
+    transition: all 0.3s ease;
+}
+
+.load-item.visible {
+    display: block;
+}#secondary #block-8 {
+    position: sticky;
+    top: 140px;
+    z-index: 1;
+}
+.articlesListing.blogitemlist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .articlesListing.blogitemlist {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.Industries-We-Serve{
+    margin-top: 22px !important;
+}
+
+#cta-form-home{
+	position:relative;
+	z-index:1;
+}
+#cta-form-home::before {
+    content: '';
+    background-image: url('https://www.indigenetech.ca/wp-content/uploads/2025/10/Vector-711.svg');
+    width: 700PX;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    BACKGROUND-SIZE: CONTAIN;
+}#cta-form-home::after {
+    content: '';
+    background-image: url('https://www.indigenetech.ca/wp-content/uploads/2025/10/Vector-5.svg');
+    width: 700PX;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 0 70%;
+    bottom: 0px;
+    right: 0;
+    z-index: -1;
+    BACKGROUND-SIZE: CONTAIN;
+}@media only screen and (max-width: 767px) {
+  #cta-form-home::before,
+  #cta-form-home::after {
+    display: none !important;
+    content: none !important;
+  }
+}
+
+

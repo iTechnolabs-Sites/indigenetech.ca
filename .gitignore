@@ -1,0 +1,9 @@
+WordPress sensitive/config files
+wp-config-sample.php
+
+# WordPress generated files
+
+
+# OS files
+.DS_Store
+Thumbs.db
