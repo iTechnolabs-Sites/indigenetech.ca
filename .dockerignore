@@ -1,0 +1,7 @@
+.git
+.env
+.cache
+db-init
+docker-compose.yml
+*.sql
+*.sql.gz

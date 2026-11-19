@@ -1,0 +1,28 @@
+# Local development: cp .env.example .env && docker compose up --build
+# Site: http://localhost:8080
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+      # Drop a database dump (*.sql / *.sql.gz) in ./db-init to import it on first start.
+      - ./db-init:/docker-entrypoint-initdb.d:ro
+
+  wordpress:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    env_file: .env
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+
+volumes:
+  db_data:

@@ -1,8 +1,19 @@
-WordPress sensitive/config files
+# WordPress sensitive/config files
+wp-config-local.php
 wp-config-sample.php
+.env
+*.sql
+*.sql.gz
 
 # WordPress generated files
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup*/
+wp-content/debug.log
+wp-content/uploads/wpcf7_uploads/
 
+# Server / tooling leftovers
+.cache/
 
 # OS files
 .DS_Store
