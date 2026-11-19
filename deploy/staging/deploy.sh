@@ -58,6 +58,7 @@ say "Backup -> $BACKUP_DIR"
 mkdir -p "$BACKUP_DIR"
 tar -czf "$BACKUP_DIR/files.tgz" -C "$SITE_ROOT" wp-content/themes/indigenetech-child wp-content/themes/indigenetech/style.css $( [ -f "$SITE_ROOT/.htaccess" ] && echo .htaccess )
 tar -tzf "$BACKUP_DIR/files.tgz" >/dev/null || die "backup archive is unreadable"
+cp "$REPO/deploy/staging/rollback.sh" "$BACKUP_DIR/rollback.sh"   # rollback works even after the clone is deleted
 { echo "site_root=$SITE_ROOT"; echo "site_url=$SITE_URL"; echo "owner=$OWNER"; echo "deployed_commit=$COMMIT"; echo "had_htaccess=$([ -f "$SITE_ROOT/.htaccess" ] && echo yes || echo no)"; } > "$BACKUP_DIR/meta"
 echo "   $(tar -tzf "$BACKUP_DIR/files.tgz" | wc -l) entries, $(du -h "$BACKUP_DIR/files.tgz" | cut -f1)"
 LOG="$SITE_ROOT/wp-content/debug.log"; LOG_MARK=$( [ -f "$LOG" ] && stat -c %s "$LOG" || echo 0 ); export LOG_MARK
@@ -105,6 +106,6 @@ else rc=0; echo "SKIP_CHECKS=1: checks skipped"; fi
 echo
 echo "Deployed commit $COMMIT to $SITE_ROOT"
 echo "Backup: $BACKUP_DIR"
-echo "Rollback: SITE_ROOT=$SITE_ROOT SITE_URL=$SITE_URL bash $REPO/deploy/staging/rollback.sh $BACKUP_DIR"
+echo "Rollback: SITE_ROOT=$SITE_ROOT SITE_URL=$SITE_URL bash $BACKUP_DIR/rollback.sh $BACKUP_DIR"
 if [ "$rc" -eq 0 ]; then echo "DEPLOY RESULT: PASS"; else echo "DEPLOY RESULT: FAIL (see FAIL lines above; roll back with the command above if the site is affected)"; fi
 exit "$rc"
