@@ -42,44 +42,6 @@ jQuery(document).ready(function($){
         seeLessBtn.hide();
     });
 });
-document.addEventListener("DOMContentLoaded", function () {
-
-  const popupOverlay = document.getElementById("itechPopupOverlay");
-  const closeBtn = document.getElementById("itechClosePopup");
-
-  // Safety check
-  if (!popupOverlay) return;
-
-  function openPopup() {
-    popupOverlay.classList.add("show");
-    document.body.classList.add("itech-popup-open");
-  }
-
-  function closePopup() {
-    popupOverlay.classList.remove("show");
-    document.body.classList.remove("itech-popup-open");
-  }
-
-  // Open popup (desktop + mobile header buttons)
-  document.querySelectorAll(".itechOpenPopup").forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
-      openPopup();
-    });
-  });
-
-  // Close button
-  if (closeBtn) {
-    closeBtn.addEventListener("click", closePopup);
-  }
-
-  // Click outside popup to close
-  popupOverlay.addEventListener("click", function (e) {
-    if (e.target === popupOverlay) {
-      closePopup();
-    }
-  });
-
-});
+// Popup open/close code moved to itech-site.js, which loads on every page.
 
 
