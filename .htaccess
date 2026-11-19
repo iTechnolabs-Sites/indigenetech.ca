@@ -1,3 +1,19 @@
+# BEGIN IndigeneTech static asset caching
+# Theme/plugin CSS and JS are requested with ?ver=<file version>, which changes
+# whenever the file changes, so versioned assets can be cached for a year.
+# Unversioned static files get one week.
+<IfModule mod_headers.c>
+	<FilesMatch "\.(css|js|mjs|woff2?|ttf|otf|eot|svg|webp|avif|png|jpe?g|gif|ico)$">
+		<If "%{QUERY_STRING} =~ /(^|&)ver=/">
+			Header set Cache-Control "public, max-age=31536000, immutable"
+		</If>
+		<Else>
+			Header set Cache-Control "public, max-age=604800"
+		</Else>
+	</FilesMatch>
+</IfModule>
+# END IndigeneTech static asset caching
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /

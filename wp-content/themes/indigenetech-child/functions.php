@@ -13,10 +13,129 @@ add_filter('locale_stylesheet_uri', 'chld_thm_cfg_locale_css');
 if (!function_exists('chld_thm_cfg_parent_css')):
     function chld_thm_cfg_parent_css()
     {
-        wp_enqueue_style('chld_thm_cfg_parent', trailingslashit(get_template_directory_uri()) . 'style.css', array('owl-carousel', 'fontawesome-4-5'));
+        // No dependency on Owl Carousel / theme Font Awesome: both are removed below.
+        wp_enqueue_style(
+            'chld_thm_cfg_parent',
+            trailingslashit(get_template_directory_uri()) . 'style.css',
+            array(),
+            filemtime(get_template_directory() . '/style.css')
+        );
     }
 endif;
 add_action('wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10);
+
+/**
+ * Asset clean-up (Unused CSS/JS audit, 19 Nov 2026).
+ *
+ * Runs after the parent theme (10), ElementsKit (99) and Header Footer
+ * Elementor have enqueued their files. Each removal was checked against
+ * the 25 published pages; see docs/audit-remediation-2026-11-19.md.
+ */
+function itech_asset_cleanup()
+{
+    if (is_admin() || (defined('ELEMENTOR_VERSION') && isset($_GET['elementor-preview']))) {
+        return;
+    }
+
+    // 1. Owl Carousel: no .owl-carousel markup on any page.
+    wp_dequeue_script('owl-carousel');
+    wp_dequeue_style('owl-carousel');
+
+    // 2. ElementsKit force-loads header-builder assets on every page. The site
+    //    header is the theme's own header.php, so none of these widgets exist.
+    //    If one is ever added to a page, Elementor enqueues its files again
+    //    through the widget's own script/style dependencies.
+    foreach (array('ekit-nav-menu', 'ekit-menu', 'magnific-popup', 'ekit-header-search', 'ekit-header-offcanvas') as $handle) {
+        wp_dequeue_script($handle);
+    }
+    foreach (array('ekit-nav-menu', 'ekit-header-search', 'ekit-header-offcanvas', 'ekit-header-info') as $handle) {
+        wp_dequeue_style($handle);
+    }
+
+    // 3. Font Awesome: one copy instead of up to five. Every icon on the site
+    //    is a Font Awesome 5 solid or brands icon, so Elementor's FA5 files
+    //    cover them. Only swap when Elementor has registered its copies.
+    //    Elementor registers these handles only when its "inline font icons"
+    //    option is off (as on live); register them from Elementor's bundled
+    //    files otherwise, under the same handle names so nothing loads twice.
+    if (defined('ELEMENTOR_ASSETS_URL') && defined('ELEMENTOR_ASSETS_PATH')) {
+        $fa = array(
+            'elementor-icons-shared-0'  => array('fontawesome.min.css', array()),
+            'elementor-icons-fa-solid'  => array('solid.min.css', array('elementor-icons-shared-0')),
+            'elementor-icons-fa-brands' => array('brands.min.css', array('elementor-icons-shared-0')),
+        );
+        foreach ($fa as $handle => $file) {
+            if (!wp_style_is($handle, 'registered') && file_exists(ELEMENTOR_ASSETS_PATH . 'lib/font-awesome/css/' . $file[0])) {
+                wp_register_style($handle, ELEMENTOR_ASSETS_URL . 'lib/font-awesome/css/' . $file[0], $file[1], '5.15.3');
+            }
+        }
+    }
+    if (wp_style_is('elementor-icons-fa-solid', 'registered') && wp_style_is('elementor-icons-fa-brands', 'registered')) {
+        wp_dequeue_style('fontawesome-4-5');                        // theme FA 5.11 all.min.css
+        wp_dequeue_style('hfe-social-share-icons-fontawesome');     // unminified duplicate of elementor-icons-shared-0
+        wp_dequeue_style('hfe-social-share-icons-brands');          // duplicate of elementor-icons-fa-brands
+        wp_dequeue_style('hfe-nav-menu-icons');                     // duplicate of elementor-icons-fa-solid
+        wp_enqueue_style('elementor-icons-fa-solid');
+        wp_enqueue_style('elementor-icons-fa-brands');
+    }
+
+    // 4. Elementor icon font (eicons) is enqueued twice: by Elementor (5.53)
+    //    and by Header Footer Elementor (5.34). Keep Elementor's.
+    if (wp_style_is('elementor-icons', 'enqueued')) {
+        wp_dequeue_style('hfe-elementor-icons');
+    }
+
+    //    Header Footer Elementor also loads old copies of Elementor's icon-list
+    //    and social-icons widget CSS; Elementor then prints its own copy again
+    //    when the footer widgets render. Load Elementor's copy once, in <head>.
+    $widget_swaps = array('hfe-icons-list' => 'widget-icon-list', 'hfe-social-icons' => 'widget-social-icons');
+    foreach ($widget_swaps as $hfe_handle => $elementor_handle) {
+        if (wp_style_is($elementor_handle, 'registered')) {
+            wp_dequeue_style($hfe_handle);
+            wp_enqueue_style($elementor_handle);
+        }
+    }
+
+    // 5. Child theme style.css holds only the theme header comment. Keep the
+    //    handle (the theme's customizer CSS is attached to it as inline CSS)
+    //    but stop requesting the empty file.
+    $styles = wp_styles();
+    if (isset($styles->registered['appzend-style'])) {
+        $styles->registered['appzend-style']->src = false;
+    }
+
+    // 6. Fonts. The theme requests Montserrat (unused) + Livvic from Google
+    //    Fonts, and Elementor serves its own local Livvic copy as well. Load
+    //    only Elementor's local Livvic (all weights/styles), under Elementor's
+    //    own handle so Elementor doesn't add it a second time.
+    $uploads = wp_upload_dir();
+    $livvic  = '/elementor/google-fonts/css/livvic.css';
+    if (file_exists($uploads['basedir'] . $livvic)) {
+        wp_dequeue_style('appzend-fonts');
+        wp_enqueue_style(
+            'elementor-gf-local-livvic',
+            set_url_scheme($uploads['baseurl'] . $livvic),
+            array(),
+            filemtime($uploads['basedir'] . $livvic)
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'itech_asset_cleanup', 100);
+
+/**
+ * Elementor loads local Roboto and Roboto Slab (its default kit fonts) on
+ * every page, but no text on the site is set in either. Elementor queues
+ * fonts from wp_head and again from wp_footer, so drop them at output time.
+ */
+add_filter('style_loader_tag', function ($tag, $handle) {
+    if (is_admin() || isset($_GET['elementor-preview'])) {
+        return $tag;
+    }
+    if (in_array($handle, array('elementor-gf-local-roboto', 'elementor-gf-local-robotoslab'), true)) {
+        return '';
+    }
+    return $tag;
+}, 10, 2);
 function itech_child_common_css()
 {
     // Version by file modification time so browsers cache until the file changes.
@@ -51,6 +170,22 @@ function itech_enqueue_site_script()
     );
 }
 add_action('wp_enqueue_scripts', 'itech_enqueue_site_script');
+
+/**
+ * Slick carousel (homepage mobile sliders). Self-hosted copy of
+ * slick-carousel 1.8.1 (MIT) instead of jsDelivr tags in the template body:
+ * no third-party dependency, loaded only where the homepage template is used.
+ */
+function itech_enqueue_homepage_assets()
+{
+    if (!is_page_template('custom-pages/new-homepage.php')) {
+        return;
+    }
+    $uri = get_stylesheet_directory_uri() . '/assets/vendor/slick/';
+    wp_enqueue_style('slick', $uri . 'slick.css', array(), '1.8.1');
+    wp_enqueue_script('slick', $uri . 'slick.min.js', array('jquery'), '1.8.1', true);
+}
+add_action('wp_enqueue_scripts', 'itech_enqueue_homepage_assets');
 
 /**
  * HubSpot form placeholder. itech-site.js loads the HubSpot embed script once
@@ -198,6 +333,20 @@ require_once get_stylesheet_directory() . '/custom-parts/custom-schema.php';
 
 
 function custom_why_choose_section() {
+    // Load the slider's CSS/JS only on pages that actually use this shortcode.
+    wp_enqueue_style(
+        'why-choose-style',
+        get_stylesheet_directory_uri() . '/assets/css/why-choose.css',
+        array(),
+        filemtime(get_stylesheet_directory() . '/assets/css/why-choose.css')
+    );
+    wp_enqueue_script(
+        'why-choose-script',
+        get_stylesheet_directory_uri() . '/assets/js/why-choose.js',
+        array(),
+        filemtime(get_stylesheet_directory() . '/assets/js/why-choose.js'),
+        true
+    );
     ob_start(); ?>
     <section class="why-choose">
         <div class="slider-container">
@@ -248,24 +397,14 @@ add_shortcode('why_choose_section', 'custom_why_choose_section');
 
 function enqueue_why_choose_assets()
 {
-    wp_enqueue_style('custom-style', get_stylesheet_directory_uri() . '/assets/css/custom.css');
-    if (is_page('home') || is_front_page() || is_page('about')) {
-
-        wp_enqueue_style(
-            'why-choose-style',
-            get_stylesheet_directory_uri() . '/assets/css/why-choose.css',
-            array(),
-            filemtime(get_stylesheet_directory() . '/assets/css/why-choose.css'), // Cache-busting
-            'all'
-        );
-        wp_enqueue_script(
-            'why-choose-script',
-            get_stylesheet_directory_uri() . '/assets/js/why-choose.js',
-            array('jquery'),
-            filemtime(get_stylesheet_directory() . '/assets/js/why-choose.js'), // Cache-busting
-            true // load in footer
-        );
-    }
+    // custom.css: site-wide overrides. why-choose.css/.js are now enqueued by
+    // the [why_choose_section] shortcode itself (no page uses it today).
+    wp_enqueue_style(
+        'custom-style',
+        get_stylesheet_directory_uri() . '/assets/css/custom.css',
+        array(),
+        filemtime(get_stylesheet_directory() . '/assets/css/custom.css')
+    );
 }
 add_action('wp_enqueue_scripts', 'enqueue_why_choose_assets');
 
@@ -352,11 +491,42 @@ add_action('wp_update_nav_menu_item', function ($menu_id, $item_id) {
     }
 }, 10, 2);
 
+/**
+ * True for menu items whose URL is only a placeholder ("#" or empty).
+ */
+function itech_is_placeholder_url($url)
+{
+    $url = trim((string) $url);
+    return $url === '' || $url === '#';
+}
+
+/**
+ * Mobile menu (parent theme walker): a "#" parent item becomes a toggle for
+ * its sub-menu instead of a link that jumps to the top of the page.
+ * itech-site.js forwards clicks on it to the sub-menu's expand button.
+ */
+add_filter('nav_menu_link_attributes', function ($atts) {
+    if (isset($atts['href']) && itech_is_placeholder_url($atts['href'])) {
+        unset($atts['href']);
+        $atts['role'] = 'button';
+        $atts['tabindex'] = '0';
+        $atts['data-itech-menu-toggle'] = '1';
+    }
+    return $atts;
+});
+
 class Menu_Icon_Walker extends Walker_Nav_Menu {
     function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
         if ($depth === 0) {
             $output .= '<li class="menu-item has-mega">';
-            $output .= '<a href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+            if (itech_is_placeholder_url($item->url)) {
+                // "What We Do": opens the mega menu, has no page of its own.
+                // A link to "#" jumped to the top of the page; render a focusable
+                // toggle instead (the menu opens on hover and on keyboard focus).
+                $output .= '<a role="button" tabindex="0" aria-haspopup="true">' . esc_html($item->title) . '</a>';
+            } else {
+                $output .= '<a href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+            }
             $args->mega_parent = $item;
             return;
         }
@@ -439,3 +609,35 @@ add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
 // Disable block widgets (optional)
 add_filter('use_widgets_block_editor', '__return_false');
+
+// WordPress emoji detection script + styles (~25 KB on every page). All
+// current browsers render emoji natively.
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('wp_enqueue_scripts', 'wp_enqueue_emoji_styles');
+
+
+/**
+ * Normalise internal links in post/page content so they don't redirect:
+ *  - https://indigenetech.ca/... (no www)  -> https://www.indigenetech.ca/...
+ *  - /some-page or https://www.indigenetech.ca/some-page -> trailing slash
+ * Only touches href attributes pointing at this site's pages (no files,
+ * query strings, fragments or wp-* paths). Content in the database is left
+ * as is; this keeps old and future links from costing a redirect.
+ */
+function itech_normalize_internal_links($content)
+{
+    if (!is_string($content) || $content === '' || strpos($content, 'href=') === false) {
+        return $content;
+    }
+    $content = preg_replace('#href=(["\'])https?://indigenetech\.ca(/|\1)#i', 'href=$1https://www.indigenetech.ca$2', $content);
+    return preg_replace_callback(
+        '#href=(["\'])((?:https://www\.indigenetech\.ca)?/(?!wp-)[a-z0-9\-/]*[a-z0-9\-])\1#i',
+        function ($m) {
+            return 'href=' . $m[1] . $m[2] . '/' . $m[1];
+        },
+        $content
+    );
+}
+add_filter('the_content', 'itech_normalize_internal_links', 10000);
+add_filter('elementor/frontend/the_content', 'itech_normalize_internal_links', 10000);

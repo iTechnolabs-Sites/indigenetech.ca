@@ -12,7 +12,10 @@
  * shortcodes and itech_hubspot_form(). The HubSpot embed script (v2.js) is
  * loaded once per page, then each placeholder is turned into a form.
  * Placeholders marked data-lazy="1" (the popup form) are only created when
- * the popup is first opened.
+ * the popup is first opened; other forms when they scroll near the viewport.
+ *
+ * Menu: parent items with no page of their own ([data-itech-menu-toggle])
+ * open their sub-menu in the mobile menu.
  */
 (function () {
   'use strict';
@@ -64,11 +67,60 @@
     });
   }
 
+  // Create in-page forms only when they come near the viewport, so pages
+  // don't download HubSpot's ~575 KB embed script up front. Most forms sit
+  // well below the fold (blog sidebar, page footers).
   function createVisibleForms() {
     var forms = document.querySelectorAll('.itech-hs-form:not([data-lazy="1"])');
-    for (var i = 0; i < forms.length; i++) {
-      createForm(forms[i]);
+    if (!forms.length) {
+      return;
     }
+    if (!('IntersectionObserver' in window)) {
+      for (var i = 0; i < forms.length; i++) {
+        createForm(forms[i]);
+      }
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      for (var j = 0; j < entries.length; j++) {
+        if (entries[j].isIntersecting) {
+          observer.unobserve(entries[j].target);
+          createForm(entries[j].target);
+        }
+      }
+    }, { rootMargin: '600px 0px' });
+    for (var k = 0; k < forms.length; k++) {
+      observer.observe(forms[k]);
+    }
+  }
+
+  // Mobile menu: a parent item with no page of its own ("What We Do") opens
+  // its sub-menu, using the theme's existing expand button next to it.
+  function initMenuToggles() {
+    function toggle(el) {
+      var li = el.closest('li');
+      var button = li ? li.querySelector(':scope > .sub-menu-toggle') : null;
+      if (button) {
+        button.click();
+      }
+    }
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest ? e.target.closest('[data-itech-menu-toggle]') : null;
+      if (el) {
+        e.preventDefault();
+        toggle(el);
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') {
+        return;
+      }
+      var el = e.target.closest ? e.target.closest('[data-itech-menu-toggle]') : null;
+      if (el) {
+        e.preventDefault();
+        toggle(el);
+      }
+    });
   }
 
   function initPopup() {
@@ -116,6 +168,7 @@
 
   function init() {
     initPopup();
+    initMenuToggles();
     createVisibleForms();
   }
 

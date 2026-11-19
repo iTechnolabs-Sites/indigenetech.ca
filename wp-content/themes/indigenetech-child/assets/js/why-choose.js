@@ -1,7 +1,11 @@
-let currentIndex = 0;
-const track = document.getElementById('sliderTrack');
-const items = document.querySelectorAll('.feature-box');
-const totalItems = items.length;
+/**
+ * Slider for the [why_choose_section] shortcode (functions.php).
+ * Enqueued only on pages where the shortcode is rendered.
+ *
+ * The old "load more" handler (.load-more-btn / .load-item) was removed: no
+ * page has that markup. The popup code lives in itech-site.js.
+ */
+var currentIndex = 0;
 
 function getItemsToShow() {
   if (window.innerWidth <= 600) return 1;
@@ -10,38 +14,23 @@ function getItemsToShow() {
 }
 
 function updateButtons() {
-  const leftBtn = document.querySelector('.arrow.left');
-  const rightBtn = document.querySelector('.arrow.right');
-  const itemsToShow = getItemsToShow();
-
+  var items = document.querySelectorAll('#sliderTrack .feature-box');
+  var leftBtn = document.querySelector('.why-choose .arrow.left');
+  var rightBtn = document.querySelector('.why-choose .arrow.right');
+  if (!leftBtn || !rightBtn) return;
   leftBtn.disabled = currentIndex === 0;
-  rightBtn.disabled = currentIndex >= totalItems - itemsToShow;
+  rightBtn.disabled = currentIndex >= items.length - getItemsToShow();
 }
 
+// Called from the shortcode's onclick="moveSlide(-1|1)" buttons.
 function moveSlide(step) {
-  const itemsToShow = getItemsToShow();
-  const slideWidth = items[0].offsetWidth + parseInt(window.getComputedStyle(items[0]).marginRight);
-  currentIndex = Math.max(0, Math.min(totalItems - itemsToShow, currentIndex + step));
-  track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  var track = document.getElementById('sliderTrack');
+  var items = track ? track.querySelectorAll('.feature-box') : [];
+  if (!items.length) return;
+  var slideWidth = items[0].offsetWidth + parseInt(window.getComputedStyle(items[0]).marginRight, 10);
+  currentIndex = Math.max(0, Math.min(items.length - getItemsToShow(), currentIndex + step));
+  track.style.transform = 'translateX(-' + currentIndex * slideWidth + 'px)';
   updateButtons();
 }
 
-jQuery(document).ready(function($){
-    let lastItem = $('.load-item'); 
-    let loadBtn = $('.load-more-btn'); 
-    let seeLessBtn = $('.see-less-btn'); 
-    seeLessBtn.hide();
-    loadBtn.on('click', function(){
-        lastItem.addClass('visible'); 
-        loadBtn.hide();
-        seeLessBtn.show(); 
-    });
-    seeLessBtn.on('click', function(){
-        lastItem.removeClass('visible'); 
-        loadBtn.show();
-        seeLessBtn.hide();
-    });
-});
-// Popup open/close code moved to itech-site.js, which loads on every page.
-
-
+document.addEventListener('DOMContentLoaded', updateButtons);
