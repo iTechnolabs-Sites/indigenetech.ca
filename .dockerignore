@@ -6,3 +6,4 @@ docker-compose.yml
 *.sql
 *.sql.gz
 wp-config-local.php
+deploy
