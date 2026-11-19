@@ -93,6 +93,9 @@ echo "   If staging is behind Cloudflare with caching, purge it now."
 # ---------------- checks ----------------
 if [ "${SKIP_CHECKS:-}" != 1 ]; then
   say "Checks"
+  echo "   waiting 5 s for PHP OPcache to pick up the changed files"
+  echo "   (if pages still show the old theme and opcache.validate_timestamps=0, reload PHP-FPM and run checks.sh again)"
+  sleep 5
   set +e
   SITE_URL="$SITE_URL" SITE_ROOT="$SITE_ROOT" bash "$REPO/deploy/staging/checks.sh"
   rc=$?

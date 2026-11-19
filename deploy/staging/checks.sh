@@ -69,7 +69,7 @@ check_page() {  # $1 path, $2 expected status
       [ "$(count 'itech-newhome-css' "$f")" = 0 ] || issues+=("newhome.css loaded outside the homepage")
     fi
     # same-site links for the redirect check
-    grep -oE "href=[\"'][^\"'#]+[\"']" "$f" | sed -E "s/^href=[\"']//; s/[\"']$//" \
+    grep -oE "<a [^>]*href=[\"'][^\"'#]+[\"']" "$f" | grep -oE "href=[\"'][^\"']+" | sed -E "s/^href=[\"']//" \
       | grep -E "^/[^/]|^${SITE_URL//./\\.}" | grep -vE '/wp-(content|includes|json|admin)|/feed/|\.(xml|php|png|jpe?g|webp|svg|pdf|css|js)(\?|$)|^/cdn-cgi/' >> "$links_file" || true
   fi
   if [ "${#issues[@]}" -eq 0 ]; then echo "   ok    $p"; else echo "   FAIL  $p: ${issues[*]}"; page_fail=$((page_fail+1)); fi
@@ -96,7 +96,8 @@ T="$SITE_URL/wp-content/themes/indigenetech-child"
 [ "$(status_of "$T/assets/vendor/slick/slick.min.js")" = 200 ] && PASS "new file served: assets/vendor/slick/slick.min.js" || FAIL "assets/vendor/slick/slick.min.js not served"
 if "${CURL[@]}" "$(bust "$T/assets/js/itech-site.js")" | grep -q 'IntersectionObserver'; then PASS "itech-site.js is the new version"; else FAIL "itech-site.js is missing or old"; fi
 gone=0; for old in assets/js/slider.js assets/js/appzend-custom.js assets/library/owlcarousel/js/owl.carousel.min.js assets/js/functions.php template-parts/content-download.php; do
-  c=$(status_of "$T/$old"); [ "$c" = 404 ] || [ "$c" = 403 ] || { echo "   still served ($c): $old"; gone=$((gone+1)); }
+  c=$(status_of "$T/$old"); [ "$c" != 200 ] || { echo "   still served (200): $old"; gone=$((gone+1)); }
+  [ -n "$SITE_ROOT" ] && [ -e "$SITE_ROOT/wp-content/themes/indigenetech-child/$old" ] && { echo "   still on disk: $old"; gone=$((gone+1)); }
 done
 [ "$gone" -eq 0 ] && PASS "removed files are gone" || FAIL "$gone removed files are still served (deploy without --delete?)"
 
