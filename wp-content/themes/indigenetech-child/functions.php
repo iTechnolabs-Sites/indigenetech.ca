@@ -17,23 +17,75 @@ if (!function_exists('chld_thm_cfg_parent_css')):
     }
 endif;
 add_action('wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10);
-add_action('wp_footer', 'itech_popup_full_code');
 function itech_child_common_css()
 {
+    // Version by file modification time so browsers cache until the file changes.
     wp_enqueue_style(
         'itech-common-css',
         get_stylesheet_directory_uri() . '/assets/css/common.css',
         array(),
-        time()
+        filemtime(get_stylesheet_directory() . '/assets/css/common.css')
     );
     wp_enqueue_style(
         'itech-newhome-css',
         get_stylesheet_directory_uri() . '/assets/css/newhome.css',
         array(),
-        time()
+        filemtime(get_stylesheet_directory() . '/assets/css/newhome.css')
     );
 }
 add_action('wp_enqueue_scripts', 'itech_child_common_css');
+
+/**
+ * Site-wide script: "Get started" popup + HubSpot form loader.
+ * Previously the popup code only loaded on the homepage (inside why-choose.js),
+ * so popup buttons on service pages did nothing.
+ */
+function itech_enqueue_site_script()
+{
+    wp_enqueue_script(
+        'itech-site',
+        get_stylesheet_directory_uri() . '/assets/js/itech-site.js',
+        array(),
+        filemtime(get_stylesheet_directory() . '/assets/js/itech-site.js'),
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'itech_enqueue_site_script');
+
+/**
+ * HubSpot form placeholder. itech-site.js loads the HubSpot embed script once
+ * per page and creates each form in its placeholder.
+ *
+ * @param string $form_id HubSpot form GUID.
+ * @param bool   $lazy    Create the form only when its popup is first opened.
+ * @return string
+ */
+function itech_hubspot_form($form_id, $lazy = false)
+{
+    static $count = 0;
+    $count++;
+    return sprintf(
+        '<div class="itech-hs-form" id="itech-hs-form-%1$d" data-portal-id="22824688" data-form-id="%2$s" data-region="na1"%3$s></div>',
+        $count,
+        esc_attr($form_id),
+        $lazy ? ' data-lazy="1"' : ''
+    );
+}
+
+// Override the parent theme's HubSpot shortcodes, which each printed their own
+// copy of the HubSpot embed script (up to 4 copies per page).
+function itech_override_hubspot_shortcodes()
+{
+    remove_shortcode('hubspot_vertical_form');
+    remove_shortcode('hubspot_horizontal_form');
+    add_shortcode('hubspot_vertical_form', function () {
+        return itech_hubspot_form('45b7d1ce-b5de-45bc-b793-223818478cbb');
+    });
+    add_shortcode('hubspot_horizontal_form', function () {
+        return itech_hubspot_form('a562e859-bc5b-49e3-8d9a-36b0b3316286');
+    });
+}
+add_action('init', 'itech_override_hubspot_shortcodes', 20);
 
 
 // image urls replace code start
@@ -371,7 +423,7 @@ function itech_popup_full_code() {
                 <h3>Start Your Digital Growth with IndigeneTech</h3>
                 <p class="itech-form-desc">Send your information and our team will connect with you within 24 hours.</p>
                 <div class="itech-form">
-                    <?php echo do_shortcode('[hubspot_vertical_form]'); ?>
+                    <?php echo itech_hubspot_form('45b7d1ce-b5de-45bc-b793-223818478cbb', true); ?>
                 </div>
             </div>
 

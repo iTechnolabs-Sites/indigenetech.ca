@@ -208,7 +208,7 @@ get_header();
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">App Development</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Mobile apps for iOS and Android designed for intuitive navigation, fast performance, and consistent experience across all screen sizes.</p>
-                        <a href="/app-development" target="_blank" class="p-10 mob-p-0 mob-radius-5">
+                        <a href="/app-development/" target="_blank" class="p-10 mob-p-0 mob-radius-5">
                             <span class="hide-mob">Read More</span>
                             <div class="hide-desk">
                                 <svg width="15" height="15" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -375,14 +375,7 @@ get_header();
                 </div>
                 <!-- HubSpot Form -->
                 <div class="hubspot-form-wrapper">
-                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"> </script>
-                    <script>
-                        hbspt.forms.create({
-                            portalId: "22824688",
-                            formId: "45b7d1ce-b5de-45bc-b793-223818478cbb",
-                            region: "na1"
-                        });
-                    </script>
+                    <?php echo itech_hubspot_form('45b7d1ce-b5de-45bc-b793-223818478cbb'); ?>
                 </div>
             </div>
         </div>
@@ -464,7 +457,7 @@ get_header();
     <div class="container">
         <div class="text-center mb-30">
             <h2 class="fs-38 fw-7 black-text mb-10">Industries Supported Through Indigenous Leadership</h2>
-            <p>IndigeneTech is a company that provides both technology and consulting services to tackle real operational problems, offering the use of Indigenous technology by means of digital systems, custom software, and AI tools, thus helping the Indigenous Owned and Operated businesses to get better, bigger, and more sweaty in the long run.</p>
+            <p>IndigeneTech is a company that provides both technology and consulting services to tackle real operational problems, offering the use of Indigenous technology by means of digital systems, custom software, and AI tools, thus helping the Indigenous Owned and Operated businesses to get better, bigger, and steadier in the long run.</p>
         </div>
         <div class="industries-wrapper">
             <!-- LEFT TABS -->
@@ -645,14 +638,7 @@ get_header();
                 </div>
                 <!-- HubSpot Form -->
                 <div class="hubspot-form-wrapper">
-                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"> </script>
-                    <script>
-                        hbspt.forms.create({
-                            portalId: "22824688",
-                            formId: "45b7d1ce-b5de-45bc-b793-223818478cbb",
-                            region: "na1"
-                        });
-                    </script>
+                    <?php echo itech_hubspot_form('45b7d1ce-b5de-45bc-b793-223818478cbb'); ?>
                 </div>
             </div>
         </div>
@@ -773,14 +759,7 @@ get_header();
                 </div>
                 <!-- HubSpot Form -->
                 <div class="hubspot-form-wrapper">
-                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"> </script>
-                    <script>
-                        hbspt.forms.create({
-                            portalId: "22824688",
-                            formId: "45b7d1ce-b5de-45bc-b793-223818478cbb",
-                            region: "na1"
-                        });
-                    </script>
+                    <?php echo itech_hubspot_form('45b7d1ce-b5de-45bc-b793-223818478cbb'); ?>
                 </div>
             </div>
         </div>
@@ -1211,44 +1190,7 @@ get_header();
         });
 
 
-        /* =========================================================
-        POPUP
-        ========================================================= */
-        const popupOverlay = document.getElementById( "itechPopupOverlay" );
-        const closeBtn = document.getElementById( "itechClosePopup" );
-        if (!popupOverlay) { return; }
-        function openPopup() {
-            popupOverlay.classList.add("show");
-            document.body.classList.add(
-                "itech-popup-open"
-            );
-        }
-        function closePopup() {
-            popupOverlay.classList.remove("show");
-            document.body.classList.remove(
-                "itech-popup-open"
-            );
-        }
-        document .querySelectorAll(".itechOpenPopup") .forEach(function (btn) {
-            btn.addEventListener(
-                "click",
-                function (e) {
-                    e.preventDefault();
-                    openPopup();
-                }
-            );
-        });
-        if (closeBtn) {
-            closeBtn.addEventListener(
-                "click",
-                closePopup
-            );
-        }
-        popupOverlay.addEventListener( "click", function (e) {
-            if (e.target === popupOverlay) {
-                closePopup();
-            }
-        } );
+        /* Popup open/close is handled site-wide by itech-site.js. */
     });
 
     document.addEventListener("DOMContentLoaded", function () {
