@@ -15,11 +15,11 @@ WordPress site for indigenetech.ca.
 2. Environment variables. `NAME_FILE` is also supported for Docker secrets.
 3. Non-secret defaults.
 
-Required: `DB_USER`, `DB_PASSWORD` and the 8 keys/salts (`AUTH_KEY`, `SECURE_AUTH_KEY`,
+Required: `DB_NAME`, `DB_HOST`, `DB_USER`, `DB_PASSWORD` and the 8 keys/salts (`AUTH_KEY`, `SECURE_AUTH_KEY`,
 `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`).
 If one is missing, the site stops with `Configuration error: <NAME> is not set`.
 
-Optional: `DB_NAME` (default `indigenetech`), `DB_HOST` (default `localhost`), `WP_TABLE_PREFIX`
+Optional: `WP_TABLE_PREFIX`
 (default `wp_`), `WP_HOME`, `WP_SITEURL`, `WP_DEBUG`, `WP_MEMORY_LIMIT`, `WP_POST_REVISIONS`.
 
 ### Production / server
@@ -29,6 +29,7 @@ Either set the variables above in the container or hosting environment, or creat
 
 ```php
 <?php
+define( 'DB_NAME', '...' );
 define( 'DB_HOST', '...' );
 define( 'DB_USER', '...' );
 define( 'DB_PASSWORD', '...' );

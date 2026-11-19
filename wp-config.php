@@ -49,10 +49,10 @@ function indigenetech_define( $name, $default = null, $required = false ) {
 }
 
 // ** Database settings ** //
-indigenetech_define( 'DB_NAME', 'indigenetech' );
+indigenetech_define( 'DB_NAME', null, true );
 indigenetech_define( 'DB_USER', null, true );
 indigenetech_define( 'DB_PASSWORD', null, true );
-indigenetech_define( 'DB_HOST', 'localhost' );
+indigenetech_define( 'DB_HOST', null, true );
 indigenetech_define( 'DB_CHARSET', 'utf8mb4' );
 indigenetech_define( 'DB_COLLATE', '' );
 
@@ -86,11 +86,6 @@ indigenetech_define( 'WP_MEMORY_LIMIT', '256M' );
 indigenetech_define( 'FS_METHOD', 'direct' );
 if ( ! defined( 'WP_POST_REVISIONS' ) ) {
 	define( 'WP_POST_REVISIONS', (int) indigenetech_env( 'WP_POST_REVISIONS', 10 ) );
-}
-
-// Honour HTTPS when running behind a reverse proxy / load balancer.
-if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
-	$_SERVER['HTTPS'] = 'on';
 }
 
 /* That's all, stop editing! Happy publishing. */
