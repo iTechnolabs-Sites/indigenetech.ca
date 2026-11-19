@@ -1162,3 +1162,7 @@ body .w-auto {width:auto;}
 a[data-itech-menu-toggle] {
     cursor: pointer;
 }
+
+/* Site-wide overrides (moved from newhome.css, which now loads on the homepage only). */
+a.button:hover, a.button:focus, button:hover, input[type="submit"]:hover {opacity: unset !important; color: unset !important;}
+a{ outline: none !important; }

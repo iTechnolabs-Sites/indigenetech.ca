@@ -145,12 +145,16 @@ function itech_child_common_css()
         array(),
         filemtime(get_stylesheet_directory() . '/assets/css/common.css')
     );
-    wp_enqueue_style(
-        'itech-newhome-css',
-        get_stylesheet_directory_uri() . '/assets/css/newhome.css',
-        array(),
-        filemtime(get_stylesheet_directory() . '/assets/css/newhome.css')
-    );
+    // newhome.css styles the homepage template only (checked against every
+    // published page); its two site-wide rules now live in common.css.
+    if (is_page_template('custom-pages/new-homepage.php')) {
+        wp_enqueue_style(
+            'itech-newhome-css',
+            get_stylesheet_directory_uri() . '/assets/css/newhome.css',
+            array(),
+            filemtime(get_stylesheet_directory() . '/assets/css/newhome.css')
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'itech_child_common_css');
 
@@ -641,3 +645,25 @@ function itech_normalize_internal_links($content)
 }
 add_filter('the_content', 'itech_normalize_internal_links', 10000);
 add_filter('elementor/frontend/the_content', 'itech_normalize_internal_links', 10000);
+
+
+/**
+ * The homepage uses a custom template that never renders the page's stored
+ * Elementor content, but Elementor still queues the assets of the widgets in
+ * that content (tabs, accordion, image box) and WordPress queues the block
+ * library. None of that markup is on the page. Drop them just before printing.
+ */
+function itech_homepage_unrendered_assets()
+{
+    if (!is_page_template('custom-pages/new-homepage.php') || isset($_GET['elementor-preview'])) {
+        return;
+    }
+    foreach (array('ekit-tab', 'ekit-accordion', 'widget-image-box', 'wp-block-library') as $handle) {
+        wp_dequeue_style($handle);
+    }
+    foreach (array('ekit-tab', 'ekit-accordion', 'ui-slim') as $handle) {
+        wp_dequeue_script($handle);
+    }
+}
+add_action('wp_print_styles', 'itech_homepage_unrendered_assets', 1);
+add_action('wp_footer', 'itech_homepage_unrendered_assets', 19);

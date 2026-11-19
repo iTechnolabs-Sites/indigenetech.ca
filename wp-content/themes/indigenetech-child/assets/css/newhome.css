@@ -495,8 +495,6 @@
     line-height: 1;
     text-decoration: none;
 }
-a.button:hover, a.button:focus, button:hover, input[type="submit"]:hover {opacity: unset !important; color: unset !important;}
-a{ outline: none !important; }
 .trust-slider {
     position: relative;
     width: 100%;
