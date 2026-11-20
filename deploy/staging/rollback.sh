@@ -3,13 +3,19 @@
 #
 #   SITE_ROOT=/var/www/staging SITE_URL=https://staging.indigenetech.ca bash deploy/staging/rollback.sh <backup dir>
 #
-# With no argument it uses the newest folder in ~/indigenetech-backups.
+# With no argument it lists the backups instead of guessing.
 # Before restoring it saves the current state too, so a rollback can itself be undone.
 set -euo pipefail
 : "${SITE_ROOT:?Set SITE_ROOT}"; : "${SITE_URL:?Set SITE_URL}"
 SITE_ROOT="${SITE_ROOT%/}"; SITE_URL="${SITE_URL%/}"
 BASE="${BACKUP_BASE:-$HOME/indigenetech-backups}"
-B="${1:-$(ls -1d "$BASE"/*/ 2>/dev/null | grep -v pre-rollback | sort | tail -1)}"; B="${B%/}"
+if [ -z "${1:-}" ]; then
+  echo "Usage: rollback.sh <backup folder>. Backups on this server (oldest first):"
+  for d in $(ls -1d "$BASE"/*/ 2>/dev/null | sort); do echo "  ${d%/}   $(grep -h '^note=' "$d/meta" 2>/dev/null | cut -d= -f2-)"; done
+  echo "Pass the one taken before the FIRST deploy to get back to the original theme."
+  exit 1
+fi
+B="${1%/}"
 [ -f "$B/files.tgz" ] || { echo "FAIL  no backup at '$B'"; echo "ROLLBACK RESULT: FAIL"; exit 1; }
 . <(grep -E '^(owner|had_htaccess|site_root)=' "$B/meta")
 [ "$site_root" = "$SITE_ROOT" ] || { echo "FAIL  backup was taken from $site_root, not $SITE_ROOT"; echo "ROLLBACK RESULT: FAIL"; exit 1; }

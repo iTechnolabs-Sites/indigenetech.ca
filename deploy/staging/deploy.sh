@@ -35,7 +35,8 @@ for t in rsync curl tar awk php; do command -v "$t" >/dev/null || die "missing t
 [ -f "$SITE_ROOT/wp-config.php" ] || [ -f "$(dirname "$SITE_ROOT")/wp-config.php" ] || die "$SITE_ROOT does not look like WordPress (no wp-config.php)"
 [ -d "$DST_CHILD" ] || die "$DST_CHILD not found"
 [ -f "$DST_PARENT_CSS" ] || die "$DST_PARENT_CSS not found"
-[ -d "$SRC_CHILD" ] && [ -f "$SRC_PARENT_CSS" ] || die "repo checkout incomplete: $REPO"
+HT_BLOCK="$REPO/deploy/staging/htaccess-caching.conf"
+[ -d "$SRC_CHILD" ] && [ -f "$SRC_PARENT_CSS" ] && grep -q 'END IndigeneTech static asset caching' "$HT_BLOCK" 2>/dev/null || die "repo checkout incomplete: $REPO"
 COMMIT=$(git -C "$REPO" rev-parse HEAD 2>/dev/null || echo unknown)
 echo "   source commit: $COMMIT ($(git -C "$REPO" rev-parse --abbrev-ref HEAD 2>/dev/null || echo '?'))"
 echo "   site root:     $SITE_ROOT"
@@ -49,8 +50,14 @@ echo "   staging homepage before deploy: HTTP $pre"
 OWNER=$(stat -c '%U:%G' "$DST_CHILD")
 echo "   theme owner: $OWNER"
 
-echo "   files that will change in the child theme:"
-rsync -rlc --delete --dry-run --itemize-changes "$SRC_CHILD/" "$DST_CHILD/" | sed 's/^/     /' | head -80
+CHANGES=$(rsync -rlc --delete --dry-run --itemize-changes "$SRC_CHILD/" "$DST_CHILD/")
+if [ -z "$CHANGES" ]; then
+  NOTE="re-run: theme already matched $COMMIT before this deploy (not the original theme)"
+  echo "   child theme already matches this commit (re-run)"
+else
+  NOTE="pre-deploy theme (as it was before $COMMIT)"
+  echo "   files that will change in the child theme:"; echo "$CHANGES" | sed 's/^/     /' | head -80
+fi
 if [ "${DRY_RUN:-}" = 1 ]; then echo "DRY_RUN=1: stopping before any change."; exit 0; fi
 
 # ---------------- backup ----------------
@@ -59,25 +66,31 @@ mkdir -p "$BACKUP_DIR"
 tar -czf "$BACKUP_DIR/files.tgz" -C "$SITE_ROOT" wp-content/themes/indigenetech-child wp-content/themes/indigenetech/style.css $( [ -f "$SITE_ROOT/.htaccess" ] && echo .htaccess )
 tar -tzf "$BACKUP_DIR/files.tgz" >/dev/null || die "backup archive is unreadable"
 cp "$REPO/deploy/staging/rollback.sh" "$BACKUP_DIR/rollback.sh"   # rollback works even after the clone is deleted
-{ echo "site_root=$SITE_ROOT"; echo "site_url=$SITE_URL"; echo "owner=$OWNER"; echo "deployed_commit=$COMMIT"; echo "had_htaccess=$([ -f "$SITE_ROOT/.htaccess" ] && echo yes || echo no)"; } > "$BACKUP_DIR/meta"
+{ echo "site_root=$SITE_ROOT"; echo "site_url=$SITE_URL"; echo "owner=$OWNER"; echo "deployed_commit=$COMMIT"; echo "had_htaccess=$([ -f "$SITE_ROOT/.htaccess" ] && echo yes || echo no)"; echo "note=$NOTE"; } > "$BACKUP_DIR/meta"
 echo "   $(tar -tzf "$BACKUP_DIR/files.tgz" | wc -l) entries, $(du -h "$BACKUP_DIR/files.tgz" | cut -f1)"
 LOG="$SITE_ROOT/wp-content/debug.log"; LOG_MARK=$( [ -f "$LOG" ] && stat -c %s "$LOG" || echo 0 ); export LOG_MARK
 
 # ---------------- deploy ----------------
 say "Deploy"
+# functions.php first: the new templates call functions defined in it.
+cp "$SRC_CHILD/functions.php" "$DST_CHILD/functions.php"
 rsync -rlc --delete "$SRC_CHILD/" "$DST_CHILD/"
 cp "$SRC_PARENT_CSS" "$DST_PARENT_CSS"
-BLOCK=$(sed -n '/# BEGIN IndigeneTech static asset caching/,/# END IndigeneTech static asset caching/p' "$REPO/.htaccess")
-[ -n "$BLOCK" ] || die "caching block not found in repo .htaccess (backup kept at $BACKUP_DIR)"
+BLOCK=$(cat "$HT_BLOCK")
 HT="$SITE_ROOT/.htaccess"; touch "$HT"
 awk '/# BEGIN IndigeneTech static asset caching/{skip=1} !skip{print} /# END IndigeneTech static asset caching/{skip=0}' "$HT" > "$HT.new"
 { printf '%s\n\n' "$BLOCK"; cat "$HT.new"; } > "$HT.tmp" && rm -f "$HT.new" && cat "$HT.tmp" > "$HT" && rm -f "$HT.tmp"
 if [ "$(id -u)" = 0 ]; then chown -R "$OWNER" "$DST_CHILD" "$DST_PARENT_CSS"; chown "$OWNER" "$HT" 2>/dev/null || true; fi
 echo "   child theme synced, parent style.css copied, .htaccess caching block in place"
-code=$(curl -sS --max-time 30 -A 'Mozilla/5.0 indigenetech-deploy-check' ${CURL_EXTRA:-} -o /dev/null -w '%{http_code}' "$SITE_URL/?_chk=$RANDOM" || echo 000)
-if [ "$code" = 500 ]; then
-  echo "FAIL  HTTP 500 right after deploy; restoring .htaccess first (most likely cause)"
+# PHP OPcache can mix old and new files for a few seconds; retry before judging.
+home() { curl -sS --max-time 30 -A 'Mozilla/5.0 indigenetech-deploy-check' ${CURL_EXTRA:-} -o /dev/null -w '%{http_code}' "$SITE_URL/?_chk=$RANDOM" || echo 000; }
+for i in 1 2 3 4 5 6; do code=$(home); [ "$code" = 200 ] && break; sleep 3; done
+echo "   homepage after deploy: HTTP $code"
+if [ "$code" != 200 ]; then
+  echo "WARN  homepage not 200 after 18 s; restoring the previous .htaccess to rule it out"
   tar -xzf "$BACKUP_DIR/files.tgz" -C "$SITE_ROOT" .htaccess 2>/dev/null || true
+  sleep 3; code=$(home); echo "   homepage with previous .htaccess: HTTP $code"
+  [ "$code" = 200 ] && echo "FAIL  the caching block breaks this server's .htaccess (check mod_headers / AllowOverride); old .htaccess kept"
 fi
 
 # ---------------- caches ----------------
