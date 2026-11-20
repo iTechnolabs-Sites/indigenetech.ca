@@ -539,7 +539,9 @@ class Menu_Icon_Walker extends Walker_Nav_Menu {
         $icon_url = get_post_meta($item->ID, '_menu_item_icon', true);
 
         if (! empty($icon_url)) {
-            $icon = '<img src="' . esc_url($icon_url) . '" class="submenu-icon" alt="">';
+            // Lazy: the mega menu is hidden until opened, so these icons
+            // (10 images, ~250 KB) no longer download on every page view.
+            $icon = '<img src="' . esc_url($icon_url) . '" class="submenu-icon" alt="" loading="lazy" decoding="async">';
         }
 
         $output .= '<li class="menu-item">';
@@ -667,3 +669,54 @@ function itech_homepage_unrendered_assets()
 }
 add_action('wp_print_styles', 'itech_homepage_unrendered_assets', 1);
 add_action('wp_footer', 'itech_homepage_unrendered_assets', 19);
+
+
+/**
+ * Lazy-load images in Elementor content (pages and the footer) that don't
+ * already say how to load. Skipped: the page's priority image
+ * (fetchpriority="high", usually the LCP banner) and carousel slides, which
+ * sit off-screen inside a clipped track and would flash empty when sliding in.
+ */
+function itech_lazy_content_images($content)
+{
+    if (is_admin() || !is_string($content) || stripos($content, '<img') === false) {
+        return $content;
+    }
+    return preg_replace_callback('/<img\b[^>]*>/i', function ($m) {
+        $tag = $m[0];
+        if (preg_match('/\sloading=|fetchpriority=["\']high|swiper-slide-image/i', $tag)) {
+            return $tag;
+        }
+        $extra = ' loading="lazy"' . (preg_match('/\sdecoding=/i', $tag) ? '' : ' decoding="async"');
+        return preg_replace('/^<img\b/i', '<img' . $extra, $tag, 1);
+    }, $content);
+}
+add_filter('elementor/frontend/the_content', 'itech_lazy_content_images', 20);
+
+/**
+ * Rank Math's schema still carries image URLs from the old local build
+ * (http://indigenetech.local/wp-content/uploads/...) on the homepage and the
+ * service pages. Rewrite them to this site's uploads URL, like the content
+ * filters above already do.
+ */
+add_filter('rank_math/json_ld', function ($data) {
+    return indigenetech_replace_local_upload_url($data);
+}, 1000);
+
+/**
+ * Share image (og:image / twitter:image) for pages that have none (the
+ * homepage, /blog/, IT Staff Augmentation). Rank Math's own "Default
+ * OpenGraph Thumbnail" setting wins once it is set.
+ */
+function itech_default_share_image($url)
+{
+    $url = indigenetech_replace_local_upload_url((string) $url);
+    if ($url !== '') {
+        return $url;
+    }
+    $uploads = wp_upload_dir();
+    $file    = '/2025/09/Indegentech-home-banner.webp';
+    return file_exists($uploads['basedir'] . $file) ? set_url_scheme($uploads['baseurl'] . $file, 'https') : '';
+}
+add_filter('rank_math/opengraph/facebook/image', 'itech_default_share_image');
+add_filter('rank_math/opengraph/twitter/image', 'itech_default_share_image');

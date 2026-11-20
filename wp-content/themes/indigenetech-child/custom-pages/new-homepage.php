@@ -145,7 +145,7 @@ if ( ! is_front_page() ) {
         <div class="certification-cards">
             <div class="certification-card">
                 <div class="certification-logo">
-                    <img src="/wp-content/uploads/2026/08/CCIB-Member.webp" alt="Canadian Council for Indigenous Business">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/CCIB-Member.webp" alt="Canadian Council for Indigenous Business">
                 </div>
                 <div class="certification-line"></div>
                 <p>A proud member of the Canadian Council for Indigenous Business <span>(CCIB)</span>. </p>
@@ -161,7 +161,7 @@ if ( ! is_front_page() ) {
             </div>
             <div class="certification-card">
                 <div class="certification-logo">
-                    <img src="/wp-content/uploads/2026/08/CIB-LogoH.webp" alt="CCIB Certified Indigenous Business">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/CIB-LogoH.webp" alt="CCIB Certified Indigenous Business">
                 </div>
                 <div class="certification-line"></div>
                 <p> Proud to be a CCIB Certified Indigenous Business, meeting national standards of excellence and community impact. </p>
@@ -179,7 +179,7 @@ if ( ! is_front_page() ) {
         </div>
         <div class="tech-content">
             <div class="tech-feature-card">
-                <img id="feature-image" src="/wp-content/uploads/2026/08/Software-Development-ingigenetech.webp" alt="Software Development">
+                <img loading="lazy" decoding="async" id="feature-image" src="/wp-content/uploads/2026/08/Software-Development-ingigenetech.webp" alt="Software Development">
                 <div class="tech-feature-overlay p-30">
                     <h3 id="feature-title" class="white-text fs-22 lh-2 fw-7 ease">Software Development</h3>
                     <p id="feature-description" class="white-text lh-4 ease">Indigenous technology solutions built for daily operations, reliable performance, team efficiency, and smooth scalability as business needs grow.</p>
@@ -189,7 +189,7 @@ if ( ! is_front_page() ) {
             <div class="tech-side-cards">
                 <!-- TAB 1 -->
                 <div class="tech-small-card active" data-tab="software">
-                    <img src="/wp-content/uploads/2026/08/Software-Development-ingigenetech.webp" alt="Software Development">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Software-Development-ingigenetech-300x275.webp" alt="Software Development">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text mb-15">Software Development</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Indigenous technology solutions built for daily operations, reliable performance, team efficiency, and smooth scalability as business needs grow.</p>
@@ -205,7 +205,7 @@ if ( ! is_front_page() ) {
                 </div>
                 <!-- TAB 2 -->
                 <div class="tech-small-card" data-tab="app">
-                    <img src="/wp-content/uploads/2026/08/App-Development.webp" alt="App Development">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/App-Development-300x275.webp" alt="App Development">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">App Development</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Mobile apps for iOS and Android designed for intuitive navigation, fast performance, and consistent experience across all screen sizes.</p>
@@ -221,7 +221,7 @@ if ( ! is_front_page() ) {
                 </div>
                 <!-- TAB 3 -->
                 <div class="tech-small-card" data-tab="ar">
-                    <img src="/wp-content/uploads/2026/08/AR-VR-Development.webp" alt="AI Development">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/AR-VR-Development-300x275.webp" alt="AI Development">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">AR VR Development</h3>
                         <p class="fs-14 lh-3 mob-two-lines">AR and VR experiences created for training, presentations, learning, and exploring concepts through immersive and interactive environments.</p>
@@ -237,7 +237,7 @@ if ( ! is_front_page() ) {
                 </div>
                 <!-- TAB 4 -->
                 <div class="tech-small-card" data-tab="erp">
-                    <img src="/wp-content/uploads/2026/08/ERP-Solutions.webp" alt="ERP Solutions">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/ERP-Solutions-300x275.webp" alt="ERP Solutions">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">ERP Solutions</h3>
                         <p class="fs-14 lh-3 mob-two-lines">ERP systems were developed to connect finance, HR, inventory, and operations into one platform, improving control and workflow visibility.</p>
@@ -252,7 +252,7 @@ if ( ! is_front_page() ) {
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="blockchain">
-                    <img src="/wp-content/uploads/2026/08/Blockchain-Solutions.webp" alt="ERP Solutions">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Blockchain-Solutions-300x275.webp" alt="ERP Solutions">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">Blockchain Solutions</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Blockchain development services that support secure transactions, transparent records, and decentralized systems for modern business models.</p>
@@ -267,7 +267,7 @@ if ( ! is_front_page() ) {
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="cloud">
-                    <img src="/wp-content/uploads/2026/08/Cloud-Solutions.webp" alt="ERP Solutions">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Cloud-Solutions-300x275.webp" alt="ERP Solutions">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">Cloud Solutions</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Cloud migration and infrastructure services supporting secure data storage, better performance, scalability, and low technology stress.</p>
@@ -282,7 +282,7 @@ if ( ! is_front_page() ) {
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="enter">
-                    <img src="/wp-content/uploads/2026/08/Enterprise-Software.webp" alt="Enterprise Software">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Enterprise-Software-300x275.webp" alt="Enterprise Software">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">Enterprise Software</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Enterprise software designed to handle complicated processes, high user volumes, and long-term operational demands across large organizations.</p>
@@ -297,7 +297,7 @@ if ( ! is_front_page() ) {
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="ai">
-                    <img src="/wp-content/uploads/2026/08/AI-ML-Development.webp" alt="ERP Solutions">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/AI-ML-Development-300x275.webp" alt="ERP Solutions">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">AI ML Development</h3>
                         <p class="fs-14 lh-3 mob-two-lines">AI and machine learning solutions that analyze data, automate tasks, support decision-making, and enhance operational accuracy and efficiency.</p>
@@ -312,7 +312,7 @@ if ( ! is_front_page() ) {
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="web">
-                    <img src="/wp-content/uploads/2026/08/Web-Development.webp" alt="EWeb-Development">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Web-Development-300x275.webp" alt="EWeb-Development">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">Web Development</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Modern websites and portals are developed for speed, accessibility, clean design, and easy content updates for long-term digital growth.</p>
@@ -327,7 +327,7 @@ if ( ! is_front_page() ) {
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="staff">
-                    <img src="/wp-content/uploads/2026/08/IT-Staff-Augmentation.webp" alt="IT Staff">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/IT-Staff-Augmentation-300x275.webp" alt="IT Staff">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">IT Staff Augmentation</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Skilled technology professionals integrated into existing teams to support delivery, reduce workload pressure, and maintain momentum.</p>
@@ -342,7 +342,7 @@ if ( ! is_front_page() ) {
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="consulting">
-                    <img src="/wp-content/uploads/2026/08/IT-Consulting.webp" alt="IT Consulting">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/IT-Consulting-300x275.webp" alt="IT Consulting">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">IT Consulting</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Strategic IT consulting focused on system planning, technology alignment, risk reduction, and practical guidance for sustainable growth.</p>
@@ -538,7 +538,7 @@ if ( ! is_front_page() ) {
                     </div>
                     <div class="industry-line"></div>
                     <p>Indigenous technology solutions are the backbone of secure, scalable e-commerce platforms that not just enhance online purchasing experiences but also make backend operations easier. Through the use of smart integrations and automation, Indigenous Owned and Operated businesses can, as a Certified Indigenous Business partner, manage their payments, inventory, and revenue growth efficiently. </p>
-                    <img src="/wp-content/uploads/2026/08/E-commerce.webp" alt="E-commerce" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/E-commerce.webp" alt="E-commerce" class="industry-image">
                 </div>
 
                 <!-- EDUCATION -->
@@ -549,7 +549,7 @@ if ( ! is_front_page() ) {
                     </div>
                     <div class="industry-line"></div>
                     <p>Education platforms such as e-learning systems, student management tools, and digital classrooms improve access and engagement. These Indigenous technology solutions support Aboriginal businesses and community-led institutions with tools that simplify teaching, progress tracking, and administration under a certified aboriginal business approach. </p>
-                    <img src="/wp-content/uploads/2026/08/Frame-2.webp" alt="Education" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Frame-2.webp" alt="Education" class="industry-image">
                 </div>
 
                 <!-- FINANCIAL SERVICES -->
@@ -560,7 +560,7 @@ if ( ! is_front_page() ) {
                     </div>
                     <div class="industry-line"></div>
                     <p>Secure fintech platforms and automation tools improve financial control, speed up transactions, and support compliance needs. These solutions protect sensitive data and reduce manual work, supporting Indigenous Business operations through Indigenous technology solutions aligned with security and regulatory requirements. </p>
-                    <img src="/wp-content/uploads/2026/08/Financial-Services.webp" alt="Financial Services" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Financial-Services.webp" alt="Financial Services" class="industry-image">
                 </div>
 
                 <!-- HEALTHCARE -->
@@ -571,7 +571,7 @@ if ( ! is_front_page() ) {
                     </div>
                     <div class="industry-line"></div>
                     <p>Healthcare systems via patient management tools, scheduling, digital records, and telemedicine platforms facilitate the care journey. These tools, designed as Indigenous technology solutions, not only enhance the productivity and effectiveness of operations but also support the Indigenous Owned and Indigenous Operated entities that render the critical services. </p>
-                    <img src="/wp-content/uploads/2026/08/Healthcare.webp" alt="Healthcare" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Healthcare.webp" alt="Healthcare" class="industry-image">
                 </div>
 
                 <!-- REAL ESTATE -->
@@ -582,7 +582,7 @@ if ( ! is_front_page() ) {
                     </div>
                     <div class="industry-line"></div>
                     <p>Digital platforms simplify property listings, management, documentation, and communication. Workflow automation improves day-to-day efficiency and creates smarter transaction processes. These Indigenous technology solutions support Indigenous Owned and Operated business teams by improving visibility, coordination, and client experiences. </p>
-                    <img src="/wp-content/uploads/2026/08/Real-Estate.webp" alt="Real Estate" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Real-Estate.webp" alt="Real Estate" class="industry-image">
                 </div>
 
                 <!-- TRAVEL -->
@@ -593,7 +593,7 @@ if ( ! is_front_page() ) {
                     </div>
                     <div class="industry-line"></div>
                     <p>Hospitality technology solutions improve guest engagement through the provision of simple reservations for the clients, automated communication, and personalized service delivery. These Native tech solutions give power to Native Business teams to manage bookings, services, and customer relationships in an efficient manner, while building brand loyalty and obtaining a gradual increase in their business is a good strategy for the future. </p>
-                    <img src="/wp-content/uploads/2026/08/Travel-and-Hospitality.webp" alt="Travel and Hospitality" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Travel-and-Hospitality.webp" alt="Travel and Hospitality" class="industry-image">
                 </div>
 
                 <!-- LOGISTICS -->
@@ -604,7 +604,7 @@ if ( ! is_front_page() ) {
                     </div>
                     <div class="industry-line"></div>
                     <p>Platforms for supply chains provide the features of tracking in real-time, visibility of delivery, and coordination of partners. Indigenous technologies are a great support to the Aboriginal Business and Indigenous Logistics teams, giving them less time-consuming, efficient and better communication through the entire supply chain, such as warehouses, fleets and distributing centers. </p>
-                    <img src="/wp-content/uploads/2026/08/Logistics.webp" alt="Logistics" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Logistics.webp" alt="Logistics" class="industry-image">
                 </div>
 
                 <!-- MANUFACTURING -->
@@ -615,7 +615,7 @@ if ( ! is_front_page() ) {
                     </div>
                     <div class="industry-line"></div>
                     <p>Hospitality technology solutions significantly improve guest interaction through providing users with effortless reservations, automated communication, and tailored service delivery. The Indigenous tech solutions not only enable the Indigenous Business team to manage reservations, services, and customer relations effortlessly but also help in building brand loyalty and accelerating growth over the period. </p>
-                    <img src="/wp-content/uploads/2026/08/Manufacturing.webp" alt="Manufacturing" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Manufacturing.webp" alt="Manufacturing" class="industry-image">
                 </div>
             </div>
         </div>
@@ -737,7 +737,7 @@ if ( ! is_front_page() ) {
             </div>
             <!-- RIGHT IMAGE -->
             <div class="indigene-about-image">
-                <img src="/wp-content/uploads/2025/09/Paul-Morris-OLeary.webp" alt="Founder">
+                <img loading="lazy" decoding="async" src="/wp-content/uploads/2025/09/Paul-Morris-OLeary-1024x925.webp" srcset="/wp-content/uploads/2025/09/Paul-Morris-OLeary-300x271.webp 300w, /wp-content/uploads/2025/09/Paul-Morris-OLeary-768x694.webp 768w, /wp-content/uploads/2025/09/Paul-Morris-OLeary-1024x925.webp 1024w, /wp-content/uploads/2025/09/Paul-Morris-OLeary-1536x1388.webp 1536w" sizes="(max-width: 767px) 350px, 520px" alt="Founder">
             </div>
         </div>
     </div>
