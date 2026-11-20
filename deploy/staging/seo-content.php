@@ -184,6 +184,7 @@ if (!is_array($titles)) { $titles = array(); }
 $want = $titles;
 $want['knowledgegraph_type'] = 'company';
 $want['knowledgegraph_name'] = 'IndigeneTech';
+$want['website_name'] = 'IndigeneTech';   // og:site_name and the WebSite schema name
 $logo_id = (int) get_theme_mod('custom_logo');
 if ($logo_id && empty($titles['knowledgegraph_logo'])) {
     $want['knowledgegraph_logo'] = wp_get_attachment_url($logo_id);
@@ -192,7 +193,7 @@ if ($logo_id && empty($titles['knowledgegraph_logo'])) {
 $want['tax_category_robots'] = array('noindex');
 $want['tax_category_custom_robots'] = 'on';
 $diff = array();
-foreach (array('knowledgegraph_type', 'knowledgegraph_name', 'knowledgegraph_logo', 'tax_category_robots', 'tax_category_custom_robots') as $k) {
+foreach (array('knowledgegraph_type', 'knowledgegraph_name', 'website_name', 'knowledgegraph_logo', 'tax_category_robots', 'tax_category_custom_robots') as $k) {
     if ((isset($titles[$k]) ? $titles[$k] : null) != (isset($want[$k]) ? $want[$k] : null)) {
         $diff[] = $k . ': ' . wp_json_encode(isset($titles[$k]) ? $titles[$k] : null) . ' -> ' . wp_json_encode($want[$k]);
     }
