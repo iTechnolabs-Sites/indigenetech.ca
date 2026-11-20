@@ -95,12 +95,13 @@ fi
 
 # ---------------- caches ----------------
 say "Caches"
+# These theme changes do not affect Elementor's generated CSS, so it is NOT
+# flushed by default: on a server where PHP cannot rewrite
+# uploads/elementor/css, a flush leaves every page without its Elementor styles.
 if command -v wp >/dev/null; then
   WP=(wp --path="$SITE_ROOT"); [ "$(id -u)" = 0 ] && WP+=(--allow-root)
-  "${WP[@]}" elementor flush-css 2>&1 | sed 's/^/   /' || echo "WARN  'wp elementor flush-css' failed: clear it in Elementor -> Tools -> Clear Files & Data"
   "${WP[@]}" cache flush 2>&1 | sed 's/^/   /' || true
-else
-  echo "WARN  WP-CLI not installed: clear Elementor -> Tools -> Clear Files & Data in staging's admin"
+  if [ "${FLUSH_ELEMENTOR:-}" = 1 ]; then "${WP[@]}" elementor flush-css 2>&1 | sed 's/^/   /' || true; fi
 fi
 echo "   If staging is behind Cloudflare with caching, purge it now."
 

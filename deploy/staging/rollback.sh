@@ -33,8 +33,8 @@ tar -xzf "$B/files.tgz" -C "$SITE_ROOT"
 echo "   files restored"
 if command -v wp >/dev/null; then
   WP=(wp --path="$SITE_ROOT"); [ "$(id -u)" = 0 ] && WP+=(--allow-root)
-  "${WP[@]}" elementor flush-css >/dev/null 2>&1 && echo "   Elementor CSS flushed" || echo "WARN  clear Elementor -> Tools -> Clear Files & Data"
-else echo "WARN  WP-CLI not installed: clear Elementor -> Tools -> Clear Files & Data"; fi
+  "${WP[@]}" cache flush >/dev/null 2>&1 && echo "   WordPress object cache flushed" || true
+fi
 
 echo "== Quick checks"
 fail=0

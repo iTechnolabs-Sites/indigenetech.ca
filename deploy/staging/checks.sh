@@ -68,6 +68,8 @@ check_page() {  # $1 path, $2 expected status
     else
       [ "$(count 'itech-newhome-css' "$f")" = 0 ] || issues+=("newhome.css loaded outside the homepage")
     fi
+    # every stylesheet the page links to (Elementor's generated CSS included)
+    grep -oE "<link[^>]+rel=['\"]stylesheet['\"][^>]*>" "$f" | grep -oE "href=['\"][^'\"]+" | sed -E "s/^href=['\"]//; s/&#038;/\&/g" >> "$TMP/css.txt" || true
     # same-site links for the redirect check
     grep -oE "<a [^>]*href=[\"'][^\"'#]+[\"']" "$f" | grep -oE "href=[\"'][^\"']+" | sed -E "s/^href=[\"']//" \
       | grep -E "^/[^/]|^${SITE_URL//./\\.}" | grep -vE '/wp-(content|includes|json|admin)|/feed/|\.(xml|php|png|jpe?g|webp|svg|pdf|css|js)(\?|$)|^/cdn-cgi/' >> "$links_file" || true
@@ -89,6 +91,17 @@ while IFS= read -r l; do
   if [ "$c" != 200 ]; then echo "   $c  $l"; redir=$((redir+1)); fi
 done < "$links_file"
 if [ "$redir" -eq 0 ]; then PASS "$n internal links all return 200 (no redirects)"; else FAIL "$redir of $n internal links do not return 200 (listed above)"; fi
+
+# ---------- stylesheets load ----------
+sort -u "$TMP/css.txt" -o "$TMP/css.txt" 2>/dev/null || : > "$TMP/css.txt"
+cssbad=0; ncss=0
+while IFS= read -r u; do
+  [ -z "$u" ] && continue; case "$u" in //*) u="https:$u";; /*) u="$SITE_URL$u";; esac
+  ncss=$((ncss+1)); c=$("${CURL[@]}" -o /dev/null -w '%{http_code}' "$u" || echo 000)
+  [ "$c" = 200 ] || { echo "   $c  $u"; cssbad=$((cssbad+1)); }
+done < "$TMP/css.txt"
+if [ "$cssbad" -eq 0 ]; then PASS "all $ncss stylesheets linked from the pages return 200"
+else FAIL "$cssbad of $ncss stylesheets do not load (listed above). For uploads/elementor/css files: Elementor could not regenerate them; see deploy/staging/README"; fi
 
 # ---------- theme files on the server ----------
 status_of() { "${CURL[@]}" -o /dev/null -w '%{http_code}' "$1" || echo 000; }
