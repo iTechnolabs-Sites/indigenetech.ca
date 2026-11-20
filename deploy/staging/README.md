@@ -37,3 +37,19 @@ wp option update elementor_css_print_method internal && wp elementor flush-css
 ```
 
 Undo with `wp option update elementor_css_print_method external` once the folder is writable.
+
+## SEO content changes (`seo-content.php`)
+
+Applies the approved items in `docs/seo-proposals-2026-11-20.md` (all except S3 share image and L3 privacy policy, which need material from the owner). Run with WP-CLI as the site's file owner:
+
+```bash
+wp --path="$SITE_ROOT" eval-file deploy/staging/seo-content.php            # dry run
+wp --path="$SITE_ROOT" eval-file deploy/staging/seo-content.php apply      # back up + apply
+wp --path="$SITE_ROOT" eval-file deploy/staging/seo-content.php revert ~/indigenetech-backups/seo-content-<time>.json
+```
+
+- Each item is changed only if its current value is what the proposal saw (or empty); otherwise `WARN ... left unchanged`.
+- `ALREADY` means the value is already as proposed (staging already has the Site Title and the Organization name).
+- On a re-run, content items print `WARN ... nothing to change`: they were done the first time.
+- Every changed value is written to the backup JSON before it changes (the file is updated after each item), and `revert` restores them exactly.
+- Schema type changes SC1/SC3 are in the theme (`functions.php`), not in this script.
