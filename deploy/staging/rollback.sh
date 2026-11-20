@@ -17,19 +17,25 @@ if [ -z "${1:-}" ]; then
 fi
 B="${1%/}"
 [ -f "$B/files.tgz" ] || { echo "FAIL  no backup at '$B'"; echo "ROLLBACK RESULT: FAIL"; exit 1; }
-. <(grep -E '^(owner|had_htaccess|site_root)=' "$B/meta")
+htaccess_file=""
+. <(grep -E '^(owner|had_htaccess|site_root|htaccess_file)=' "$B/meta")
+HT="${htaccess_file:-$SITE_ROOT/.htaccess}"
 [ "$site_root" = "$SITE_ROOT" ] || { echo "FAIL  backup was taken from $site_root, not $SITE_ROOT"; echo "ROLLBACK RESULT: FAIL"; exit 1; }
 
 echo "== Rolling back $SITE_ROOT from $B"
 SAVE="$BASE/pre-rollback-$(date +%Y%m%d-%H%M%S)"; mkdir -p "$SAVE"
-tar -czf "$SAVE/files.tgz" -C "$SITE_ROOT" wp-content/themes/indigenetech-child wp-content/themes/indigenetech/style.css $( [ -f "$SITE_ROOT/.htaccess" ] && echo .htaccess )
-cp "$B/meta" "$SAVE/meta"
+tar -czf "$SAVE/files.tgz" -C "$SITE_ROOT" wp-content/themes/indigenetech-child wp-content/themes/indigenetech/style.css
+[ -f "$HT" ] && cp -p "$HT" "$SAVE/htaccess.orig"
+{ grep -vE '^(htaccess_file|had_htaccess)=' "$B/meta"; echo "htaccess_file=$HT"; echo "had_htaccess=$([ -f "$HT" ] && echo yes || echo no)"; } > "$SAVE/meta.tmp"
+mv "$SAVE/meta.tmp" "$SAVE/meta"
 echo "   current state saved to $SAVE"
 
 rm -rf "$SITE_ROOT/wp-content/themes/indigenetech-child"
 tar -xzf "$B/files.tgz" -C "$SITE_ROOT"
-[ "$had_htaccess" = no ] && rm -f "$SITE_ROOT/.htaccess"
-[ "$(id -u)" = 0 ] && chown -R "$owner" "$SITE_ROOT/wp-content/themes/indigenetech-child" "$SITE_ROOT/wp-content/themes/indigenetech/style.css" && { [ -f "$SITE_ROOT/.htaccess" ] && chown "$owner" "$SITE_ROOT/.htaccess" || true; }
+if [ -f "$B/htaccess.orig" ]; then cat "$B/htaccess.orig" > "$HT"          # new-style backup (in place: keeps bind mounts working)
+elif [ "$had_htaccess" = no ]; then rm -f "$SITE_ROOT/.htaccess"; fi      # old-style: .htaccess was inside files.tgz
+[ -n "$htaccess_file" ] && [ "$had_htaccess" = no ] && rm -f "$HT"
+[ "$(id -u)" = 0 ] && chown -R "$owner" "$SITE_ROOT/wp-content/themes/indigenetech-child" "$SITE_ROOT/wp-content/themes/indigenetech/style.css" || true
 echo "   files restored"
 if command -v wp >/dev/null; then
   WP=(wp --path="$SITE_ROOT"); [ "$(id -u)" = 0 ] && WP+=(--allow-root)
