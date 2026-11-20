@@ -720,3 +720,33 @@ function itech_default_share_image($url)
 }
 add_filter('rank_math/opengraph/facebook/image', 'itech_default_share_image');
 add_filter('rank_math/opengraph/twitter/image', 'itech_default_share_image');
+
+
+/**
+ * Repair JSON-LD blocks that are invalid only because of raw line breaks or
+ * tabs inside their strings (pasted FAQ answers). Search engines ignore an
+ * invalid block entirely. Wording is untouched; blocks that are still
+ * invalid after the repair are left exactly as they were.
+ */
+function itech_repair_jsonld($html)
+{
+    if (!is_string($html) || stripos($html, 'application/ld+json') === false) {
+        return $html;
+    }
+    return preg_replace_callback(
+        '#(<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>)(.*?)(</script>)#is',
+        function ($m) {
+            if (json_decode($m[2]) !== null || json_last_error() === JSON_ERROR_NONE) {
+                return $m[0];
+            }
+            $data = json_decode(preg_replace('/[\x00-\x1F]+/', ' ', $m[2]), true);
+            if ($data === null) {
+                return $m[0];
+            }
+            return $m[1] . wp_json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . $m[3];
+        },
+        $html
+    );
+}
+add_filter('the_content', 'itech_repair_jsonld', 10001);
+add_filter('elementor/frontend/the_content', 'itech_repair_jsonld', 10001);

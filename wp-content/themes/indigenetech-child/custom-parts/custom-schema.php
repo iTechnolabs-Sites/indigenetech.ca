@@ -62,7 +62,8 @@ function itechnolabs_output_schema_code() {
 
         if (!empty($schema_code)) {
             echo "\n<!-- JSON-LD Schema for SEO -->\n";
-            echo $schema_code . "\n"; // OUTPUT RAW (allows multiple scripts)
+            // Raw output (allows multiple scripts); blocks broken only by line breaks are repaired.
+            echo (function_exists('itech_repair_jsonld') ? itech_repair_jsonld($schema_code) : $schema_code) . "\n";
             echo "<!-- END JSON-LD Schema -->\n";
         }
     }
