@@ -750,3 +750,75 @@ function itech_repair_jsonld($html)
 }
 add_filter('the_content', 'itech_repair_jsonld', 10001);
 add_filter('elementor/frontend/the_content', 'itech_repair_jsonld', 10001);
+
+
+/**
+ * Schema types (approved SEO proposals SC1, SC3; 20 Nov 2026).
+ * SC1: the homepage is a WebPage, not an Article by a Person.
+ * SC3: the 10 service pages describe a Service provided by the business,
+ *      instead of an Article by a Person. FAQ schema is left as it is.
+ */
+function itech_service_page_slugs()
+{
+    return array(
+        'ai-ml-development', 'app-development', 'blockchain-solutions', 'cloud-solutions',
+        'custom-vr-development', 'enterprise-custom-software-development', 'erp-solutions',
+        'it-consulting', 'it-staff-augmentation', 'web-development',
+    );
+}
+
+add_filter('rank_math/json_ld', function ($data) {
+    if (!is_array($data) || !(is_front_page() || is_page(itech_service_page_slugs()))) {
+        return $data;
+    }
+    $article_key = null;
+    foreach ($data as $key => $entity) {
+        if (!is_array($entity) || !isset($entity['@type'])) {
+            continue;
+        }
+        $types = (array) $entity['@type'];
+        if (array_intersect($types, array('Article', 'BlogPosting', 'NewsArticle'))) {
+            $article_key = $key;
+        }
+        // The article's author (/author/...) only exists for the Article.
+        if (in_array('Person', $types, true) && isset($entity['@id']) && strpos($entity['@id'], '/author/') !== false) {
+            unset($data[$key]);
+        }
+    }
+    if ($article_key === null) {
+        return $data;
+    }
+    $article = $data[$article_key];
+    unset($data[$article_key]);
+
+    if (is_page(itech_service_page_slugs())) {
+        $publisher = isset($data['publisher']['@id']) ? $data['publisher']['@id'] : home_url('/#organization');
+        $service   = array(
+            '@type'       => 'Service',
+            '@id'         => get_permalink() . '#service',
+            // The SEO title without a trailing "- IndigeneTech" / "| IndigeneTech".
+            'name'        => !empty($article['headline'])
+                ? preg_replace('/\s*[-|\x{2013}]\s*' . preg_quote(get_bloginfo('name'), '/') . '\s*$/u', '', $article['headline'])
+                : get_the_title(),
+            'url'         => get_permalink(),
+            'provider'    => array('@id' => $publisher),
+            'areaServed'  => array('@type' => 'Country', 'name' => 'Canada'),
+        );
+        if (!empty($article['description'])) {
+            $service['description'] = $article['description'];
+        }
+        if (!empty($article['image'])) {
+            $service['image'] = $article['image'];
+        }
+        if (!empty($article['mainEntityOfPage'])) {
+            $service['mainEntityOfPage'] = $article['mainEntityOfPage'];
+        }
+        $data['itechService'] = $service;
+    }
+    return $data;
+}, 1001);
+
+// SC1: no "Written by" / "Time to read" labels in homepage share cards.
+add_filter('rank_math/opengraph/slack_enhanced_data', function ($data) {
+    return is_front_page() ? array() : $data;
+});
