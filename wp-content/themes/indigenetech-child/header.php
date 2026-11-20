@@ -45,9 +45,11 @@
 				<div class="header-middle-inner p-0 mob-px-20">
 					<div class="site-branding">
 						<?php the_custom_logo(); ?>
+						<?php if ( ! has_custom_logo() ) : // the logo already links home; don't repeat the site name under it ?>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 								<?php bloginfo( 'name' ); ?>
 							</a>
+						<?php endif; ?>
 						<?php 
 							$appzend_description = get_bloginfo( 'description', 'display' );
 							if ( $appzend_description || is_customize_preview() ) : ?>
