@@ -1,0 +1,64 @@
+<p>When a First Nations organization moves its finance, membership or program records into a new system, the vendor's answers to a few plain questions decide who will hold that information, where it will sit and how hard it will be to take back. This guide lists those questions, explains why each one matters, and shows how to turn the answers into contract terms. They apply to every technology vendor, including us.</p>
+<h2>Why choosing a vendor is a data governance decision</h2>
+<p>Most organizations no longer keep their data on a server in the band office. Accounting, payroll, email, document storage and case management increasingly run as cloud services, where the vendor stores and operates the system. The Canadian Centre for Cyber Security puts it directly: under cloud computing, <a href="https://cyber.gc.ca/en/guidance/cloud-security-risk-management-itsm50062">organizations give up direct control over many aspects of security and privacy</a> and place trust in the provider.</p>
+<p>That trust can be well placed, but it should be a decision, not a side effect of signing a software subscription. For First Nations organizations, it also connects to principles the community may already hold about its own information.</p>
+<h2>What OCAP® means for a technology project</h2>
+<p>The First Nations principles of OCAP® (ownership, control, access and possession) set out how First Nations data should be collected, protected, used and shared. The First Nations Information Governance Centre (FNIGC) describes OCAP® as <a href="https://fnigc.ca/ocap-training/">a tool to support strong information governance on the path to First Nations data sovereignty</a>. The principles belong collectively to First Nations; FNIGC has been <a href="https://www.uottawa.ca/library/sites/g/files/bhrskd381/files/2022-12/bestpractices_fnigc_ocap_fact_sheet_en_final.pdf">entrusted with their stewardship since 2010</a> and offers training on applying them.</p>
+<p>Two of the four principles map directly onto technology choices:</p>
+<ul>
+<li><strong>Access</strong>: the community's ability to reach its own information and decide who else can, wherever it is held.</li>
+<li><strong>Possession</strong>: physical control of the data. FNIGC calls possession <a href="https://fnigc.ca/wp-content/uploads/2022/10/OCAP_Brochure_20220927_web.pdf">the mechanism by which ownership can be asserted and protected</a>. A vendor's servers, backups and staff all affect it.</li>
+</ul>
+<p>Three cautions. OCAP® is a First Nations framework; Métis and Inuit organizations have their own principles and priorities for data, such as those listed in the University of Calgary's <a href="https://research.ucalgary.ca/engage-research/indigenous-research-support-team/irst-resources/indigenous-data-sovereignty">overview of Indigenous data governance principles</a>. Each Nation may also have its own laws, policies or council direction on information. And no software is "OCAP-compliant" by itself: compliance depends on how the organization governs its data, and the vendor's role is to make that governance possible.</p>
+<h2>Questions about where your data lives</h2>
+<ol>
+<li><strong>In which country, and in which data centres, will our data be stored?</strong> Ask about the main system and about backups, which are often stored somewhere else.</li>
+<li><strong>Which other companies process our data on your behalf?</strong> Most vendors use subcontractors (subprocessors) for hosting, email delivery, support tools or analytics. Ask for the list and how you will be told when it changes.</li>
+<li><strong>Could our data leave Canada, even temporarily?</strong> Support staff in other countries, monitoring tools and disaster-recovery copies can all move data across borders.</li>
+</ol>
+<p>Under federal private-sector privacy law, the responsibility stays with you. The Office of the Privacy Commissioner of Canada's guidelines note that an organization <a href="https://www.priv.gc.ca/en/privacy-topics/personal-information-transferred-across-borders/gl_dab_090127/">remains responsible for personal information transferred to a third party for processing</a> and must use contracts or other means to protect it. Which privacy laws apply to a particular First Nation government, corporation or service organization varies, so confirm it with your legal adviser.</p>
+<h2>Questions about who can see it</h2>
+<ol>
+<li><strong>Which of your staff can access our data, and when?</strong> Look for access limited to named roles, granted only for a support case, and logged.</li>
+<li><strong>Can we see the access logs?</strong> You should be able to review who signed in to your system and who changed what, including the vendor's own administrators.</li>
+<li><strong>How do you respond to a legal demand for our data?</strong> Ask whether they will notify you, where the law allows, and challenge requests that are too broad.</li>
+<li><strong>Can we control access ourselves?</strong> Your administrators should be able to set roles, require multi-factor authentication and remove a departing employee's access immediately.</li>
+</ol>
+<h2>Questions about how it can be used</h2>
+<ol>
+<li><strong>Will you use our data for anything other than providing the service?</strong> Watch for product analytics, benchmarking or marketing uses in the terms of service.</li>
+<li><strong>Will our data be used to train AI models?</strong> Many products now include AI features. Ask whether your content, prompts or files are used to train or improve models, and whether you can switch that off.</li>
+<li><strong>Do you combine or anonymize our data with other customers' data?</strong> Even aggregated statistics about a community can be sensitive; the decision to share them should be yours.</li>
+</ol>
+<h2>Questions about getting it back</h2>
+<ol>
+<li><strong>How do we export all of our data, and in what format?</strong> Ask for a full export in open formats (such as CSV or standard database exports), including attachments and history, not just summary reports.</li>
+<li><strong>What happens to our data when the contract ends?</strong> Agree how long you have to export, and get written confirmation when the vendor deletes it, including from backups.</li>
+<li><strong>Is there a fee to leave?</strong> Export or exit fees are easier to negotiate before you sign.</li>
+</ol>
+<h2>Questions about security</h2>
+<ol>
+<li><strong>How is the data protected in storage and in transit?</strong> Encryption in both places is a baseline, not an extra.</li>
+<li><strong>Which independent security assessments do you have?</strong> Many cloud providers can share a recent audit report under a non-disclosure agreement, such as a SOC 2 Type II report or an ISO/IEC 27001 certificate. Read its scope: it should cover the service you are buying.</li>
+<li><strong>How fast will you tell us about a breach, and what will you tell us?</strong> Agree a time limit and the information you will receive.</li>
+<li><strong>How do you back up the system, and how quickly can it be restored?</strong> Ask how often restores are tested.</li>
+</ol>
+<p>The Cyber Centre's <a href="https://cyber.gc.ca/en/guidance/cyber-security-considerations-consumers-managed-services-itsm50030">guidance for small and medium organizations using managed services</a> is a useful companion when assessing these answers.</p>
+<h2>Put the answers into the contract</h2>
+<p>A vendor's sales answers only protect you once they are in the contract. The Cyber Centre publishes <a href="https://www.cyber.gc.ca/en/guidance/recommended-cyber-security-contract-clauses-cloud-services-itsm50104">recommended cyber security contract clauses for cloud services</a> that apply to non-government organizations too. A simple mapping:</p>
+<table>
+<thead><tr><th>Concern</th><th>What to put in writing</th></tr></thead>
+<tbody>
+<tr><td>Where data lives</td><td>Storage locations, including backups; notice before any change; the current subprocessor list</td></tr>
+<tr><td>Who can see it</td><td>Vendor staff access limited to support needs and logged; your right to review logs</td></tr>
+<tr><td>How it is used</td><td>Use only to provide the service; no AI training or secondary use without written consent</td></tr>
+<tr><td>Legal demands</td><td>Notice to you where permitted; disclosure of only what is legally required</td></tr>
+<tr><td>Getting it back</td><td>Full export in open formats; an exit period; certified deletion, including backups</td></tr>
+<tr><td>Security incidents</td><td>Notification within an agreed time, with the details you need to act</td></tr>
+</tbody>
+</table>
+<p>Keep the questions and the vendor's written answers with the contract. They are useful at renewal, and when council or an auditor asks how the organization protects its information.</p>
+<h2>Where IndigeneTech fits</h2>
+<p>We are a technology vendor too, so these questions apply to us. If you are considering <a href="/cloud-solutions/">moving systems to the cloud</a> or replacing business software, we will answer each one in writing for the specific services involved. If you are assessing several vendors, <a href="/it-consulting/">our IT consulting team</a> can help you compare the answers and set data governance requirements before you sign. <a href="/contact-us/">Contact us</a> to start with a review of your current systems.</p>
+<h2>Frequently asked questions</h2>
+<!-- wp:rank-math/faq-block {"questions":[{"id":"faq-ocap-software","title":"Can software be OCAP-compliant?","content":"Not on its own. OCAP® describes how a First Nation governs its information. A system can support that governance, for example through where data is stored, who can access it and how easily it can be exported, but compliance depends on the organization's own decisions.","visible":true},{"id":"faq-canada-storage","title":"Do we need our data stored in Canada?","content":"It depends on your policies, the type of information and any laws or agreements that apply. Many organizations prefer Canadian storage for sensitive records. Decide before choosing a vendor, and get the storage location, including backups, in the contract.","visible":true},{"id":"faq-ai-training","title":"How do we stop a vendor using our data to train AI?","content":"Ask whether the product uses customer content to train or improve AI models, whether you can turn that off, and put a written prohibition in the contract.","visible":true},{"id":"faq-metis-inuit","title":"Do these questions apply to Métis and Inuit organizations?","content":"The vendor questions apply to any organization. OCAP® is specific to First Nations; Métis and Inuit organizations should apply their own principles and priorities for their data.","visible":true},{"id":"faq-who-decides","title":"Who should answer these questions inside our organization?","content":"Usually a small group: someone from leadership or council, the finance or program lead whose data is involved, and whoever manages IT. Legal advice helps when reviewing the contract.","visible":true}]} /-->

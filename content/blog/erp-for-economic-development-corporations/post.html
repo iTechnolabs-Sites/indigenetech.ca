@@ -1,0 +1,72 @@
+<p>An economic development corporation that owns a fuel station, a construction company and a lodge often runs three sets of books, three payroll setups and a spreadsheet that tries to tie them together before every board meeting. An ERP can replace that spreadsheet, but one system for everything is not always the right answer. This guide explains the three realistic setups, how to choose between them, and how to roll one out without stalling the businesses.</p>
+<h2>Why multi-business reporting breaks down</h2>
+<p>Many economic development corporations (EDCs) are not one company. A common structure, described in the <a href="https://www.schoolofpublicpolicy.sk.ca/documents/research/case-studies/2.2.2-limited-partnerships-2024.pdf">Indigenous Business Toolkit</a> from the Johnson Shoyama Graduate School of Public Policy, has the Nation create a wholly owned corporation that acts as general partner in a limited partnership, with the Nation as limited partner. Many corporations repeat that pattern for new businesses and joint ventures, so each one keeps its own legal books.</p>
+<p>That is sound for liability and tax reasons, but it multiplies the accounting. In <a href="https://www.ccab.com/wp-content/uploads/2020/02/CCAB-Report-1-web.pdf">interviews with economic development corporations in over 100 communities</a>, carried out in 2018 by the Canadian Council for Aboriginal Business (now the Canadian Council for Indigenous Business), most had formed between one and five corporate partnerships. Every one of them needs a month-end close, and the board wants one picture.</p>
+<p>The problems usually show up in the same places:</p>
+<ul>
+<li><strong>Consolidated reporting takes days.</strong> Someone exports each business's numbers and rebuilds the group view by hand.</li>
+<li><strong>Transactions between businesses get counted twice.</strong> When the construction company builds an addition for the lodge, that is revenue for one entity and a cost for the other. Unless it is eliminated, the group's totals are overstated.</li>
+<li><strong>Nobody trusts which numbers are current.</strong> Different businesses close on different days and keep their own charts of accounts.</li>
+<li><strong>Access is all or nothing.</strong> Managers either see every business's finances or none, because the files are shared, not permissioned.</li>
+</ul>
+<h2>What an ERP has to handle in a multi-business corporation</h2>
+<p>An enterprise resource planning (ERP) system combines finance with other operations, such as purchasing, inventory, payroll and projects, in one database. For a corporation with several businesses, the finance core matters most. Check that any system you shortlist handles these properly:</p>
+<table>
+<thead><tr><th>Capability</th><th>What it means in practice</th><th>Why it matters for an EDC</th></tr></thead>
+<tbody>
+<tr><td>Multi-entity setup</td><td>Each business is its own company in the system, with its own ledger and bank accounts</td><td>Keeps each partnership's legal books separate</td></tr>
+<tr><td>Consolidation</td><td>Combines the entities' results into one group view</td><td>Produces the board's report without spreadsheets</td></tr>
+<tr><td>Intercompany transactions</td><td>Records a sale from one entity as a matching purchase in the other, then eliminates both in the group totals</td><td>Stops internal work from inflating revenue</td></tr>
+<tr><td>Shared chart of accounts and dimensions</td><td>The same account structure everywhere, with tags such as business, location or project</td><td>Makes businesses comparable side by side</td></tr>
+<tr><td>Role-based access by entity</td><td>Each manager sees only the businesses they run</td><td>Protects confidential results and reduces errors</td></tr>
+</tbody>
+</table>
+<p>Mainstream mid-market systems include these features, but they work differently. Microsoft Dynamics 365 Business Central, for example, treats each entity as a company and has separate tools for <a href="https://learn.microsoft.com/en-ca/dynamics365/business-central/finance-multi-site-organizations">consolidating financial data across companies</a> and <a href="https://learn.microsoft.com/en-nz/dynamics365/business-central/intercompany-manage">managing intercompany transactions</a>. Sage Intacct describes its approach as <a href="https://www.sage.com/en-ca/erp/multi-entity-and-financial-consolidation/">multi-entity management and financial consolidation</a>. Ask every vendor to demonstrate an intercompany sale and a month-end consolidation using your structure, not their sample data.</p>
+<h2>Three ways to set it up</h2>
+<p>There is no single right architecture. The choice depends on how similar your businesses are and how much each one depends on industry-specific software.</p>
+<table>
+<thead><tr><th>Setup</th><th>How it works</th><th>Best for</th><th>Trade-offs</th></tr></thead>
+<tbody>
+<tr><td>1. One ERP for every business</td><td>All entities run finance and operations in the same system</td><td>Businesses with similar processes, such as several retail or service businesses</td><td>Simplest reporting; but one system has to fit very different operations, and some will lose features they rely on</td></tr>
+<tr><td>2. Shared finance core, industry systems connected</td><td>All entities share one ERP for finance; each keeps its specialist software (point of sale, construction job costing, hotel bookings), which sends summaries to the ERP</td><td>Mixed portfolios, which is most EDCs</td><td>Best balance for most; needs integrations that someone must build and maintain</td></tr>
+<tr><td>3. Keep current systems, add a reporting layer</td><td>Each business keeps its accounting software; a reporting tool pulls the numbers together</td><td>A first step when budget or timing rules out a new ERP</td><td>Cheapest to start; does not fix intercompany entries or inconsistent charts of accounts, so the close stays slow</td></tr>
+</tbody>
+</table>
+<p>For a group that includes a fuel station, a construction company and a lodge, setup 2 is usually the realistic target. The fuel station's point-of-sale system and the lodge's booking system do their jobs well. What the group lacks is one finance core underneath them.</p>
+<h2>How to choose: questions for your leadership team</h2>
+<ol>
+<li><strong>What decision does the board struggle to make today?</strong> If the answer is "we can't see group results until weeks after month-end", consolidation is the priority. If it is "we can't see job profitability", operations matter more.</li>
+<li><strong>How different are the businesses?</strong> The more they differ, the stronger the case for setup 2.</li>
+<li><strong>Which systems would people refuse to give up, and why?</strong> A specialist system that works is usually worth connecting rather than replacing.</li>
+<li><strong>Who will own the system after go-live?</strong> An ERP needs an internal owner, usually in finance, plus outside support for changes and upgrades.</li>
+<li><strong>How many new businesses do you expect to add?</strong> If the corporation is still acquiring or launching businesses, choose a setup where adding an entity is routine.</li>
+<li><strong>Where must the data live?</strong> Decide early whether cloud hosting is acceptable, which country the data is stored in, and who can access it. Some communities have their own data governance expectations; include them in the requirements, not after the contract.</li>
+</ol>
+<h2>A phased rollout plan</h2>
+<p>Rolling out everything at once is the most common way ERP projects stall. A phased plan keeps the businesses running and shows value early.</p>
+<ol>
+<li><strong>Agree the chart of accounts.</strong> Design one account structure and a short list of dimensions (business, location, project) that every entity will use. This is the foundation of consolidated reporting, and it is a finance decision before it is a software one.</li>
+<li><strong>Clean the data you will move.</strong> Decide how much history to bring over. Opening balances and one or two years of summaries are often enough; moving every old transaction adds cost and risk.</li>
+<li><strong>Start with finance for two businesses.</strong> Pick one simple business and one complex one. Run the first month-end close in the new system alongside the old one.</li>
+<li><strong>Add intercompany and consolidation.</strong> Once two entities close cleanly, set up intercompany rules and produce the first consolidated report for the board.</li>
+<li><strong>Bring in the remaining businesses one at a time.</strong> Each one gets easier, because the structure and training already exist.</li>
+<li><strong>Connect the specialist systems.</strong> Link point of sale, bookings or job costing so their summaries post to the ERP automatically.</li>
+<li><strong>Train, document and hand over.</strong> Staff need to know which tasks the system handles and how to check its output. Write down who approves what.</li>
+</ol>
+<p>Publicly documented projects show what is possible at scale. MNP Digital <a href="https://mnpdigital.ca/?p=39691">describes its work with Qikiqtaaluk Corporation</a>, an Inuit-owned organization in Nunavut, which moved 13 companies off a long-used entry-level accounting system onto a shared ERP with standard practices across its entities.</p>
+<h2>Costs and effort to plan for</h2>
+<p>Vendors quote licences first, but licences are rarely the largest cost. Budget for each of these:</p>
+<ul>
+<li><strong>Licences or subscriptions</strong>, usually per user per month for cloud systems, and sometimes per entity.</li>
+<li><strong>Implementation</strong>: configuration, the chart of accounts, workflows, reports and testing.</li>
+<li><strong>Data migration</strong>: cleaning, mapping and loading opening balances and history.</li>
+<li><strong>Integrations</strong> with point of sale, booking, payroll or job-costing systems, plus their upkeep when either side updates.</li>
+<li><strong>Training and staff time</strong>, including running old and new systems side by side for at least one close.</li>
+<li><strong>Ongoing support</strong> for changes, new entities and upgrades.</li>
+</ul>
+<p>A simple way to compare options is to estimate the hours finance staff spend on consolidation and re-keying each month, then compare that time, plus the cost of reporting errors, with the yearly cost of each setup. Use your own time records; the business case is only as reliable as those inputs.</p>
+<h2>Getting started</h2>
+<p>The best first step is rarely a software demo. Start by writing down the three reports your board most needs, how long each takes to produce today, and which businesses feed into them. That short document makes every vendor conversation sharper.</p>
+<p>IndigeneTech is an Indigenous-owned technology company that designs and implements business systems, including <a href="/erp-solutions/">ERP solutions</a> and <a href="/enterprise-custom-software-development/">custom integrations</a> for systems an off-the-shelf ERP can't reach. If you are weighing these options, <a href="/it-consulting/">our IT consulting team</a> can help you map your businesses, choose a setup and plan the rollout. <a href="/contact-us/">Talk to our team</a> about where your reporting breaks down today.</p>
+<h2>Frequently asked questions</h2>
+<!-- wp:rank-math/faq-block {"questions":[{"id":"faq-one-erp-or-several","title":"Should every business in our corporation use the same ERP?","content":"Not always. Most groups with different kinds of businesses do best with one shared finance system and their existing specialist software connected to it, rather than forcing every business into one system.","visible":true},{"id":"faq-intercompany","title":"What are intercompany transactions and why do they matter?","content":"They are sales, services or loans between businesses you own. In the group's consolidated results they must be eliminated, or revenue and costs are overstated. A multi-entity ERP can record and eliminate them automatically.","visible":true},{"id":"faq-how-long","title":"How long does an ERP rollout take for several businesses?","content":"It depends on the number of entities, the state of your data and how many systems need connecting. Phasing it, starting with finance for two businesses, gets a working consolidated report sooner than a single go-live.","visible":true},{"id":"faq-cloud","title":"Is a cloud ERP suitable for a community-owned corporation?","content":"Often yes, but decide first where the data must be stored and who can access it. Put those requirements, including any community data governance expectations, into the vendor selection.","visible":true},{"id":"faq-where-start","title":"Where should we start?","content":"With the reports your board needs most and how long they take today. Then agree one chart of accounts across the businesses. See our <a href=\"/erp-solutions/\">ERP solutions</a> for how we approach it.","visible":true}]} /-->
