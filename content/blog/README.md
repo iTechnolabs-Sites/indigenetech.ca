@@ -4,8 +4,8 @@ Each folder holds one IndigeneTech blog post, ready to publish in WordPress. Pos
 
 | Folder | Post | Status |
 |---|---|---|
-| `erp-for-economic-development-corporations/` | ERP for Economic Development Corporations: One System or Several? | Ready; created on staging for review |
-| `data-governance-questions-technology-vendor/` | Data Governance Questions to Ask a Technology Vendor: A Guide for First Nations Organizations | Ready; created on staging for review |
+| `erp-for-economic-development-corporations/` | ERP for Economic Development Corporations: One System or Several? | Published on staging (post ID 11933): https://staging.indigenetech.ca/blog/erp-for-economic-development-corporations/ |
+| `data-governance-questions-technology-vendor/` | Data Governance Questions to Ask a Technology Vendor: A Guide for First Nations Organizations | Published on staging (post ID 11934): https://staging.indigenetech.ca/blog/data-governance-questions-technology-vendor/ |
 
 ## Publishing a post on live
 
@@ -16,3 +16,9 @@ Each folder holds one IndigeneTech blog post, ready to publish in WordPress. Pos
 5. Preview: check the table of contents (left sidebar) and the FAQ section at the end, then publish.
 
 Alternatively, export the reviewed posts from staging (Tools → Export → Posts) and import them on live.
+
+## Verified on staging (23 Nov 2026)
+
+Checked as a logged-out visitor: Rank Math SEO title and meta description, one H1, table of contents (8 and 10 entries), all 5 FAQ questions rendered with valid FAQPage structured data, no stray line breaks. The Rank Math FAQ block works in the Classic editor on this site. WordPress re-encodes quotes and angle brackets inside the FAQ block as `\u0022`, `\u003c` when saving; that is expected.
+
+Still to do before live: featured images (concepts and alt text in each `publish-notes.md`).
