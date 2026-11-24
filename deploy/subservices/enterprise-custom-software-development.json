@@ -1,0 +1,207 @@
+{
+  "parent": {
+    "slug": "enterprise-custom-software-development",
+    "title": "Enterprise Custom Software Development",
+    "card_heading": "Custom Enterprise Software Development Services We Offer",
+    "not_built": [
+      {"card": "Custom Enterprise Software Development", "reason": "This is the parent page itself; a separate page would duplicate it."}
+    ]
+  },
+  "pages": [
+    {
+      "card": "Enterprise Data Management",
+      "slug": "enterprise-data-management",
+      "keyword": "enterprise data management services",
+      "seo_title": "Enterprise Data Management Services | IndigeneTech",
+      "meta_description": "Enterprise data management services from IndigeneTech: data pipelines, a central warehouse or lake, clear access rules and reports your teams can trust.",
+      "h1": "Enterprise Data Management Services",
+      "intro": "Your data is spread across spreadsheets, apps and old databases, and every report starts with a cleanup. We set up pipelines, a central warehouse or lake, and clear rules for who can see what, so your teams get numbers they can rely on. You work with a custom enterprise software development company led by Indigenous tech workers.",
+      "bullets": [
+        "Free 30-minute call to map your data sources and goals",
+        "Strict NDAs keep your data and plans protected",
+        "Role-based access, encryption and audit logs from day one",
+        "Weekly demos so you see working reports early"
+      ],
+      "included_heading": "What Our Enterprise Data Management Services Include",
+      "included": [
+        {"title": "Data audit and roadmap", "text": "We list every source you rely on, check quality and duplicates, and agree on the reports that matter most. You get a short, phased plan with clear priorities."},
+        {"title": "Data pipelines", "text": "We move data from your apps, files and databases on a schedule or in near real time. Checks catch missing or broken records before they reach a report."},
+        {"title": "Central warehouse or lake", "text": "We set up one place for your business data on AWS, Azure or Google Cloud, sized to what you need now and easy to grow later."},
+        {"title": "Master data and quality rules", "text": "One customer, one product, one supplier record. We define naming and matching rules so the same thing is not counted twice."},
+        {"title": "Access and governance", "text": "Role-based access, encryption in transit and at rest, and audit logs show who viewed or changed what. Retention rules match your policies."},
+        {"title": "Reports and dashboards", "text": "Trusted metrics for finance, operations and leadership, with self-serve views and alerts so teams stop waiting on manual exports."}
+      ],
+      "process_heading": "How We Deliver Enterprise Data Management",
+      "process": [
+        {"title": "Discover", "text": "A 30-minute call and a quick audit of your sources, owners and the decisions the data must support."},
+        {"title": "Design", "text": "We agree on the data model, quality rules, access roles and the first reports to deliver."},
+        {"title": "Build", "text": "Pipelines and the warehouse are built in small sprints, with weekly demos on real data."},
+        {"title": "Validate", "text": "We reconcile numbers against your current reports so your team trusts the new ones before switching."},
+        {"title": "Support", "text": "Monitoring, fixes and new sources as your business changes."}
+      ],
+      "faqs": [
+        {"q": "What is enterprise data management?", "a": "It is the set of tools and rules that keep business data accurate, consistent and secure across systems: pipelines that collect it, a central store, quality and naming rules, and controlled access. The goal is one trusted version of your numbers."},
+        {"q": "Do we have to replace our current systems?", "a": "No. We connect to the apps and databases you already use and pull data from them. Systems are replaced only if they block a goal, and that is agreed with you first."},
+        {"q": "Which platforms do you work with?", "a": "We build on AWS, Azure or Google Cloud and work with common databases, spreadsheets and business apps. The choice depends on what you already run, your budget and your data rules."},
+        {"q": "How do you keep sensitive data safe?", "a": "Role-based access, encryption in transit and at rest, single sign-on, audit logs and backups are part of the build, not extras. We also agree on retention and who can export data."},
+        {"q": "How long does a first phase take?", "a": "It depends on the number of sources and their quality. After the audit you get a phased plan with milestones, starting with the reports that save your team the most time."}
+      ]
+    },
+    {
+      "card": "Software Integration",
+      "slug": "software-integration-services",
+      "keyword": "software integration services",
+      "seo_title": "Software Integration Services | IndigeneTech",
+      "meta_description": "Software integration services that connect your ERP, CRM, POS, payments and HR systems with stable APIs, so data stays in sync and teams stop re-typing it.",
+      "h1": "Software Integration Services",
+      "intro": "When your tools do not talk to each other, people copy data by hand and mistakes creep in. We connect the systems you already use, ERP, CRM, POS, payments, HR and custom apps, with stable APIs that keep everything in sync. You work with a custom enterprise software development company led by Indigenous tech workers.",
+      "bullets": [
+        "Free 30-minute call to map the systems you want connected",
+        "Strict NDAs keep your systems and data protected",
+        "Clear data mapping before any code is written",
+        "Monitoring and alerts so failed syncs never go unnoticed"
+      ],
+      "included_heading": "What Our Software Integration Services Include",
+      "included": [
+        {"title": "Integration audit", "text": "We map your systems, the data each one owns and where manual work happens today, then agree on which connections to build first."},
+        {"title": "API development", "text": "Secure, documented APIs for your custom systems, so other tools can read and update data without workarounds."},
+        {"title": "ERP and CRM integration", "text": "Orders, customers, invoices and stock move between your ERP and CRM automatically, with clear rules for which system is the source of truth."},
+        {"title": "Payments, POS and HR", "text": "Connect payment providers, point-of-sale and HR or payroll tools so sales, refunds and staff data stay consistent everywhere."},
+        {"title": "Data mapping and sync", "text": "We match fields and formats between systems and choose real-time or scheduled sync for each flow, with retries for temporary failures."},
+        {"title": "Monitoring and support", "text": "Logs, alerts and a simple status view show every sync. When a connected app changes, we update the integration."}
+      ],
+      "process_heading": "How We Deliver Software Integration",
+      "process": [
+        {"title": "Discover", "text": "A 30-minute call and an audit of your systems, data owners and manual steps."},
+        {"title": "Map", "text": "We document fields, formats, sync timing and error handling for each connection."},
+        {"title": "Build", "text": "Integrations are built and tested in small sprints against test copies of your systems."},
+        {"title": "Launch", "text": "We switch flows on in stages and watch the first runs closely."},
+        {"title": "Support", "text": "Monitoring, fixes and updates when a connected system changes its API."}
+      ],
+      "faqs": [
+        {"q": "Which systems can you integrate?", "a": "Most business tools with an API or export: ERP, CRM, POS, payment providers, HR and payroll, accounting, e-commerce and custom software. If a system has no API, we look at file exchange or database connections."},
+        {"q": "Real-time or scheduled sync?", "a": "It depends on the data. Payments and stock levels usually need near real-time updates; reports and history can sync on a schedule. We choose per flow and explain the trade-off."},
+        {"q": "What happens when a sync fails?", "a": "Failed messages are retried automatically and logged. If a problem persists, alerts go to the right people with enough detail to fix it, so data is not lost silently."},
+        {"q": "Can you work with our older systems?", "a": "Yes. Older systems often need an adapter or a small API layer. If a system is holding you back, we can plan a gradual modernization alongside the integration."},
+        {"q": "Who owns the integration code?", "a": "You do. You get the code, documentation and access, so you are never locked in."}
+      ]
+    },
+    {
+      "card": "Legacy App Modernization",
+      "slug": "legacy-application-modernization",
+      "keyword": "legacy application modernization services",
+      "seo_title": "Legacy Application Modernization Services | IndigeneTech",
+      "meta_description": "Legacy application modernization that keeps what works: move old apps to modern stacks, improve UX and move to the cloud in phases, without stopping daily work.",
+      "h1": "Legacy Application Modernization Services",
+      "intro": "Old applications often still run important work, but they are slow to change, hard to secure and costly to keep alive. We keep what works and fix what slows you down: modern stacks, better screens and a move to the cloud when it helps, in phases that do not stop your operations. You work with a custom enterprise software development company led by Indigenous tech workers.",
+      "bullets": [
+        "Free 30-minute call to review the app you want to modernize",
+        "Strict NDAs protect your code and business rules",
+        "Step-by-step plan that keeps daily work running",
+        "Security fixes and cloud options built into the plan"
+      ],
+      "included_heading": "What Our Legacy Application Modernization Services Include",
+      "included": [
+        {"title": "Application assessment", "text": "We review code, data, integrations and risks, and show which parts to keep, refactor, rebuild or retire, with effort for each."},
+        {"title": "Refactoring and re-platforming", "text": "We move code to supported languages and frameworks, remove dead features and make the app easier and safer to change."},
+        {"title": "Cloud migration", "text": "When it helps, we move the app to AWS, Azure or Google Cloud with backups and a tested rollback plan."},
+        {"title": "UX and interface refresh", "text": "Clearer screens, faster forms and mobile-friendly layouts, so people get work done with fewer clicks."},
+        {"title": "Data migration", "text": "We move and clean historical data, check totals against the old system and keep an audit trail of the transfer."},
+        {"title": "Security hardening", "text": "Supported libraries, role-based access, encryption, single sign-on and audit logs replace outdated, risky components."}
+      ],
+      "process_heading": "How We Modernize Legacy Applications",
+      "process": [
+        {"title": "Assess", "text": "A 30-minute call and a review of the app, its users and the risks of change."},
+        {"title": "Plan", "text": "A phased roadmap that keeps the system running while parts are replaced."},
+        {"title": "Modernize", "text": "Work happens in small sprints with weekly demos and testing on real scenarios."},
+        {"title": "Switch over", "text": "Each part goes live with backups and a rollback plan, so operations keep running."},
+        {"title": "Support", "text": "Fixes, updates and further phases once the first ones are stable."}
+      ],
+      "faqs": [
+        {"q": "Do we have to rebuild the whole application?", "a": "Usually not. Many apps can be modernized step by step: keep the parts that work, refactor or replace the rest. The assessment shows the most cost-effective path."},
+        {"q": "Will modernization interrupt our work?", "a": "We plan it so it does not. Parts are switched over one at a time, with backups and a rollback plan, and the old system keeps running until the new part is proven."},
+        {"q": "Do we need to move to the cloud?", "a": "Not always. We recommend it when it lowers cost, improves reliability or makes scaling easier. If staying on your own servers makes more sense, we modernize in place."},
+        {"q": "What happens to our existing data?", "a": "We migrate and clean it, reconcile totals with the old system and keep a record of what moved, so nothing is lost and your team can check the results."},
+        {"q": "How do you estimate cost and time?", "a": "After the assessment you get a phased plan with effort per phase. You can start with the part that causes the most pain and decide on later phases as you go."}
+      ]
+    },
+    {
+      "card": "Software Maintenance and Support",
+      "slug": "software-maintenance-and-support",
+      "keyword": "software maintenance and support services",
+      "seo_title": "Software Maintenance and Support Services | IndigeneTech",
+      "meta_description": "Software maintenance and support after launch: updates, bug fixes, uptime checks, backups and security patches under clear service levels and quick response.",
+      "h1": "Software Maintenance and Support Services",
+      "intro": "Software needs care after launch. Libraries age, browsers change and small bugs pile up. We handle updates, bug fixes, uptime checks, backups and security patches, with clear service levels and a friendly team that responds quickly. You work with a custom enterprise software development company led by Indigenous tech workers.",
+      "bullets": [
+        "Free 30-minute call to review your application and needs",
+        "Clear service levels for response and fixes",
+        "Security patches and backups handled for you",
+        "Plain monthly updates on what was done"
+      ],
+      "included_heading": "What Our Software Maintenance and Support Services Include",
+      "included": [
+        {"title": "Bug fixes", "text": "Issues are logged, prioritized and fixed according to the agreed service levels, with a clear note of what changed."},
+        {"title": "Security patches and updates", "text": "We keep frameworks, libraries and servers up to date and apply security patches before they become problems."},
+        {"title": "Monitoring and uptime checks", "text": "Uptime, errors and performance are watched continuously, with alerts so issues are spotted before users report them."},
+        {"title": "Backups and recovery", "text": "Regular backups are taken and test-restored, so data can be recovered quickly if something goes wrong."},
+        {"title": "Performance tuning", "text": "We find slow pages and queries and fix them, keeping the app fast as data and users grow."},
+        {"title": "Small enhancements", "text": "Minor features and improvements can be added within the plan, so the software keeps up with how your team works."}
+      ],
+      "process_heading": "How Our Maintenance and Support Works",
+      "process": [
+        {"title": "Review", "text": "A 30-minute call and a check of your code, hosting, backups and open issues."},
+        {"title": "Agree", "text": "We agree on service levels, contact paths and what is included each month."},
+        {"title": "Stabilize", "text": "Urgent fixes and missing backups or monitoring are handled first."},
+        {"title": "Maintain", "text": "Updates, patches and fixes on a regular cycle, with a monthly summary."},
+        {"title": "Improve", "text": "We suggest and plan improvements based on errors, usage and your feedback."}
+      ],
+      "faqs": [
+        {"q": "Can you support software that another team built?", "a": "Yes. We start with a review of the code, hosting and documentation, fix urgent issues and fill gaps such as backups or monitoring, then take over regular maintenance."},
+        {"q": "What service levels do you offer?", "a": "Response and fix times are agreed with you based on how critical the system is. They are written down, so both sides know what to expect."},
+        {"q": "Are security updates included?", "a": "Yes. Keeping frameworks, libraries and servers patched is part of maintenance, not an extra."},
+        {"q": "How do we report an issue?", "a": "Through an agreed channel such as email or a ticket portal. Every issue gets a reference, a priority and updates until it is closed."},
+        {"q": "Can the plan include new features?", "a": "Small enhancements can be included. Larger features are estimated separately so your monthly plan stays predictable."}
+      ]
+    },
+    {
+      "card": "CRM Development",
+      "slug": "custom-crm-development",
+      "keyword": "custom CRM development services",
+      "seo_title": "Custom CRM Development Services | IndigeneTech",
+      "meta_description": "Custom CRM development built around your sales flow: leads, deals, tasks and support in one place, with email sync, alerts, dashboards and your other systems.",
+      "h1": "Custom CRM Development Services",
+      "intro": "Off-the-shelf CRMs force your team into someone else's process. We build a custom CRM around your sales flow: leads, deals, tasks and support in one place, with alerts, email sync and dashboards, connected to the systems you already use. You work with a custom enterprise software development company led by Indigenous tech workers.",
+      "bullets": [
+        "Free 30-minute call to map your sales and support flow",
+        "Strict NDAs protect your customer data and process",
+        "Connected to your email, website and other systems",
+        "You own the code and the data"
+      ],
+      "included_heading": "What Our Custom CRM Development Services Include",
+      "included": [
+        {"title": "Lead and contact management", "text": "Capture leads from your website, email and forms, avoid duplicates and see each contact's full history in one view."},
+        {"title": "Deals and pipeline", "text": "Stages that match how you actually sell, with values, next steps and forecasts your managers can trust."},
+        {"title": "Tasks, alerts and automation", "text": "Reminders, follow-ups and routine updates happen automatically, so no lead or renewal is forgotten."},
+        {"title": "Email and calendar sync", "text": "Emails and meetings are linked to the right contact and deal without copying and pasting."},
+        {"title": "Support and service", "text": "Track requests and cases next to sales history, so every team sees the full customer relationship."},
+        {"title": "Dashboards and integrations", "text": "Sales and service dashboards, plus connections to your ERP, accounting, website or other tools."}
+      ],
+      "process_heading": "How We Build Your Custom CRM",
+      "process": [
+        {"title": "Discover", "text": "A 30-minute call and workshops on how leads, deals and support move today."},
+        {"title": "Design", "text": "We agree on stages, fields, roles, automations and the first dashboards."},
+        {"title": "Build", "text": "The CRM is built in small sprints with weekly demos your sales team can try."},
+        {"title": "Migrate and launch", "text": "We import and clean existing contacts and deals, train your team and go live."},
+        {"title": "Support", "text": "Fixes, new automations and integrations as your process changes."}
+      ],
+      "faqs": [
+        {"q": "Why build a custom CRM instead of using an off-the-shelf one?", "a": "A custom CRM fits your process instead of the other way around, has only the features your team uses, and has no per-user licence fees. It makes most sense when your sales or service flow is specific or off-the-shelf tools need many workarounds."},
+        {"q": "Can you move our data from our current CRM or spreadsheets?", "a": "Yes. We import contacts, companies, deals and history, clean duplicates and check the results with your team before launch."},
+        {"q": "Will it connect to our other systems?", "a": "Yes. Common connections include email and calendar, your website forms, ERP and accounting tools. We map these during design."},
+        {"q": "Who owns the CRM?", "a": "You do: the code, the data and the documentation. You are not locked into a vendor."},
+        {"q": "How do you keep customer data secure?", "a": "Role-based access, encryption in transit and at rest, single sign-on, audit logs and regular backups are part of the build."}
+      ]
+    }
+  ]
+}
