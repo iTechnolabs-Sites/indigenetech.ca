@@ -5,6 +5,7 @@
  *   wp eval-file build-subservices.php                       # dry run: show the plan, change nothing
  *   wp eval-file build-subservices.php apply                 # back up, create/update pages, link the parent's cards
  *   wp eval-file build-subservices.php revert <backup.json>  # delete created pages, restore everything else
+ *   wp eval-file build-subservices.php restore-updated <backup.json>  # only restore items that run updated (keeps created pages)
  *
  * SPEC=<path to json> picks the spec (default: enterprise-custom-software-development.json).
  * STATUS=draft creates pages as drafts (default: publish).
@@ -24,16 +25,22 @@ function itsb_log($tag, $msg) { WP_CLI::log(sprintf('%-8s %s', $tag, $msg)); }
 function itsb_flush_page($id) { delete_post_meta($id, '_elementor_css'); delete_post_meta($id, '_elementor_element_cache'); }
 
 // ------------------------------------------------------------------ revert
-if ($mode === 'revert') {
+if ($mode === 'revert' || $mode === 'restore-updated') {
     $file = isset($args[1]) ? $args[1] : '';
     $b = $file && is_readable($file) ? json_decode(file_get_contents($file), true) : null;
     if (!is_array($b)) { WP_CLI::error('Pass the backup file written by apply.'); }
-    foreach ($b['created'] as $id) { wp_delete_post((int) $id, true); itsb_log('DELETED', "page $id"); }
+    if ($mode === 'revert') { foreach ($b['created'] as $id) { wp_delete_post((int) $id, true); itsb_log('DELETED', "page $id"); } }
     foreach ($b['updated'] as $u) {
-        wp_update_post(wp_slash(array('ID' => $u['id'], 'post_title' => $u['post_title'], 'post_status' => $u['post_status'])));
+        $fields = array('ID' => $u['id'], 'post_title' => $u['post_title'], 'post_status' => $u['post_status']);
+        if (isset($u['post_name'])) { $fields['post_name'] = $u['post_name']; }
+        if (get_post_type($u['id']) === 'attachment') {
+            // wp_update_post would refuse/alter an attachment's status; write the fields directly.
+            global $wpdb; unset($fields['ID']); $wpdb->update($wpdb->posts, $fields, array('ID' => $u['id'])); clean_post_cache($u['id']);
+        } else { wp_update_post(wp_slash($fields)); }
         foreach ($u['meta'] as $k => $v) { if ($v === null) { delete_post_meta($u['id'], $k); } else { update_post_meta($u['id'], $k, wp_slash($v)); } }
         itsb_log('RESTORED', "page {$u['id']}");
     }
+    if ($mode === 'restore-updated') { WP_CLI::success('Restored the updated items from ' . $file . ' (created pages kept)'); return; }
     if (!empty($b['parent'])) { update_post_meta($b['parent']['id'], '_elementor_data', wp_slash($b['parent']['elementor_data'])); itsb_flush_page($b['parent']['id']); itsb_log('RESTORED', 'parent page cards (Elementor data)'); }
     foreach ($b['updated'] as $u) { itsb_flush_page($u['id']); }
     WP_CLI::success('Reverted from ' . $file);
@@ -171,8 +178,12 @@ $parent_url = get_permalink($parent);
 $plan = array();
 foreach ($spec['pages'] as $pg) {
     $path = $P['slug'] . '/' . $pg['slug'];
-    $existing = get_page_by_path($path);
-    $plan[] = array('page' => $pg, 'path' => $path, 'existing' => $existing, 'url' => home_url('/' . $path . '/'));
+    // get_page_by_path() also matches attachments (media) uploaded to the parent: only accept real pages.
+    $found = get_page_by_path($path, OBJECT, 'page');
+    $existing = ($found && $found->post_type === 'page') ? $found : null;
+    $blocker = null;
+    foreach (get_posts(array('post_type' => 'attachment', 'post_status' => 'any', 'name' => $pg['slug'], 'numberposts' => -1)) as $att) { $blocker = $att; }
+    $plan[] = array('page' => $pg, 'path' => $path, 'existing' => $existing, 'blocker' => $blocker, 'url' => home_url('/' . $path . '/'));
 }
 $backup = array('spec' => basename($spec_file), 'created' => array(), 'updated' => array(), 'parent' => null);
 $file = $backup_dir . '/subservices-' . $P['slug'] . '-' . gmdate('Ymd-His') . '.json';
@@ -186,6 +197,16 @@ foreach ($plan as $item) {
     $tree = itsb_page_tree($parent_tree, $pg, $spec, $card_images[$pg['card']] ?? null, $siblings, $parent_url);
     $json = wp_json_encode($tree);
     $what = ($item['existing'] ? 'UPDATE' : 'CREATE') . " /{$item['path']}/  \"{$pg['h1']}\"  title=\"{$pg['seo_title']}\"  (" . strlen($json) . ' bytes of layout)';
+    if ($item['blocker']) {
+        $bl = $item['blocker'];
+        $msg = "media item {$bl->ID} (\"{$bl->post_title}\") uses the slug {$pg['slug']}; its slug becomes {$pg['slug']}-image so the page can use the address (image file and URL unchanged)";
+        if ($mode !== 'apply') { itsb_log('PLAN', $msg); }
+        else {
+            $backup['updated'][] = array('id' => $bl->ID, 'post_title' => $bl->post_title, 'post_status' => $bl->post_status, 'post_name' => $bl->post_name, 'meta' => array()); $save();
+            global $wpdb; $wpdb->update($wpdb->posts, array('post_name' => $pg['slug'] . '-image'), array('ID' => $bl->ID)); clean_post_cache($bl->ID);
+            itsb_log('APPLIED', $msg);
+        }
+    }
     if ($mode !== 'apply') { itsb_log('PLAN', $what); continue; }
 
     if ($item['existing']) {
