@@ -140,7 +140,8 @@ function itsb_page_tree(array $tree, array $page, array $spec, $card_image, arra
     $acc = &itsb_find($tree, $map['faq_accordion'][0]);
     $tplq = $acc['settings']['ekit_accordion_items'][0] ?? array();
     $qs = array();
-    foreach ($page['faqs'] as $f) { $q = $tplq; $q['acc_title'] = $f['q']; $q['acc_content'] = '<p>' . esc_html($f['a']) . '</p>'; $q['_id'] = itsb_uid(); $qs[] = $q; }
+    // Only the first answer starts open, as on the parent page.
+    foreach ($page['faqs'] as $fi => $f) { $q = $tplq; $q['ekit_acc_is_active'] = $fi ? 'no' : 'yes'; $q['acc_title'] = $f['q']; $q['acc_content'] = '<p>' . esc_html($f['a']) . '</p>'; $q['_id'] = itsb_uid(); $qs[] = $q; }
     $acc['settings']['ekit_accordion_items'] = $qs; unset($acc);
     // remove sections that don't belong on a sub-service page
     foreach ($map['remove_sections_with'] as $r) { foreach ($tree as $i => $el) { if (itsb_contains($el, $r[0])) { array_splice($tree, $i, 1); break; } } }
