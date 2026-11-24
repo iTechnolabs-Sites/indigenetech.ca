@@ -767,8 +767,23 @@ function itech_service_page_slugs()
     );
 }
 
+/**
+ * A service page or one of its sub-service pages (children of a service page).
+ */
+function itech_is_service_page()
+{
+    if (!is_page()) {
+        return false;
+    }
+    if (is_page(itech_service_page_slugs())) {
+        return true;
+    }
+    $post = get_post();
+    return $post && $post->post_parent && in_array(get_post_field('post_name', $post->post_parent), itech_service_page_slugs(), true);
+}
+
 add_filter('rank_math/json_ld', function ($data) {
-    if (!is_array($data) || !(is_front_page() || is_page(itech_service_page_slugs()))) {
+    if (!is_array($data) || !(is_front_page() || itech_is_service_page())) {
         return $data;
     }
     $article_key = null;
@@ -791,7 +806,7 @@ add_filter('rank_math/json_ld', function ($data) {
     $article = $data[$article_key];
     unset($data[$article_key]);
 
-    if (is_page(itech_service_page_slugs())) {
+    if (itech_is_service_page()) {
         $publisher = isset($data['publisher']['@id']) ? $data['publisher']['@id'] : home_url('/#organization');
         $service   = array(
             '@type'       => 'Service',
