@@ -1,0 +1,662 @@
+{
+ "parent": {
+  "slug": "app-development",
+  "title": "App Development",
+  "card_heading": "App Development Services We Offer",
+  "not_built": [],
+  "elementor_map": {
+   "_source": "Element IDs read from the live parent page HTML on 24 Nov 2026; the generator checks each one exists and has the expected widget type before changing anything.",
+   "hero_heading": [
+    "6bd81c2d",
+    "heading"
+   ],
+   "hero_text": [
+    "1ccb960a",
+    "text-editor"
+   ],
+   "hero_list": [
+    "55bcfd54",
+    "icon-list"
+   ],
+   "hero_image": [
+    "418a1700",
+    "image"
+   ],
+   "offer_heading": [
+    "6631bdf1",
+    "heading"
+   ],
+   "offer_intro_remove": [
+    "1693b77b",
+    "text-editor"
+   ],
+   "offer_cards": [
+    [
+     "568a93d7",
+     "image-box"
+    ],
+    [
+     "ef3647a",
+     "image-box"
+    ],
+    [
+     "3adae2bd",
+     "image-box"
+    ],
+    [
+     "5d693a98",
+     "image-box"
+    ],
+    [
+     "4e45acbb",
+     "image-box"
+    ],
+    [
+     "1a73f8af",
+     "image-box"
+    ]
+   ],
+   "process_heading": [
+    "425c5e93",
+    "heading"
+   ],
+   "process_boxes": [
+    [
+     "a16c57b",
+     "image-box"
+    ],
+    [
+     "7420f7d1",
+     "image-box"
+    ],
+    [
+     "22b1d28d",
+     "image-box"
+    ],
+    [
+     "8530ec",
+     "image-box"
+    ],
+    [
+     "9ff45a4",
+     "image-box"
+    ],
+    [
+     "1b10fe86",
+     "image-box"
+    ]
+   ],
+   "faq_accordion": [
+    "9835a8a",
+    "elementskit-accordion"
+   ],
+   "remove_sections_with": [
+    [
+     "258d47fd",
+     "second call-to-action band (one is kept at the top and one at the end)"
+    ],
+    [
+     "2b900715",
+     "Industries We Serve"
+    ]
+   ]
+  },
+  "card_order": [
+   "React Native App Development",
+   "Flutter App Development",
+   "iOS App Development",
+   "Android App Development",
+   "Cross-Platform App Development",
+   "Progressive Web App Development"
+  ],
+  "related_heading": "Related App Development Services"
+ },
+ "pages": [
+  {
+   "card": "React Native App Development",
+   "slug": "react-native-app-development",
+   "keyword": "react native app development services",
+   "seo_title": "React Native App Development Services | IndigeneTech",
+   "meta_description": "React Native app development for iOS and Android from one codebase: a near-native feel, faster releases and lower upkeep, with weekly demos and store launch.",
+   "h1": "React Native App Development Services",
+   "intro": "Build one app for iPhone and Android instead of two. We use React Native to ship a near-native app from a single codebase, so you launch sooner and every update reaches both stores at once. IndigeneTech is an app development company built for Indigenous-owned teams and community-led programs, with clear pricing, fixed milestones and weekly demos.",
+   "bullets": [
+    "Free 20-minute call to map your idea",
+    "Clickable prototype before we write code",
+    "One codebase for iOS and Android",
+    "App Store and Play Store launch handled"
+   ],
+   "included_heading": "What Our React Native App Development Services Include",
+   "included": [
+    {
+     "title": "React Native MVPs",
+     "text": "A focused first version with the core screens, logins and data, so you can test with real users in weeks, not months."
+    },
+    {
+     "title": "Device features",
+     "text": "Camera, maps, push notifications and payments, with native code where React Native alone isn't enough."
+    },
+    {
+     "title": "Backend and APIs",
+     "text": "Secure APIs, databases and admin tools on Node.js or .NET, hosted on AWS or Azure."
+    },
+    {
+     "title": "Move to React Native",
+     "text": "Replace two separate apps, or an older hybrid app, with one shared codebase in planned steps."
+    },
+    {
+     "title": "Real-device testing",
+     "text": "Function, speed and security checks on iPhones and Android phones every sprint."
+    },
+    {
+     "title": "Store launch and support",
+     "text": "App Store and Play Store submissions, monitoring, updates and new features after go-live."
+    }
+   ],
+   "process_heading": "How We Build Your React Native App",
+   "process": [
+    {
+     "title": "Initial Analysis",
+     "text": "A short call to map your goals, users and risks, then agreed scope, budget range and timeline."
+    },
+    {
+     "title": "Design and Prototype",
+     "text": "Wireframes and a clickable prototype you can tap through before any code is written."
+    },
+    {
+     "title": "Development",
+     "text": "Short sprints with clean, secure React Native code and weekly demos you can open on your own phone."
+    },
+    {
+     "title": "Testing",
+     "text": "Real-device tests on iPhone and Android every sprint for function, speed and security, then your team signs off."
+    },
+    {
+     "title": "Launch",
+     "text": "Staging first, then App Store and Play Store submission with backups, monitoring and a safe rollout plan."
+    },
+    {
+     "title": "Support and Growth",
+     "text": "Updates, fixes, performance tuning and new features under clear SLAs, with simple reports."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Is a React Native app as good as a native app?",
+     "a": "For most business apps, yes: users get smooth screens and native controls. If your app depends on heavy graphics or specialised device features, we tell you early and may recommend native code for those parts or a fully native build."
+    },
+    {
+     "q": "How is React Native different from Flutter?",
+     "a": "Both build iOS and Android apps from one codebase. React Native uses JavaScript and native interface components, which suits teams that already work with web technologies. Flutter draws its own interface, which suits highly custom designs. We help you choose based on your app and your team."
+    },
+    {
+     "q": "Can you add features to our existing React Native app?",
+     "a": "Yes. We start with a review of the code, dependencies and store setup, then plan fixes and new features in sprints."
+    },
+    {
+     "q": "Can the app share code with our website?",
+     "a": "Often, yes. Business logic and some components can be shared with a React web app, which keeps features aligned and reduces upkeep."
+    },
+    {
+     "q": "What happens after launch?",
+     "a": "We stay for updates, new iOS and Android versions, bug fixes, performance tuning and new features, with simple reports."
+    }
+   ]
+  },
+  {
+   "card": "Flutter App Development",
+   "slug": "flutter-app-development",
+   "keyword": "flutter app development services",
+   "seo_title": "Flutter App Development Services | IndigeneTech",
+   "meta_description": "Flutter app development for design-rich iOS and Android apps from a single codebase: custom UI, smooth performance and quick changes, with weekly demos.",
+   "h1": "Flutter App Development Services",
+   "intro": "Flutter lets us build a design-rich app for iPhone and Android from a single codebase, with the same look on every device and smooth performance. Changes ship quickly to both platforms as your user base grows. IndigeneTech is an app development company built for Indigenous-owned teams and community-led programs, with clear pricing, fixed milestones and weekly demos.",
+   "bullets": [
+    "Free 20-minute call to map your idea",
+    "Clickable prototype before we write code",
+    "One codebase, one consistent design",
+    "App Store and Play Store launch handled"
+   ],
+   "included_heading": "What Our Flutter App Development Services Include",
+   "included": [
+    {
+     "title": "Custom UI and animation",
+     "text": "Branded screens, custom components and smooth transitions that look the same on every phone."
+    },
+    {
+     "title": "Flutter MVPs",
+     "text": "A first version with the core flows, ready for real users and investor demos."
+    },
+    {
+     "title": "Device features",
+     "text": "Camera, location, push notifications, payments and offline storage through Flutter plugins or native code."
+    },
+    {
+     "title": "Backend and integrations",
+     "text": "APIs, databases, logins and admin tools, plus links to your CRM, payment or booking systems."
+    },
+    {
+     "title": "Real-device testing",
+     "text": "Function, speed and security checks on iPhones and Android phones every sprint."
+    },
+    {
+     "title": "Store launch and support",
+     "text": "App Store and Play Store submissions, monitoring, updates and new features after go-live."
+    }
+   ],
+   "process_heading": "How We Build Your Flutter App",
+   "process": [
+    {
+     "title": "Initial Analysis",
+     "text": "A short call to map your goals, users and risks, then agreed scope, budget range and timeline."
+    },
+    {
+     "title": "Design and Prototype",
+     "text": "Wireframes and a clickable prototype you can tap through before any code is written."
+    },
+    {
+     "title": "Development",
+     "text": "Short sprints with clean, secure Flutter code and weekly demos you can open on your own phone."
+    },
+    {
+     "title": "Testing",
+     "text": "Real-device tests on iPhone and Android every sprint for function, speed and security, then your team signs off."
+    },
+    {
+     "title": "Launch",
+     "text": "Staging first, then App Store and Play Store submission with backups, monitoring and a safe rollout plan."
+    },
+    {
+     "title": "Support and Growth",
+     "text": "Updates, fixes, performance tuning and new features under clear SLAs, with simple reports."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Why choose Flutter for our app?",
+     "a": "Flutter is a strong fit when design matters and you want iOS and Android from one build. It draws its own interface, so screens look and behave the same everywhere, and one team maintains one codebase."
+    },
+    {
+     "q": "Flutter or React Native: which should we pick?",
+     "a": "Both are proven for business apps. Flutter suits highly custom, animated designs; React Native suits teams that already use JavaScript or want to share code with a React website. We compare both against your app in plain language."
+    },
+    {
+     "q": "Can a Flutter app use the camera, GPS and other phone features?",
+     "a": "Yes, through well-supported plugins, with native code for anything specialised."
+    },
+    {
+     "q": "Can you take over an existing Flutter app?",
+     "a": "Yes. We review the code, packages and store setup, fix what's urgent first, then plan new features in sprints."
+    },
+    {
+     "q": "Can a Flutter app also run in the browser?",
+     "a": "Flutter can target the web too. For public, content-heavy sites a regular website is usually better, but for internal tools and dashboards a Flutter web build can share most of the app's code."
+    }
+   ]
+  },
+  {
+   "card": "iOS App Development",
+   "slug": "ios-app-development",
+   "keyword": "ios app development services",
+   "seo_title": "iOS App Development Services | IndigeneTech",
+   "meta_description": "Native iOS app development in Swift for iPhone and iPad: clean design, secure data, testing and App Store submission handled end to end, then ongoing support.",
+   "h1": "iOS App Development Services",
+   "intro": "Native iPhone and iPad apps built in Swift, with clean design that follows Apple's guidelines and full access to device features. We handle build, testing, security and App Store submission end to end, then stay for updates. IndigeneTech is an app development company built for Indigenous-owned teams and community-led programs, with clear pricing, fixed milestones and weekly demos.",
+   "bullets": [
+    "Free 20-minute call to map your idea",
+    "Built in Swift for iPhone and iPad",
+    "Clickable prototype before we write code",
+    "App Store submission handled"
+   ],
+   "included_heading": "What Our iOS App Development Services Include",
+   "included": [
+    {
+     "title": "iPhone and iPad apps",
+     "text": "Native apps in Swift with layouts designed for each screen size."
+    },
+    {
+     "title": "Apple device features",
+     "text": "Camera, Face ID sign-in, Apple Pay, location and notifications, used where they help your users."
+    },
+    {
+     "title": "Secure data and logins",
+     "text": "Encryption, secure sign-in and role-based access from day one."
+    },
+    {
+     "title": "Backend and APIs",
+     "text": "APIs, databases and admin tools on Node.js or .NET, hosted on AWS or Azure."
+    },
+    {
+     "title": "TestFlight and App Store",
+     "text": "Beta builds through TestFlight, then a store listing and submission prepared to Apple's review guidelines."
+    },
+    {
+     "title": "Updates and support",
+     "text": "New iOS versions, bug fixes, performance tuning and new features after launch."
+    }
+   ],
+   "process_heading": "How We Build Your iOS App",
+   "process": [
+    {
+     "title": "Initial Analysis",
+     "text": "A short call to map your goals, users and risks, then agreed scope, budget range and timeline."
+    },
+    {
+     "title": "Design and Prototype",
+     "text": "Wireframes and a clickable prototype you can tap through before any code is written."
+    },
+    {
+     "title": "Development",
+     "text": "Short sprints in Swift with clean, secure code and weekly demos through TestFlight."
+    },
+    {
+     "title": "Testing",
+     "text": "Tests on real iPhones and iPads every sprint for function, speed and security, then your team signs off."
+    },
+    {
+     "title": "Launch",
+     "text": "Staging first, then App Store submission with backups, monitoring and a safe rollout plan."
+    },
+    {
+     "title": "Support and Growth",
+     "text": "Updates, fixes, performance tuning and new features under clear SLAs, with simple reports."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Why build a native iOS app instead of a cross-platform one?",
+     "a": "Native suits apps that need top performance, heavy device features or new Apple features as soon as they're released. If you also need Android on one budget, a cross-platform build may be better value; we compare both with you."
+    },
+    {
+     "q": "Do you also build the Android version?",
+     "a": "Yes. We build native Android apps in Kotlin, or recommend a cross-platform approach if you need both platforms quickly."
+    },
+    {
+     "q": "Will you handle App Store review?",
+     "a": "Yes. We prepare the build and listing, follow Apple's review guidelines and handle any questions or fixes from the review team."
+    },
+    {
+     "q": "Can you update or fix an existing iOS app?",
+     "a": "Yes. We start with a health check of the code, crashes and reviews, fix the urgent issues first, then plan improvements."
+    },
+    {
+     "q": "Can we try the app before it goes live?",
+     "a": "Yes. You get test builds through TestFlight during development and run your own acceptance testing before release."
+    }
+   ]
+  },
+  {
+   "card": "Android App Development",
+   "slug": "android-app-development",
+   "keyword": "android app development services",
+   "seo_title": "Android App Development Services | IndigeneTech",
+   "meta_description": "Native Android app development in Kotlin: apps that run well across popular devices, with real-device testing, security and Play Store launch with monitoring.",
+   "h1": "Android App Development Services",
+   "intro": "Native Android apps built in Kotlin that run well across the wide range of phones and tablets your users carry. We cover design, real-device testing, security and Google Play launch with monitoring. IndigeneTech is an app development company built for Indigenous-owned teams and community-led programs, with clear pricing, fixed milestones and weekly demos.",
+   "bullets": [
+    "Free 20-minute call to map your idea",
+    "Built in Kotlin for phones and tablets",
+    "Tested on real devices, not just emulators",
+    "Google Play launch with monitoring"
+   ],
+   "included_heading": "What Our Android App Development Services Include",
+   "included": [
+    {
+     "title": "Android phone and tablet apps",
+     "text": "Native apps in Kotlin with layouts that adapt to each screen size."
+    },
+    {
+     "title": "Device features",
+     "text": "Camera, location, notifications, background tasks and offline storage, used where they help your users."
+    },
+    {
+     "title": "Secure data and logins",
+     "text": "Encryption, secure sign-in and role-based access from day one."
+    },
+    {
+     "title": "Backend and APIs",
+     "text": "APIs, databases and admin tools on Node.js or .NET, hosted on AWS or Azure."
+    },
+    {
+     "title": "Real-device testing",
+     "text": "Checks across screen sizes, Android versions and manufacturers every sprint."
+    },
+    {
+     "title": "Google Play launch and support",
+     "text": "Store listing, staged rollout, crash monitoring, updates and new features after go-live."
+    }
+   ],
+   "process_heading": "How We Build Your Android App",
+   "process": [
+    {
+     "title": "Initial Analysis",
+     "text": "A short call to map your goals, users and risks, then agreed scope, budget range and timeline."
+    },
+    {
+     "title": "Design and Prototype",
+     "text": "Wireframes and a clickable prototype you can tap through before any code is written."
+    },
+    {
+     "title": "Development",
+     "text": "Short sprints in Kotlin with clean, secure code and weekly demos on your own phone."
+    },
+    {
+     "title": "Testing",
+     "text": "Tests on real Android phones and tablets every sprint for function, speed and security, then your team signs off."
+    },
+    {
+     "title": "Launch",
+     "text": "Staging first, then Google Play release with backups, monitoring and a staged rollout."
+    },
+    {
+     "title": "Support and Growth",
+     "text": "Updates, fixes, performance tuning and new features under clear SLAs, with simple reports."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Why build a native Android app?",
+     "a": "Native suits apps that need top performance, heavy device features or deep integration with Android. If you also need iOS on one budget, a cross-platform build may be better value; we compare both with you."
+    },
+    {
+     "q": "Will the app work on older or lower-cost Android phones?",
+     "a": "We agree on the Android versions and devices to support at the start, then test on real phones across that range so the app stays fast on lower-end devices."
+    },
+    {
+     "q": "Do you also build the iOS version?",
+     "a": "Yes. We build native iOS apps in Swift, or recommend a cross-platform approach if you need both platforms quickly."
+    },
+    {
+     "q": "Will you publish the app on Google Play?",
+     "a": "Yes. We prepare the listing and release, and can use a staged rollout so a small share of users get each update first."
+    },
+    {
+     "q": "Can you fix or update an existing Android app?",
+     "a": "Yes. We start with a health check of the code, crashes and reviews, fix the urgent issues first, then plan improvements."
+    }
+   ]
+  },
+  {
+   "card": "Cross-Platform App Development",
+   "slug": "cross-platform-app-development",
+   "keyword": "cross-platform app development services",
+   "seo_title": "Cross-Platform App Development Services | IndigeneTech",
+   "meta_description": "Cross-platform app development for iOS, Android and web from shared code: features stay aligned, costs drop and one release updates every platform.",
+   "h1": "Cross-Platform App Development Services",
+   "intro": "Launch on iOS, Android and the web from shared code. Features stay aligned everywhere, costs drop, and one release updates every platform. We build with React Native or Flutter and choose based on your app, not trends. IndigeneTech is an app development company built for Indigenous-owned teams and community-led programs, with clear pricing, fixed milestones and weekly demos.",
+   "bullets": [
+    "Free 20-minute call to map your idea",
+    "Shared code for iOS, Android and web",
+    "React Native or Flutter, chosen for your app",
+    "Store launch and post-launch support"
+   ],
+   "included_heading": "What Our Cross-Platform App Development Services Include",
+   "included": [
+    {
+     "title": "Framework choice",
+     "text": "We compare React Native and Flutter against your design, features and team, and recommend one in plain language."
+    },
+    {
+     "title": "Shared code, native feel",
+     "text": "One codebase with platform-specific touches where users expect them."
+    },
+    {
+     "title": "Web version",
+     "text": "Share logic and components with a web app or progressive web app, so every user gets the same features."
+    },
+    {
+     "title": "Device features",
+     "text": "Camera, location, notifications and payments, with native code where a feature needs it."
+    },
+    {
+     "title": "Backend and APIs",
+     "text": "Secure APIs, databases and admin tools on Node.js or .NET, hosted on AWS or Azure."
+    },
+    {
+     "title": "Launch and support",
+     "text": "Store submissions and web releases together, then updates and new features for every platform at once."
+    }
+   ],
+   "process_heading": "How We Build Your Cross-Platform App",
+   "process": [
+    {
+     "title": "Initial Analysis",
+     "text": "A short call to map your goals, users and risks, then agreed scope, budget range and timeline."
+    },
+    {
+     "title": "Design and Prototype",
+     "text": "Wireframes and a clickable prototype you can tap through before any code is written."
+    },
+    {
+     "title": "Development",
+     "text": "Short sprints on one shared codebase, with weekly demos on iPhone, Android and the web."
+    },
+    {
+     "title": "Testing",
+     "text": "Real-device and browser tests every sprint for function, speed and security, then your team signs off."
+    },
+    {
+     "title": "Launch",
+     "text": "Staging first, then App Store, Play Store and web release together with backups and monitoring."
+    },
+    {
+     "title": "Support and Growth",
+     "text": "Updates, fixes, performance tuning and new features under clear SLAs, with simple reports."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "What is cross-platform app development?",
+     "a": "Building one app that runs on iOS, Android and often the web from a shared codebase, instead of separate apps for each platform."
+    },
+    {
+     "q": "Will a cross-platform app feel slower than a native one?",
+     "a": "For most business apps, users won't notice a difference. Apps with heavy graphics or specialised device features may need native parts, and we flag that during the first call."
+    },
+    {
+     "q": "When is a native app the better choice?",
+     "a": "If you need top performance or heavy device features, go native. If you need iOS and Android fast on one budget, cross-platform is usually the better fit."
+    },
+    {
+     "q": "Can we add a web version later?",
+     "a": "Yes. We structure the code so business logic and components can be shared with a web app when you're ready."
+    },
+    {
+     "q": "Does cross-platform development cost less?",
+     "a": "Usually, because one team builds and maintains one codebase instead of two or three. The saving depends on how much platform-specific work your app needs, and we show it in your estimate."
+    }
+   ]
+  },
+  {
+   "card": "Progressive Web App Development",
+   "slug": "progressive-web-app-development",
+   "keyword": "progressive web app development services",
+   "seo_title": "Progressive Web App Development Services | IndigeneTech",
+   "meta_description": "Progressive web app development: an app-like experience in the browser with no download, fast loading, offline support and push alerts on slow networks.",
+   "h1": "Progressive Web App Development Services",
+   "intro": "Give users an app-like experience in the browser, with no app store download. Progressive web apps load fast, work offline, can be added to the home screen and send push alerts, which helps users on slow or patchy networks. IndigeneTech is an app development company built for Indigenous-owned teams and community-led programs, with clear pricing, fixed milestones and weekly demos.",
+   "bullets": [
+    "Free 20-minute call to map your idea",
+    "No app store download needed",
+    "Works offline and on slow networks",
+    "One app for phones, tablets and desktops"
+   ],
+   "included_heading": "What Our Progressive Web App Development Services Include",
+   "included": [
+    {
+     "title": "Installable web apps",
+     "text": "Users add the app to their home screen straight from the browser, with an icon and full-screen view."
+    },
+    {
+     "title": "Offline support",
+     "text": "Key screens and data stay available without a connection and sync when users are back online."
+    },
+    {
+     "title": "Push notifications",
+     "text": "Reminders and updates sent to users' devices, with simple controls for opting in and out."
+    },
+    {
+     "title": "Fast loading",
+     "text": "Caching, small page weight and image compression, so screens open quickly even on mobile data."
+    },
+    {
+     "title": "Website to PWA",
+     "text": "Turn an existing website or web app into a PWA without starting from scratch."
+    },
+    {
+     "title": "Testing and support",
+     "text": "Checks on real phones and browsers, then updates and new features after launch."
+    }
+   ],
+   "process_heading": "How We Build Your Progressive Web App",
+   "process": [
+    {
+     "title": "Initial Analysis",
+     "text": "A short call to map your goals, users and risks, then agreed scope, budget range and timeline."
+    },
+    {
+     "title": "Design and Prototype",
+     "text": "Wireframes and a clickable prototype you can tap through before any code is written."
+    },
+    {
+     "title": "Development",
+     "text": "Short sprints with clean, secure code and weekly demos you can open in any browser."
+    },
+    {
+     "title": "Testing",
+     "text": "Tests on real phones, tablets and browsers every sprint, including offline and slow-network checks, then your team signs off."
+    },
+    {
+     "title": "Launch",
+     "text": "Staging first, then go-live with backups and monitoring. No store approval needed."
+    },
+    {
+     "title": "Support and Growth",
+     "text": "Updates, fixes, performance tuning and new features under clear SLAs, with simple reports."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "What is a progressive web app?",
+     "a": "A web app that behaves like a mobile app: it can be added to the home screen, opens full screen, works offline and can send notifications, without an app store download."
+    },
+    {
+     "q": "Do we need a PWA or a native app?",
+     "a": "A PWA works well when a browser app is enough and installation shouldn't be required. If you need heavy device features or top performance, a native or cross-platform app is the better fit, and we help you decide."
+    },
+    {
+     "q": "Do progressive web apps work on iPhones?",
+     "a": "Yes. Users can add a PWA to the home screen from Safari, and recent iOS versions support notifications for installed web apps. Some device features are more limited than in native apps, so we check these against your needs first."
+    },
+    {
+     "q": "Can a PWA be listed in the app stores?",
+     "a": "It can be published on Google Play, and on the App Store with a native wrapper, subject to Apple's review rules. Many teams don't need store listings at all, since users install straight from the browser."
+    },
+    {
+     "q": "Will it work for users with poor internet?",
+     "a": "Yes. That's one of the main reasons to choose a PWA: cached screens load quickly, key features work offline, and data syncs when the connection returns."
+    }
+   ]
+  }
+ ]
+}
