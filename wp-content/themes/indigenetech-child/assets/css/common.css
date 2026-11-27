@@ -119,7 +119,7 @@ body.itech-popup-open {
   display: flex;
   opacity: 1;
 }
- .load-more-btn, .see-less-btn{ 
+ .load-more-btn{ 
     cursor: pointer;
 }
 .itech-popup {
@@ -203,39 +203,6 @@ body.itech-popup-open {
 .mega-cta-inner {
     text-align: left;
 }
-p.bolt-text-mega-menu {
-    font-size: 22px;
-    font-weight: 600;
-    color: #000;
-    line-height: 27px;
-    margin-bottom: 10px;
-    font-family: 'Livvic';
-}.advanced-col {
-    transition: all 0.3s ease-in-out;
-}
-.advanced-col:hover {
-    background-color: #0080f7;
-    color: #ffffff;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 128, 247, 0.3);
-}
-.advanced-col:hover,
-.advanced-col:hover h1,
-.advanced-col:hover h2,
-.advanced-col:hover h3,
-.advanced-col:hover h4,
-.advanced-col:hover h5,
-.advanced-col:hover h6,
-.advanced-col:hover p,
-.advanced-col:hover span,
-.advanced-col:hover a {
-    color: #ffffff;
-}
-.advanced-col:hover i,
-.advanced-col:hover svg {
-    color: #ffffff;
-    fill: #ffffff;
-}
 .mobile-menu li.menu-item-has-children > a {
     position: relative;
     padding-right: 45px;
@@ -260,9 +227,7 @@ p.bolt-text-mega-menu {
 }
 .site-header,
 .nav-classic,
-.header-middle-inner,
-.header-inner,
-.header-wrapper {
+.header-middle-inner {
     position: relative;
 }
 .relative-menu li .mega-menu {
@@ -306,7 +271,8 @@ p.bolt-text-mega-menu {
     visibility: hidden;
     transition: all 0.25s ease;
 }
-.main-menu > li.has-mega:hover > .mega-menu {
+.main-menu > li.has-mega:hover > .mega-menu,
+.main-menu > li.has-mega:focus-within > .mega-menu {
     display: grid;
     opacity: 1;
     visibility: visible;
@@ -461,7 +427,6 @@ p.bolt-text-mega-menu {
 	margin-bottom:20px;
 }
 
-
 .comments-link {
     display: none;
 }
@@ -580,11 +545,6 @@ outline: 0 !important;
     box-shadow: none !important;
 }
 
-
-
-
-
-
 html { font-synthesis: none;font-display: swap; scroll-behavior: smooth;}
 html, body { margin: 0; color: #636A74; font-size: 18px !important; scroll-behavior: smooth; font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;font-weight: 400; }
 * { box-sizing: border-box; font-display: swap;}
@@ -606,7 +566,6 @@ html, body { margin: 0; color: #636A74; font-size: 18px !important; scroll-behav
 .hide-desk {display: none;}
 .box-shadow-1{box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);}
 
-
 p {color: #636A74;}
 body h1, body h2, body h3, body h4, body h5, body h6 {font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;}
 h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {color: #319F9D;}
@@ -617,7 +576,6 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {color: #319F9D;}
 .primary-text {color: #636A74;}
 .secondary-text {color: #2A3740;}
 
-
 .white-bg {background-color: #fff;}
 .black-bg {background-color: #000;}
 .darkaqua-bg {background-color: #085E69;}
@@ -626,7 +584,6 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {color: #319F9D;}
 .red-bg {background-color: #DF2E2D;}
 .yellow-bg {background-color: #DEC829;}
 .greenblue-bg {background-color: #1CB2A6;}
-
 
 .btn-primary {
     display: inline-flex;
@@ -658,7 +615,6 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {color: #319F9D;}
     color: #085E69;
     border: 1px solid #085E69;
 }
-
 
 .fs-70 {font-size: 70px;}
 .fs-60 {font-size: 60px;}
@@ -1100,8 +1056,7 @@ body .w-auto {width:auto;}
     .mh-3 {max-height: 300px;}
     .mh-4 {max-height: 400px;}
     h1 { font-size: 28px; }  
-    h2, .govt-cont h3, .sec-head h3, .sec-head h2 { font-size: 28px; }
-    .site-btn { font-size: 15px; }
+    h2 { font-size: 28px; }
     .fs-70 {font-size: 36px;}
     .fs-60 {font-size: 32px;}
     .fs-46 {font-size: 28px;}
@@ -1202,3 +1157,19 @@ body .w-auto {width:auto;}
 @media (max-width:768px) {
     .flex-2 > *, .flex-3 > *, .flex-4 > *, .flex-5 > *, .flex-6 > *, .flex-7 > *, .flex-8 > *, .flex-9 > * { flex: 0 0 100%; }
 }
+/* Menu items that only open a sub-menu (no page of their own). */
+.main-menu a[role="button"],
+a[data-itech-menu-toggle] {
+    cursor: pointer;
+}
+
+/* Site-wide overrides (moved from newhome.css, which now loads on the homepage only). */
+a.button:hover, a.button:focus, button:hover, input[type="submit"]:hover {opacity: unset !important; color: unset !important;}
+a{ outline: none !important; }
+
+/* Sub-service pages: breadcrumb above the H1 and the related-services list. */
+.itech-breadcrumb { margin: 0 0 10px; font-size: 14px; line-height: 1.5; }
+.itech-breadcrumb a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.itech-breadcrumb a:hover, .itech-breadcrumb a:focus { text-decoration: none; }
+.itech-related-services .elementor-icon-list-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px; }
+.itech-related-services .elementor-icon-list-item a { text-decoration: underline; text-underline-offset: 2px; }

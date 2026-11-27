@@ -20,16 +20,16 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'indigenetech' );
+define( 'DB_NAME', 'staging_indigenetech_ca' );
 
 /** Database username */
-define( 'DB_USER', 'indigenetech' );
+define( 'DB_USER', 'staging_indigenetech_ca' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'P8zfFKTL68kVkbg4' );
+define( 'DB_PASSWORD', 'uFc0K3SMoEh5S9r2' );
 
 /** Database hostname */
-define( 'DB_HOST', '100.90.2.94' );
+define( 'DB_HOST', 'localhost' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );

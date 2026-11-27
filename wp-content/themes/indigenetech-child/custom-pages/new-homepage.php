@@ -3,10 +3,11 @@
 Template Name: Home indigenetech
 */
 
-get_header();
+// front-page.php has already output the header when this is the front page.
+if ( ! is_front_page() ) {
+    get_header();
+}
 ?>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
 <section class="indigene-hero pb-0">
     <div class="container">
@@ -144,7 +145,7 @@ get_header();
         <div class="certification-cards">
             <div class="certification-card">
                 <div class="certification-logo">
-                    <img src="/wp-content/uploads/2026/08/CCIB-Member.webp" alt="Canadian Council for Indigenous Business">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/CCIB-Member.webp" alt="Canadian Council for Indigenous Business">
                 </div>
                 <div class="certification-line"></div>
                 <p>A proud member of the Canadian Council for Indigenous Business <span>(CCIB)</span>. </p>
@@ -160,7 +161,7 @@ get_header();
             </div>
             <div class="certification-card">
                 <div class="certification-logo">
-                    <img src="/wp-content/uploads/2026/08/CIB-LogoH.webp" alt="CCIB Certified Indigenous Business">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/CIB-LogoH.webp" alt="CCIB Certified Indigenous Business">
                 </div>
                 <div class="certification-line"></div>
                 <p> Proud to be a CCIB Certified Indigenous Business, meeting national standards of excellence and community impact. </p>
@@ -178,7 +179,7 @@ get_header();
         </div>
         <div class="tech-content">
             <div class="tech-feature-card">
-                <img id="feature-image" src="/wp-content/uploads/2026/08/Software-Development-ingigenetech.webp" alt="Software Development">
+                <img loading="lazy" decoding="async" id="feature-image" src="/wp-content/uploads/2026/08/Software-Development-ingigenetech.webp" alt="Software Development">
                 <div class="tech-feature-overlay p-30">
                     <h3 id="feature-title" class="white-text fs-22 lh-2 fw-7 ease">Software Development</h3>
                     <p id="feature-description" class="white-text lh-4 ease">Indigenous technology solutions built for daily operations, reliable performance, team efficiency, and smooth scalability as business needs grow.</p>
@@ -188,11 +189,11 @@ get_header();
             <div class="tech-side-cards">
                 <!-- TAB 1 -->
                 <div class="tech-small-card active" data-tab="software">
-                    <img src="/wp-content/uploads/2026/08/Software-Development-ingigenetech.webp" alt="Software Development">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Software-Development-ingigenetech-300x275.webp" alt="Software Development">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text mb-15">Software Development</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Indigenous technology solutions built for daily operations, reliable performance, team efficiency, and smooth scalability as business needs grow.</p>
-                        <a href="#" target="_blank" class="p-10 mob-p-0 mob-radius-5">
+                        <a href="/enterprise-custom-software-development/" target="_blank" class="p-10 mob-p-0 mob-radius-5">
                             <span class="hide-mob">Read More</span>
                             <div class="hide-desk">
                                 <svg width="15" height="15" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -204,11 +205,11 @@ get_header();
                 </div>
                 <!-- TAB 2 -->
                 <div class="tech-small-card" data-tab="app">
-                    <img src="/wp-content/uploads/2026/08/App-Development.webp" alt="App Development">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/App-Development-300x275.webp" alt="App Development">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">App Development</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Mobile apps for iOS and Android designed for intuitive navigation, fast performance, and consistent experience across all screen sizes.</p>
-                        <a href="/app-development" target="_blank" class="p-10 mob-p-0 mob-radius-5">
+                        <a href="/app-development/" target="_blank" class="p-10 mob-p-0 mob-radius-5">
                             <span class="hide-mob">Read More</span>
                             <div class="hide-desk">
                                 <svg width="15" height="15" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -220,7 +221,7 @@ get_header();
                 </div>
                 <!-- TAB 3 -->
                 <div class="tech-small-card" data-tab="ar">
-                    <img src="/wp-content/uploads/2026/08/AR-VR-Development.webp" alt="AI Development">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/AR-VR-Development-300x275.webp" alt="AI Development">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">AR VR Development</h3>
                         <p class="fs-14 lh-3 mob-two-lines">AR and VR experiences created for training, presentations, learning, and exploring concepts through immersive and interactive environments.</p>
@@ -236,7 +237,7 @@ get_header();
                 </div>
                 <!-- TAB 4 -->
                 <div class="tech-small-card" data-tab="erp">
-                    <img src="/wp-content/uploads/2026/08/ERP-Solutions.webp" alt="ERP Solutions">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/ERP-Solutions-300x275.webp" alt="ERP Solutions">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">ERP Solutions</h3>
                         <p class="fs-14 lh-3 mob-two-lines">ERP systems were developed to connect finance, HR, inventory, and operations into one platform, improving control and workflow visibility.</p>
@@ -251,7 +252,7 @@ get_header();
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="blockchain">
-                    <img src="/wp-content/uploads/2026/08/Blockchain-Solutions.webp" alt="ERP Solutions">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Blockchain-Solutions-300x275.webp" alt="ERP Solutions">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">Blockchain Solutions</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Blockchain development services that support secure transactions, transparent records, and decentralized systems for modern business models.</p>
@@ -266,7 +267,7 @@ get_header();
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="cloud">
-                    <img src="/wp-content/uploads/2026/08/Cloud-Solutions.webp" alt="ERP Solutions">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Cloud-Solutions-300x275.webp" alt="ERP Solutions">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">Cloud Solutions</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Cloud migration and infrastructure services supporting secure data storage, better performance, scalability, and low technology stress.</p>
@@ -281,7 +282,7 @@ get_header();
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="enter">
-                    <img src="/wp-content/uploads/2026/08/Enterprise-Software.webp" alt="Enterprise Software">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Enterprise-Software-300x275.webp" alt="Enterprise Software">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">Enterprise Software</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Enterprise software designed to handle complicated processes, high user volumes, and long-term operational demands across large organizations.</p>
@@ -296,7 +297,7 @@ get_header();
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="ai">
-                    <img src="/wp-content/uploads/2026/08/AI-ML-Development.webp" alt="ERP Solutions">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/AI-ML-Development-300x275.webp" alt="ERP Solutions">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">AI ML Development</h3>
                         <p class="fs-14 lh-3 mob-two-lines">AI and machine learning solutions that analyze data, automate tasks, support decision-making, and enhance operational accuracy and efficiency.</p>
@@ -311,7 +312,7 @@ get_header();
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="web">
-                    <img src="/wp-content/uploads/2026/08/Web-Development.webp" alt="EWeb-Development">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Web-Development-300x275.webp" alt="EWeb-Development">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">Web Development</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Modern websites and portals are developed for speed, accessibility, clean design, and easy content updates for long-term digital growth.</p>
@@ -326,7 +327,7 @@ get_header();
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="staff">
-                    <img src="/wp-content/uploads/2026/08/IT-Staff-Augmentation.webp" alt="IT Staff">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/IT-Staff-Augmentation-300x275.webp" alt="IT Staff">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">IT Staff Augmentation</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Skilled technology professionals integrated into existing teams to support delivery, reduce workload pressure, and maintain momentum.</p>
@@ -341,7 +342,7 @@ get_header();
                     </div>
                 </div>
                 <div class="tech-small-card" data-tab="consulting">
-                    <img src="/wp-content/uploads/2026/08/IT-Consulting.webp" alt="IT Consulting">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/IT-Consulting-300x275.webp" alt="IT Consulting">
                     <div class="tech-small-content">
                         <h3 class="fs-18 lh-2 fw-7 secondary-text">IT Consulting</h3>
                         <p class="fs-14 lh-3 mob-two-lines">Strategic IT consulting focused on system planning, technology alignment, risk reduction, and practical guidance for sustainable growth.</p>
@@ -375,14 +376,7 @@ get_header();
                 </div>
                 <!-- HubSpot Form -->
                 <div class="hubspot-form-wrapper">
-                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"> </script>
-                    <script>
-                        hbspt.forms.create({
-                            portalId: "22824688",
-                            formId: "45b7d1ce-b5de-45bc-b793-223818478cbb",
-                            region: "na1"
-                        });
-                    </script>
+                    <?php echo itech_hubspot_form('45b7d1ce-b5de-45bc-b793-223818478cbb'); ?>
                 </div>
             </div>
         </div>
@@ -398,7 +392,7 @@ get_header();
         </div>
         <div class="trust-slider">
             <button type="button" class="trust-arrow trust-prev">
-                <i class="fa-solid fa-chevron-left"></i>
+                <i class="fas fa-chevron-left"></i>
             </button>
             <div class="trust-stage">
                 <!-- 01 -->
@@ -445,7 +439,7 @@ get_header();
                 </div>
             </div>
             <button type="button" class="trust-arrow trust-next">
-                <i class="fa-solid fa-chevron-right"></i>
+                <i class="fas fa-chevron-right"></i>
             </button>
         </div>
         <div class="trust-dots">
@@ -464,7 +458,7 @@ get_header();
     <div class="container">
         <div class="text-center mb-30">
             <h2 class="fs-38 fw-7 black-text mb-10">Industries Supported Through Indigenous Leadership</h2>
-            <p>IndigeneTech is a company that provides both technology and consulting services to tackle real operational problems, offering the use of Indigenous technology by means of digital systems, custom software, and AI tools, thus helping the Indigenous Owned and Operated businesses to get better, bigger, and more sweaty in the long run.</p>
+            <p>IndigeneTech is a company that provides both technology and consulting services to tackle real operational problems, offering the use of Indigenous technology by means of digital systems, custom software, and AI tools, thus helping the Indigenous Owned and Operated businesses to get better, bigger, and steadier in the long run.</p>
         </div>
         <div class="industries-wrapper">
             <!-- LEFT TABS -->
@@ -474,7 +468,7 @@ get_header();
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_140_737)"> <path d="M30 5.625V2.8125C30 2.06658 29.7037 1.35121 29.1762 0.823762C28.6488 0.296316 27.9334 0 27.1875 0L2.8125 0C2.06658 0 1.35121 0.296316 0.823762 0.823762C0.296316 1.35121 0 2.06658 0 2.8125L0 5.625H30ZM19.6875 1.875H27.1875C27.4361 1.875 27.6746 1.97377 27.8504 2.14959C28.0262 2.3254 28.125 2.56386 28.125 2.8125C28.125 3.06114 28.0262 3.2996 27.8504 3.47541C27.6746 3.65123 27.4361 3.75 27.1875 3.75H19.6875C19.4389 3.75 19.2004 3.65123 19.0246 3.47541C18.8488 3.2996 18.75 3.06114 18.75 2.8125C18.75 2.56386 18.8488 2.3254 19.0246 2.14959C19.2004 1.97377 19.4389 1.875 19.6875 1.875ZM10.3125 1.875H11.25C11.4986 1.875 11.7371 1.97377 11.9129 2.14959C12.0887 2.3254 12.1875 2.56386 12.1875 2.8125C12.1875 3.06114 12.0887 3.2996 11.9129 3.47541C11.7371 3.65123 11.4986 3.75 11.25 3.75H10.3125C10.0639 3.75 9.8254 3.65123 9.64959 3.47541C9.47377 3.2996 9.375 3.06114 9.375 2.8125C9.375 2.56386 9.47377 2.3254 9.64959 2.14959C9.8254 1.97377 10.0639 1.875 10.3125 1.875ZM6.5625 1.875H7.5C7.74864 1.875 7.9871 1.97377 8.16291 2.14959C8.33873 2.3254 8.4375 2.56386 8.4375 2.8125C8.4375 3.06114 8.33873 3.2996 8.16291 3.47541C7.9871 3.65123 7.74864 3.75 7.5 3.75H6.5625C6.31386 3.75 6.0754 3.65123 5.89959 3.47541C5.72377 3.2996 5.625 3.06114 5.625 2.8125C5.625 2.56386 5.72377 2.3254 5.89959 2.14959C6.0754 1.97377 6.31386 1.875 6.5625 1.875ZM2.8125 1.875H3.75C3.99864 1.875 4.2371 1.97377 4.41291 2.14959C4.58873 2.3254 4.6875 2.56386 4.6875 2.8125C4.6875 3.06114 4.58873 3.2996 4.41291 3.47541C4.2371 3.65123 3.99864 3.75 3.75 3.75H2.8125C2.56386 3.75 2.3254 3.65123 2.14959 3.47541C1.97377 3.2996 1.875 3.06114 1.875 2.8125C1.875 2.56386 1.97377 2.3254 2.14959 2.14959C2.3254 1.97377 2.56386 1.875 2.8125 1.875Z" fill="#085E69" /> <path d="M12.0178 20.625H19.9181L21.2578 15.9375H11.0803L12.0178 20.625Z" fill="#085E69" /> <path d="M0 7.5V27.1875C0 27.9334 0.296316 28.6488 0.823762 29.1762C1.35121 29.7037 2.06658 30 2.8125 30H27.1875C27.9334 30 28.6488 29.7037 29.1762 29.1762C29.7037 28.6488 30 27.9334 30 27.1875V7.5H0ZM12.6562 26.25C12.3781 26.25 12.1062 26.1675 11.875 26.013C11.6437 25.8585 11.4635 25.6389 11.357 25.3819C11.2506 25.1249 11.2228 24.8422 11.277 24.5694C11.3313 24.2966 11.4652 24.046 11.6619 23.8494C11.8585 23.6527 12.1091 23.5188 12.3819 23.4645C12.6547 23.4103 12.9374 23.4381 13.1944 23.5445C13.4514 23.651 13.671 23.8312 13.8255 24.0625C13.98 24.2937 14.0625 24.5656 14.0625 24.8438C14.0625 25.2167 13.9143 25.5744 13.6506 25.8381C13.3869 26.1018 13.0292 26.25 12.6562 26.25ZM18.2812 26.25C18.0031 26.25 17.7312 26.1675 17.5 26.013C17.2687 25.8585 17.0885 25.6389 16.982 25.3819C16.8756 25.1249 16.8478 24.8422 16.902 24.5694C16.9563 24.2966 17.0902 24.046 17.2869 23.8494C17.4835 23.6527 17.7341 23.5188 18.0069 23.4645C18.2797 23.4103 18.5624 23.4381 18.8194 23.5445C19.0764 23.651 19.296 23.8312 19.4505 24.0625C19.605 24.2937 19.6875 24.5656 19.6875 24.8438C19.6875 25.2167 19.5393 25.5744 19.2756 25.8381C19.0119 26.1018 18.6542 26.25 18.2812 26.25ZM23.4019 15.2578L21.7209 21.1406C21.6078 21.5317 21.371 21.8755 21.046 22.1206C20.7209 22.3657 20.3252 22.4988 19.9181 22.5H12.0178C11.5848 22.4988 11.1655 22.3482 10.8306 22.0738C10.4957 21.7993 10.2657 21.4178 10.1794 20.9934L8.60625 13.125H6.5625C6.31386 13.125 6.0754 13.0262 5.89959 12.8504C5.72377 12.6746 5.625 12.4361 5.625 12.1875C5.625 11.9389 5.72377 11.7004 5.89959 11.5246C6.0754 11.3488 6.31386 11.25 6.5625 11.25H9.375C9.59112 11.25 9.80062 11.3246 9.96804 11.4613C10.1355 11.5979 10.2505 11.7882 10.2937 12L10.7063 14.0625H22.5C22.6452 14.0624 22.7884 14.0961 22.9183 14.1608C23.0483 14.2255 23.1615 14.3195 23.2489 14.4353C23.3363 14.5512 23.3957 14.6858 23.4222 14.8286C23.4488 14.9713 23.4418 15.1182 23.4019 15.2578Z" fill="#085E69" /> </g> <defs> <clipPath id="clip0_140_737"> <rect width="30" height="30" fill="white" /> </clipPath> </defs> </svg>
                     </span>
                     <span>E-commerce</span>
-                    <span class="industry-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    <span class="industry-arrow"><i class="fas fa-chevron-right"></i></span>
                 </div>
 
                 <div class="industry-tab" data-industry="education">
@@ -482,7 +476,7 @@ get_header();
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_140_808)"> <path d="M24.375 17.1846V21.2627C24.375 22.7439 23.5031 24.0658 22.1531 24.6846C20.5125 25.4346 18.0281 26.2502 15 26.2502C11.9719 26.2502 9.4875 25.4346 7.8375 24.6846C6.49687 24.0658 5.625 22.7439 5.625 21.2627V17.1846L12.2906 20.2314C13.1437 20.6252 14.0625 20.8221 15 20.8221C15.9375 20.8221 16.8562 20.6252 17.7094 20.2314L24.375 17.1846Z" fill="#085E69" /> <path d="M28.125 15.4688V21.5625C28.125 22.0781 27.7031 22.5 27.1875 22.5C26.6719 22.5 26.25 22.0781 26.25 21.5625V16.3313L28.125 15.4688Z" fill="#085E69" /> <path d="M13.0669 18.5285C13.6809 18.8088 14.34 18.9495 15 18.9495C15.66 18.9495 16.3181 18.8098 16.9331 18.5285L28.9059 13.0554C29.5809 12.747 30 12.0935 30 11.3501C30 10.6067 29.5809 9.95229 28.9059 9.64385L16.9331 4.17166C15.7041 3.6101 14.2969 3.6101 13.0678 4.17166L1.09406 9.64291C0.419063 9.95229 0 10.6057 0 11.3492C0 12.0926 0.419063 12.746 1.09406 13.0554L13.0669 18.5285Z" fill="#085E69" /> </g> <defs> <clipPath id="clip0_140_808"> <rect width="30" height="30" fill="white" /> </clipPath> </defs> </svg>
                     </span>
                     <span>Education</span>
-                    <span class="industry-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    <span class="industry-arrow"><i class="fas fa-chevron-right"></i></span>
                 </div>
 
                 <div class="industry-tab" data-industry="finance">
@@ -490,7 +484,7 @@ get_header();
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_140_814)"> <path fill-rule="evenodd" clip-rule="evenodd" d="M25.8516 10.9962V23.7004H22.6869V10.9962H25.8516ZM2.21273 24.6379H27.7873V25.3341H2.21273V24.6379ZM0.498047 26.2716H29.502V28.1036H0.498047V26.2716ZM15 1.896L29.502 8.42504H0.498047L15 1.896ZM27.7873 9.36254V10.0588H2.21273V9.36254H27.7873ZM7.31291 10.9962V23.7004H4.14844V10.9962H7.31291ZM13.4925 10.9962V23.7004H10.3279V10.9962H13.4925ZM19.6721 10.9962V23.7004H16.5075V10.9962H19.6721Z" fill="#085E69" /> </g> <defs> <clipPath id="clip0_140_814"> <rect width="30" height="30" fill="white" /> </clipPath> </defs> </svg>
                     </span>
                     <span>Financial Services</span>
-                    <span class="industry-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    <span class="industry-arrow"><i class="fas fa-chevron-right"></i></span>
                 </div>
 
                 <div class="industry-tab" data-industry="healthcare">
@@ -498,7 +492,7 @@ get_header();
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_140_819)"> <path d="M24.6643 6.21094C24.6643 2.81889 21.904 0 18.512 0C17.1901 0 15.955 0.565605 14.9963 1.58355C14.0376 0.565605 12.8025 0 11.4807 0C8.08866 0 5.32837 2.81889 5.32837 6.21094C5.32837 9.62273 7.83202 11.3839 10.7314 13.4241C11.927 14.2652 13.1639 15.1356 14.4204 16.2257L14.9955 16.7252L15.5714 16.2265C16.9919 14.9974 18.3429 14.0353 19.5342 13.1863C22.4001 11.1462 24.6643 9.53432 24.6643 6.21094ZM17.6331 8.84766H15.8752V10.6055H14.1174V8.84766H12.3596V7.08984H14.1174V5.33203H15.8752V7.08984H17.6331V8.84766Z" fill="#085E69" /> <path d="M28.9417 8.03906C27.1487 8.03906 26.6858 16.3711 26.6506 16.5469C26.4721 17.7678 25.6121 19.5751 24.1596 20.6633L20.3527 23.4273L19.2988 22.0197L23.1057 19.2565C24.6137 18.1259 25.301 16.1953 23.4163 16.1953C21.7283 16.1953 18.5731 18.1496 17.6377 18.9248C16.5207 19.8506 15.8752 21.2262 15.8752 22.677V30.0001H21.1487C21.1487 29.1563 21.6057 28.2363 22.3088 27.3574C23.0471 26.3906 24.1018 25.4062 25.1916 24.4043C27.2658 22.4531 29.4162 20.4492 29.6975 18.4102C29.8645 17.0405 30.0032 14.6914 29.9963 12.5977C29.9887 10.2531 29.79 8.11482 28.9417 8.03906Z" fill="#085E69" /> <path d="M12.1487 18.7618C9.67016 17.0566 7.78942 16.1953 6.57653 16.1953C4.6918 16.1953 5.37911 18.1259 6.88714 19.2565L10.694 22.0197L9.64005 23.4273L5.83315 20.6633C4.38061 19.5751 3.52057 17.7678 3.34204 16.5469C3.30682 16.3711 2.84399 8.03906 1.05096 8.03906C0.0665886 8.12695 -0.0388803 10.9922 0.0139127 13.7344C0.0491275 15.7383 0.207272 17.6895 0.295104 18.4102C0.576413 20.4492 2.7268 22.4532 4.80102 24.4043C5.89087 25.4062 6.9455 26.3906 7.68384 27.3574C8.3869 28.2363 8.84393 29.1563 8.84393 30.0001H14.1174V22.7121C14.1175 21.1593 13.3885 19.6966 12.1487 18.7618Z" fill="#085E69" /> </g> <defs> <clipPath id="clip0_140_819"> <rect width="30" height="30" fill="white" /> </clipPath> </defs> </svg>
                     </span>
                     <span>Healthcare</span>
-                    <span class="industry-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    <span class="industry-arrow"><i class="fas fa-chevron-right"></i></span>
                 </div>
 
                 <div class="industry-tab" data-industry="realestate">
@@ -506,7 +500,7 @@ get_header();
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M20.2076 0.644531L13.5237 3.50174V27.1869H15.5586V22.208L15.0877 22.2529C14.895 22.271 14.7241 22.1296 14.7059 21.937C14.6878 21.7443 14.8292 21.5734 15.0218 21.5552L18.6436 21.2105C18.8363 21.1922 19.0072 21.3337 19.0254 21.5263C19.0436 21.719 18.9022 21.8899 18.7095 21.9081L18.1727 21.9592V27.1868H26.8916V3.50174L20.2076 0.644531ZM16.1457 19.0167L14.8823 19.1377V16.6965L16.1457 16.5017V19.0167ZM16.1461 15.0514L14.8824 15.2888V12.8418L16.1461 12.5303V15.0514ZM16.1461 11.0841L14.8824 11.438V8.99104L16.1461 8.56301V11.0841ZM16.1461 7.11469L14.8824 7.58332V5.29729L16.1465 4.75541L16.1461 7.11469ZM18.849 18.7592L17.4253 18.8957V16.3016L18.849 16.0817V18.7592ZM18.849 14.5402L17.4253 14.8082V12.2162L18.849 11.8648V14.5402V14.5402ZM18.849 10.3233L17.4253 10.7227V8.12859L18.849 7.64584V10.3233ZM18.849 6.10646L17.4253 6.63715L17.4249 4.20768L18.8489 3.59672V6.10646H18.849ZM22.2302 23.0274C22.2302 23.2216 22.0728 23.379 21.8786 23.379C21.6844 23.379 21.5271 23.2216 21.5271 23.0274V3.71525C21.5271 3.52107 21.6844 3.36369 21.8786 3.36369C22.0728 3.36369 22.2302 3.52107 22.2302 3.71525V23.0275V23.0274ZM23.9012 23.0274C23.9012 23.2216 23.7438 23.379 23.5496 23.379C23.3554 23.379 23.198 23.2216 23.198 23.0274V4.42957C23.198 4.23539 23.3555 4.07801 23.5496 4.07801C23.7437 4.07801 23.9012 4.23545 23.9012 4.42957V23.0275V23.0274ZM25.5721 23.0274C25.5721 23.2216 25.4148 23.379 25.2206 23.379C25.0264 23.379 24.869 23.2216 24.869 23.0274V5.14389C24.869 4.94971 25.0264 4.79232 25.2206 4.79232C25.4148 4.79232 25.5721 4.94971 25.5721 5.14389V23.0275V23.0274ZM10.0686 7.54488L3.10853 10.5202V27.1869H5.28153V23.3213L4.81062 23.3661C4.61796 23.3843 4.44704 23.2429 4.42888 23.0503C4.41071 22.8576 4.5521 22.6867 4.74476 22.6685L8.36655 22.3238C8.55921 22.3056 8.73013 22.447 8.74835 22.6397C8.76651 22.8323 8.62513 23.0033 8.43247 23.0215L7.89569 23.0726V27.1869H12.8206V8.72127L10.0686 7.54488ZM5.6239 19.7249L4.59563 19.8657V17.8864L5.6239 17.6752V19.7249ZM5.6239 16.4987L4.59563 16.7516V14.7722L5.6239 14.449V16.4987ZM5.62425 13.2712L4.59569 13.6349V11.7863L5.6246 11.3529L5.62425 13.2712ZM7.85989 19.4162L6.67565 19.5794V17.4596L7.85989 17.2153V19.4162ZM7.85989 15.9466L6.67565 16.2383V14.1173L7.85989 13.743V15.9466ZM7.85989 12.4757L6.6753 12.8973V10.911L7.85989 10.409V12.4757ZM0.677002 27.89H29.323V29.3555H0.677002V27.89Z" fill="#085E69" /> </svg>
                     </span>
                     <span>Real Estate</span>
-                    <span class="industry-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    <span class="industry-arrow"><i class="fas fa-chevron-right"></i></span>
                 </div>
 
                 <div class="industry-tab" data-industry="travel">
@@ -514,7 +508,7 @@ get_header();
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M23.7831 7.9227C19.8297 8.79076 8.00339 11.7954 5.89972 12.3286L3.3198 9.56375C3.20584 9.43975 3.04093 9.37478 2.87263 9.38908L1.27296 9.48507C1.11025 9.50042 0.958252 9.58062 0.858746 9.71627C0.759239 9.85191 0.727361 10.023 0.765839 10.1843L1.88765 14.6761C2.10385 15.5387 2.71849 16.2242 3.52716 16.5119C4.24509 16.7656 5.44201 17.0229 7.04978 16.7913C9.12582 16.4985 12.2809 15.9614 13.8562 15.6896L11.022 23.2703C10.9464 23.4617 10.9911 23.6814 11.122 23.8371C11.207 23.9329 11.3212 23.9941 11.4426 24.0167C11.5198 24.0311 11.5947 24.0279 11.6716 24.0137L12.9361 23.724C13.6881 23.5499 14.3473 23.1074 14.7904 22.4762L20.6869 14.0898C21.7571 13.8323 26.4715 12.6492 28.5437 11.3964C28.891 11.187 29.1396 10.8336 29.2202 10.4317C29.3018 10.0244 29.2147 9.6027 28.9747 9.26674C28.3982 8.46843 26.9615 7.22999 23.7831 7.9227Z" fill="#085E69" /> <path d="M8.41208 6.13819L7.35414 6.48353C7.16661 6.54 7.02887 6.69705 6.98181 6.88817C6.93479 7.07929 6.99472 7.27883 7.13971 7.42007L9.94927 10.1477C12.1057 9.60725 13.9449 9.14472 15.5132 8.75735L11.0467 6.37202C10.2417 5.94227 9.28149 5.85474 8.41208 6.13819Z" fill="#085E69" /> </svg>
                     </span>
                     <span>Travel and Hospitality</span>
-                    <span class="industry-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    <span class="industry-arrow"><i class="fas fa-chevron-right"></i></span>
                 </div>
 
                 <div class="industry-tab" data-industry="logistics">
@@ -522,7 +516,7 @@ get_header();
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_140_837)"> <path d="M25.4329 9.28364C26.3913 11.0293 26.8967 12.9897 26.8967 15.0002C26.8967 15.1869 26.8822 15.3747 26.8739 15.5624C27.0503 15.5355 27.2298 15.5174 27.4139 15.5174C27.582 15.5174 27.7465 15.5329 27.9084 15.5552C27.9161 15.37 27.9311 15.1848 27.9311 15.0002C27.9311 12.6426 27.2877 10.3507 26.0794 8.34277C25.9284 8.60915 25.7603 8.86622 25.5699 9.10829L25.4329 9.28364Z" fill="#085E69" /> <path d="M10.019 4.19763C11.5345 3.49574 13.1535 3.12953 14.8428 3.10832C14.97 2.74936 15.1278 2.40539 15.3161 2.07953C13.3107 2.0335 11.2749 2.46126 9.45728 3.32246C9.68434 3.58419 9.87417 3.8785 10.019 4.19763Z" fill="#085E69" /> <path d="M4.70848 9.0366L4.04176 8.14746C2.84641 10.055 2.1771 12.2269 2.08813 14.4826H3.12262C3.20538 12.5554 3.74486 10.6954 4.70848 9.0366Z" fill="#085E69" /> <path d="M23.1335 23.6766L23.416 24.8063C24.1866 24.1447 24.8741 23.3988 25.4689 22.5785L24.8161 21.7085C24.3258 22.4238 23.7651 23.0844 23.1335 23.6766Z" fill="#085E69" /> <path d="M14.4827 15.5171H10.3448V19.4574L7.75856 18.1643L5.17236 19.4574V15.5171H1.03442V25.8619H2.42322C3.00563 24.6407 4.24908 23.793 5.6896 23.793C7.13011 23.793 8.37356 24.6407 8.95598 25.8619H14.4827V15.5171Z" fill="#085E69" /> <path d="M9.26904 26.8965C9.29335 27.0661 9.31042 27.2379 9.31042 27.4137C9.31042 27.5896 9.29335 27.7613 9.26904 27.931H14.5242C14.4999 27.7613 14.4828 27.5896 14.4828 27.4137C14.4828 27.2379 14.4999 27.0661 14.5242 26.8965H9.26904Z" fill="#085E69" /> <path d="M21.8375 22.7585H18.6208C18.0503 22.7585 17.5863 22.2946 17.5863 21.7241V20.6896C17.5863 20.1191 18.0503 19.6551 18.6208 19.6551H21.0616L20.9008 19.0122C20.8434 18.782 20.637 18.6206 20.3991 18.6206H15.5173V24.8849C16.1753 24.212 17.0908 23.793 18.1035 23.793C19.5441 23.793 20.7875 24.6408 21.3699 25.862H22.6134L21.8375 22.7585Z" fill="#085E69" /> <path d="M0 26.8965V27.931H2.11034C2.08603 27.7613 2.06897 27.5896 2.06897 27.4137C2.06897 27.2379 2.08603 27.0661 2.11034 26.8965H0Z" fill="#085E69" /> <path d="M5.68972 24.8276C4.26369 24.8276 3.10352 25.9878 3.10352 27.4138C3.10352 28.8399 4.26369 30.0001 5.68972 30.0001C7.11576 30.0001 8.27593 28.8399 8.27593 27.4138C8.27593 25.9878 7.11576 24.8276 5.68972 24.8276ZM5.68972 28.4483C5.11817 28.4483 4.65524 27.9854 4.65524 27.4138C4.65524 26.8423 5.11817 26.3794 5.68972 26.3794C6.26127 26.3794 6.72421 26.8423 6.72421 27.4138C6.72421 27.9854 6.26127 28.4483 5.68972 28.4483Z" fill="#085E69" /> <path d="M6.20679 17.7836L7.75851 17.0078L9.31024 17.7836V15.5171H6.20679V17.7836Z" fill="#085E69" /> <path d="M18.1035 24.8276C16.6775 24.8276 15.5173 25.9878 15.5173 27.4138C15.5173 28.8399 16.6775 30.0001 18.1035 30.0001C19.5296 30.0001 20.6897 28.8399 20.6897 27.4138C20.6897 25.9878 19.5296 24.8276 18.1035 24.8276ZM18.1035 28.4483C17.532 28.4483 17.0691 27.9854 17.0691 27.4138C17.0691 26.8423 17.532 26.3794 18.1035 26.3794C18.6751 26.3794 19.138 26.8423 19.138 27.4138C19.138 27.9854 18.6751 28.4483 18.1035 28.4483Z" fill="#085E69" /> <path d="M18.6206 21.7239H21.5787L21.3201 20.6895H18.6206V21.7239Z" fill="#085E69" /> <path d="M21.7242 27.4137C21.7242 27.5896 21.7072 27.7613 21.6829 27.931H22.7587V26.8965H21.6829C21.7072 27.0661 21.7242 27.2379 21.7242 27.4137Z" fill="#085E69" /> <path d="M6.72415 9.9999L8.79311 7.24093C9.12673 6.79714 9.31035 6.24576 9.31035 5.68972C9.31035 4.26369 8.15018 3.10352 6.72415 3.10352C5.29811 3.10352 4.13794 4.26369 4.13794 5.68972C4.13794 6.24576 4.32156 6.79714 4.65518 7.24093L6.72415 9.9999ZM6.72415 4.65524C7.2957 4.65524 7.75863 5.11817 7.75863 5.68972C7.75863 6.26127 7.2957 6.72421 6.72415 6.72421C6.15259 6.72421 5.68966 6.26127 5.68966 5.68972C5.68966 5.11817 6.15259 4.65524 6.72415 4.65524Z" fill="#085E69" /> <path d="M27.4138 16.5518C25.9878 16.5518 24.8276 17.7119 24.8276 19.138C24.8276 19.694 25.0113 20.2454 25.3449 20.6892L27.4138 23.4481L29.4828 20.6892C29.8164 20.2454 30.0001 19.694 30.0001 19.138C30.0001 17.7119 28.8399 16.5518 27.4138 16.5518ZM27.4138 20.1724C26.8423 20.1724 26.3794 19.7095 26.3794 19.138C26.3794 18.5664 26.8423 18.1035 27.4138 18.1035C27.9854 18.1035 28.4483 18.5664 28.4483 19.138C28.4483 19.7095 27.9854 20.1724 27.4138 20.1724Z" fill="#085E69" /> <path d="M20.6897 13.6459L24.7568 8.46879C25.4696 7.56207 25.8622 6.42724 25.8622 5.27328V5.17241C25.8622 2.32034 23.5418 0 20.6897 0C17.8377 0 15.5173 2.32034 15.5173 5.17241V5.27328C15.5173 6.42672 15.9099 7.56207 16.6227 8.46879L20.6897 13.6459ZM20.6897 1.55172C22.6894 1.55172 24.3104 3.17276 24.3104 5.17241C24.3104 7.17207 22.6894 8.7931 20.6897 8.7931C18.6901 8.7931 17.0691 7.17207 17.0691 5.17241C17.0691 3.17276 18.6901 1.55172 20.6897 1.55172Z" fill="#085E69" /> <path d="M11.3794 12.4136H12.4139V13.4481H11.3794V12.4136Z" fill="#085E69" /> <path d="M13.4482 12.4136H14.4827V13.4481H13.4482V12.4136Z" fill="#085E69" /> <path d="M15.5173 12.4136H16.5518V13.4481H15.5173V12.4136Z" fill="#085E69" /> </g> <defs> <clipPath id="clip0_140_837"> <rect width="30" height="30" fill="white" /> </clipPath> </defs> </svg>
                     </span>
                     <span>Logistics</span>
-                    <span class="industry-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    <span class="industry-arrow"><i class="fas fa-chevron-right"></i></span>
                 </div>
 
                 <div class="industry-tab" data-industry="manufacturing">
@@ -530,7 +524,7 @@ get_header();
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_140_860)"> <path d="M15.4688 23.4375C15.4688 23.1913 15.4204 22.9474 15.3262 22.7199C15.232 22.4924 15.0939 22.2856 14.9197 22.1115C14.7456 21.9374 14.5389 21.7993 14.3114 21.7051C14.0838 21.6109 13.84 21.5624 13.5938 21.5625H4.21875C3.9725 21.5624 3.72865 21.6109 3.50114 21.7051C3.27362 21.7993 3.06689 21.9374 2.89277 22.1115C2.71865 22.2856 2.58054 22.4924 2.48633 22.7199C2.39213 22.9474 2.34368 23.1913 2.34375 23.4375V23.4656C2.49929 23.4468 2.65582 23.4374 2.8125 23.4375H15.4688Z" fill="#085E69" /> <path d="M16.875 5.625C16.9549 5.625 17.0335 5.60458 17.1033 5.56567C17.1731 5.52676 17.2318 5.47065 17.2738 5.40269C17.3158 5.33472 17.3397 5.25714 17.3433 5.17732C17.3469 5.0975 17.33 5.01809 17.2943 4.94662C17.2586 4.87515 17.2051 4.81401 17.1391 4.76899C17.0731 4.72397 16.9967 4.69657 16.9171 4.68939C16.8375 4.68222 16.7574 4.6955 16.6844 4.72799C16.6114 4.76047 16.548 4.81108 16.5 4.875C16.5 4.87969 16.4953 4.87969 16.4953 4.88438L16.486 4.89375C16.4332 4.97103 16.4053 5.06266 16.4063 5.15625C16.4066 5.28046 16.4561 5.39947 16.544 5.4873C16.6318 5.57512 16.7508 5.62463 16.875 5.625Z" fill="#085E69" /> <path d="M12.9845 6.78271L7.74854 14.0624H11.2501C11.9257 14.0627 12.5786 14.3064 13.0891 14.7489C13.5996 15.1914 13.9336 15.8031 14.0298 16.4718L17.3626 9.34678C16.4534 9.4523 15.5346 9.25923 14.7449 8.79669C13.9551 8.33416 13.3372 7.62727 12.9845 6.78271ZM13.3126 12.164L12.7548 13.1108C12.7136 13.181 12.6546 13.2392 12.5839 13.2795C12.5132 13.3198 12.4331 13.3409 12.3517 13.3405C12.2681 13.3409 12.1858 13.32 12.1126 13.2796C12.0063 13.2156 11.9295 13.1124 11.8988 12.9922C11.8681 12.872 11.886 12.7445 11.9486 12.6374L12.5017 11.6905C12.5326 11.6371 12.5738 11.5904 12.6229 11.553C12.672 11.5156 12.728 11.4882 12.7877 11.4725C12.8474 11.4569 12.9096 11.4531 12.9707 11.4616C13.0318 11.47 13.0907 11.4905 13.1439 11.5218C13.25 11.5858 13.327 11.6887 13.3585 11.8086C13.39 11.9285 13.3736 12.056 13.3126 12.164ZM14.2829 10.5046L13.9876 11.0062C13.946 11.0761 13.887 11.134 13.8164 11.1742C13.7457 11.2145 13.6658 11.2357 13.5845 11.2358C13.5017 11.2368 13.4204 11.214 13.3501 11.1702C13.2967 11.1393 13.25 11.0981 13.2125 11.049C13.1751 10.9999 13.1478 10.9439 13.1321 10.8842C13.1164 10.8245 13.1127 10.7623 13.1212 10.7012C13.1296 10.6401 13.1501 10.5812 13.1813 10.528L13.4767 10.0312C13.5071 9.97785 13.5478 9.93113 13.5965 9.89371C13.6451 9.8563 13.7007 9.82895 13.7601 9.81324C13.8194 9.79753 13.8813 9.79379 13.9421 9.80223C14.0028 9.81067 14.0614 9.83113 14.1142 9.8624C14.1676 9.89334 14.2143 9.93454 14.2517 9.98362C14.2891 10.0327 14.3165 10.0887 14.3322 10.1484C14.3478 10.2081 14.3516 10.2703 14.3431 10.3314C14.3347 10.3925 14.3142 10.4514 14.2829 10.5046Z" fill="#085E69" /> <path d="M22.9688 15.9375C22.9714 16.3234 23.0706 16.7026 23.2573 17.0404L22.1999 17.921C22.1471 17.965 22.1047 18.0201 22.0755 18.0824C22.0464 18.1446 22.0313 18.2125 22.0312 18.2812V20.1562C22.0312 20.2806 22.0806 20.3998 22.1685 20.4877C22.2565 20.5756 22.3757 20.625 22.5 20.625C22.6243 20.625 22.7435 20.5756 22.8315 20.4877C22.9194 20.3998 22.9688 20.2806 22.9688 20.1562V18.501L23.8578 17.7605C24.1441 17.9945 24.4821 18.1568 24.8438 18.2339V19.2188C24.8438 19.3431 24.8931 19.4623 24.981 19.5502C25.069 19.6381 25.1882 19.6875 25.3125 19.6875C25.4368 19.6875 25.556 19.6381 25.644 19.5502C25.7319 19.4623 25.7812 19.3431 25.7812 19.2188V18.2339C26.1429 18.1568 26.4809 17.9945 26.7672 17.7605L27.6562 18.501V20.1562C27.6562 20.2806 27.7056 20.3998 27.7935 20.4877C27.8815 20.5756 28.0007 20.625 28.125 20.625C28.2493 20.625 28.3685 20.5756 28.4565 20.4877C28.5444 20.3998 28.5938 20.2806 28.5938 20.1562V18.2812C28.5937 18.2125 28.5786 18.1446 28.5495 18.0824C28.5203 18.0201 28.4779 17.965 28.4251 17.921L27.3677 17.0404C27.5544 16.7026 27.6536 16.3234 27.6562 15.9375C27.6562 15.3159 27.4093 14.7198 26.9698 14.2802C26.5302 13.8407 25.9341 13.5938 25.3125 13.5938C24.6909 13.5938 24.0948 13.8407 23.6552 14.2802C23.2157 14.7198 22.9688 15.3159 22.9688 15.9375Z" fill="#085E69" /> <path d="M18.5437 9.02832L17.9343 10.3361L22.2234 14.8408C22.4305 14.2541 22.8007 13.7386 23.2906 13.355C23.7805 12.9713 24.3697 12.7355 24.989 12.6752L20.9296 6.30957C20.7582 6.91119 20.4552 7.46719 20.0425 7.93738C19.6299 8.40757 19.118 8.7802 18.5437 9.02832Z" fill="#085E69" /> <path d="M25.2 11.2548C25.3999 11.1283 25.5646 10.9531 25.6785 10.7457C25.7924 10.5384 25.852 10.3055 25.8516 10.0689C25.8526 9.80131 25.7761 9.53918 25.6313 9.31419L24.1172 6.94231C24.0181 6.7865 23.8894 6.65173 23.7382 6.54572C23.5871 6.4397 23.4165 6.36452 23.2363 6.32447C23.056 6.28442 22.8697 6.28029 22.6878 6.3123C22.506 6.34432 22.3323 6.41186 22.1766 6.51106L22.1719 6.51575L25.1953 11.2595L25.2 11.2548Z" fill="#085E69" /> <path d="M9.56864 17.1501L9.56807 17.1493C9.48118 17.0623 9.37801 16.9933 9.26445 16.9463C9.15089 16.8992 9.02918 16.875 8.90625 16.875C8.78333 16.875 8.66162 16.8992 8.54806 16.9463C8.4345 16.9933 8.33133 17.0623 8.24444 17.1493L8.24387 17.1501L8.24298 17.1507C8.15604 17.2376 8.08708 17.3408 8.04002 17.4543C7.99297 17.5679 7.96875 17.6896 7.96875 17.8125C7.96875 17.9354 7.99297 18.0571 8.04002 18.1707C8.08708 18.2842 8.15604 18.3874 8.24298 18.4743L8.24387 18.4749L8.24444 18.4758C8.33133 18.5627 8.4345 18.6317 8.54806 18.6787C8.66162 18.7258 8.78333 18.75 8.90625 18.75C9.02918 18.75 9.15089 18.7258 9.26445 18.6787C9.37801 18.6317 9.48118 18.5627 9.56807 18.4758L9.56864 18.4749L9.56953 18.4743C9.65647 18.3874 9.72543 18.2842 9.77249 18.1707C9.81954 18.0571 9.84376 17.9354 9.84376 17.8125C9.84376 17.6896 9.81954 17.5679 9.77249 17.4543C9.72543 17.3408 9.65647 17.2376 9.56953 17.1507L9.56864 17.1501Z" fill="#085E69" /> <path d="M13.125 16.875C13.1251 16.6288 13.0766 16.3849 12.9824 16.1574C12.8882 15.9299 12.7501 15.7231 12.576 15.549C12.4019 15.3749 12.1951 15.2368 11.9676 15.1426C11.7401 15.0484 11.4962 14.9999 11.25 15H6.5625C6.23246 15.0017 5.90884 15.0914 5.625 15.2599V11.8552L11.4064 2.77453C11.5088 2.79897 11.6135 2.81171 11.7188 2.8125C12.0024 2.81008 12.2792 2.72541 12.5156 2.56875L13.9734 3.62812C13.7225 4.09827 13.592 4.62332 13.5938 5.15625C13.5921 5.91913 13.8558 6.65884 14.3397 7.24866C14.8235 7.83848 15.4974 8.2417 16.2459 8.38927C16.9944 8.53683 17.7709 8.41954 18.4424 8.05751C19.1139 7.69547 19.6386 7.1112 19.9267 6.40479C20.2147 5.69838 20.2482 4.91379 20.0214 4.18542C19.7945 3.45704 19.3215 2.8302 18.6832 2.41228C18.045 1.99437 17.2813 1.81137 16.523 1.89465C15.7647 1.97792 15.0589 2.32229 14.5266 2.86875L13.0641 1.80469C13.1056 1.67599 13.1261 1.54147 13.125 1.40625C13.125 1.03329 12.9768 0.675604 12.7131 0.411881C12.4494 0.148158 12.0917 0 11.7188 0C11.3458 0 10.9881 0.148158 10.7244 0.411881C10.4607 0.675604 10.3125 1.03329 10.3125 1.40625C10.314 1.71969 10.4214 2.02342 10.6172 2.26819L4.76074 11.467C4.71287 11.5422 4.68746 11.6296 4.6875 11.7188V20.625H13.125V16.875ZM16.875 3.75C17.1531 3.75 17.425 3.83248 17.6563 3.987C17.8875 4.14152 18.0678 4.36114 18.1742 4.6181C18.2806 4.87506 18.3085 5.15781 18.2542 5.4306C18.2 5.70338 18.066 5.95395 17.8694 6.15062C17.6727 6.34729 17.4221 6.48122 17.1493 6.53548C16.8766 6.58974 16.5938 6.56189 16.3369 6.45546C16.0799 6.34902 15.8603 6.16878 15.7057 5.93752C15.5512 5.70626 15.4688 5.43438 15.4688 5.15625C15.4698 4.78362 15.6183 4.42657 15.8818 4.16308C16.1453 3.89959 16.5024 3.75109 16.875 3.75ZM10.7813 17.8125C10.7795 18.1462 10.6877 18.4732 10.5156 18.759L10.6439 18.8873C10.6879 18.9308 10.7228 18.9824 10.7468 19.0394C10.7707 19.0964 10.7831 19.1576 10.7833 19.2194C10.7835 19.2812 10.7715 19.3424 10.7479 19.3995C10.7243 19.4566 10.6897 19.5086 10.646 19.5522C10.6023 19.5959 10.5504 19.6306 10.4933 19.6541C10.4361 19.6777 10.3749 19.6897 10.3131 19.6895C10.2513 19.6893 10.1902 19.6769 10.1332 19.653C10.0762 19.6291 10.0245 19.5941 9.98109 19.5502L9.85275 19.4218C9.56762 19.5956 9.24017 19.6875 8.90626 19.6875C8.57236 19.6875 8.24491 19.5956 7.95978 19.4218L7.83143 19.5502C7.74335 19.6371 7.62443 19.6857 7.50063 19.6854C7.37684 19.685 7.25823 19.6356 7.17069 19.5481C7.08315 19.4606 7.0338 19.3419 7.0334 19.2181C7.03301 19.0944 7.08161 18.9754 7.16859 18.8873L7.29691 18.759C7.12317 18.4739 7.03126 18.1464 7.03126 17.8125C7.03126 17.4786 7.12317 17.1511 7.29691 16.866L7.16859 16.7377C7.08201 16.6495 7.03375 16.5307 7.03431 16.4071C7.03487 16.2836 7.0842 16.1652 7.17158 16.0778C7.25896 15.9905 7.37731 15.9411 7.50088 15.9406C7.62445 15.94 7.74324 15.9883 7.83141 16.0748L7.95975 16.2032C8.24488 16.0294 8.57234 15.9375 8.90624 15.9375C9.24014 15.9375 9.56759 16.0294 9.85272 16.2032L9.98107 16.0748C10.0691 15.9879 10.1881 15.9393 10.3119 15.9396C10.4357 15.94 10.5543 15.9894 10.6418 16.0769C10.7294 16.1644 10.7787 16.2831 10.7791 16.4069C10.7795 16.5306 10.7309 16.6496 10.6439 16.7377L10.5156 16.866C10.6877 17.1518 10.7795 17.4788 10.7813 17.8125Z" fill="#085E69" /> <path d="M27.1875 24.375H2.8125C2.06658 24.375 1.35121 24.6713 0.823762 25.1988C0.296316 25.7262 0 26.4416 0 27.1875C0 27.9334 0.296316 28.6488 0.823762 29.1762C1.35121 29.7037 2.06658 30 2.8125 30H27.1875C27.9334 30 28.6488 29.7037 29.1762 29.1762C29.7037 28.6488 30 27.9334 30 27.1875C30 26.4416 29.7037 25.7262 29.1762 25.1988C28.6488 24.6713 27.9334 24.375 27.1875 24.375ZM4.21875 27.6562C4.21875 27.7806 4.16936 27.8998 4.08146 27.9877C3.99355 28.0756 3.87432 28.125 3.75 28.125C3.62568 28.125 3.50645 28.0756 3.41854 27.9877C3.33064 27.8998 3.28125 27.7806 3.28125 27.6562V26.7188C3.28125 26.5944 3.33064 26.4752 3.41854 26.3873C3.50645 26.2994 3.62568 26.25 3.75 26.25C3.87432 26.25 3.99355 26.2994 4.08146 26.3873C4.16936 26.4752 4.21875 26.5944 4.21875 26.7188V27.6562ZM7.96875 27.6562C7.96875 27.7806 7.91936 27.8998 7.83146 27.9877C7.74355 28.0756 7.62432 28.125 7.5 28.125C7.37568 28.125 7.25645 28.0756 7.16854 27.9877C7.08064 27.8998 7.03125 27.7806 7.03125 27.6562V26.7188C7.03125 26.5944 7.08064 26.4752 7.16854 26.3873C7.25645 26.2994 7.37568 26.25 7.5 26.25C7.62432 26.25 7.74355 26.2994 7.83146 26.3873C7.91936 26.4752 7.96875 26.5944 7.96875 26.7188V27.6562ZM11.7188 27.6562C11.7188 27.7806 11.6694 27.8998 11.5815 27.9877C11.4935 28.0756 11.3743 28.125 11.25 28.125C11.1257 28.125 11.0065 28.0756 10.9185 27.9877C10.8306 27.8998 10.7812 27.7806 10.7812 27.6562V26.7188C10.7812 26.5944 10.8306 26.4752 10.9185 26.3873C11.0065 26.2994 11.1257 26.25 11.25 26.25C11.3743 26.25 11.4935 26.2994 11.5815 26.3873C11.6694 26.4752 11.7188 26.5944 11.7188 26.7188V27.6562ZM15.4688 27.6562C15.4688 27.7806 15.4194 27.8998 15.3315 27.9877C15.2435 28.0756 15.1243 28.125 15 28.125C14.8757 28.125 14.7565 28.0756 14.6685 27.9877C14.5806 27.8998 14.5312 27.7806 14.5312 27.6562V26.7188C14.5312 26.5944 14.5806 26.4752 14.6685 26.3873C14.7565 26.2994 14.8757 26.25 15 26.25C15.1243 26.25 15.2435 26.2994 15.3315 26.3873C15.4194 26.4752 15.4688 26.5944 15.4688 26.7188V27.6562ZM19.2188 27.6562C19.2188 27.7806 19.1694 27.8998 19.0815 27.9877C18.9935 28.0756 18.8743 28.125 18.75 28.125C18.6257 28.125 18.5065 28.0756 18.4185 27.9877C18.3306 27.8998 18.2812 27.7806 18.2812 27.6562V26.7188C18.2812 26.5944 18.3306 26.4752 18.4185 26.3873C18.5065 26.2994 18.6257 26.25 18.75 26.25C18.8743 26.25 18.9935 26.2994 19.0815 26.3873C19.1694 26.4752 19.2188 26.5944 19.2188 26.7188V27.6562ZM22.9688 27.6562C22.9688 27.7806 22.9194 27.8998 22.8315 27.9877C22.7435 28.0756 22.6243 28.125 22.5 28.125C22.3757 28.125 22.2565 28.0756 22.1685 27.9877C22.0806 27.8998 22.0312 27.7806 22.0312 27.6562V26.7188C22.0312 26.5944 22.0806 26.4752 22.1685 26.3873C22.2565 26.2994 22.3757 26.25 22.5 26.25C22.6243 26.25 22.7435 26.2994 22.8315 26.3873C22.9194 26.4752 22.9688 26.5944 22.9688 26.7188V27.6562ZM26.7188 27.6562C26.7188 27.7806 26.6694 27.8998 26.5815 27.9877C26.4935 28.0756 26.3743 28.125 26.25 28.125C26.1257 28.125 26.0065 28.0756 25.9185 27.9877C25.8306 27.8998 25.7812 27.7806 25.7812 27.6562V26.7188C25.7812 26.5944 25.8306 26.4752 25.9185 26.3873C26.0065 26.2994 26.1257 26.25 26.25 26.25C26.3743 26.25 26.4935 26.2994 26.5815 26.3873C26.6694 26.4752 26.7188 26.5944 26.7188 26.7188V27.6562Z" fill="#085E69" /> </g> <defs> <clipPath id="clip0_140_860"> <rect width="30" height="30" fill="white" /> </clipPath> </defs> </svg>
                     </span>
                     <span>Manufacturing</span>
-                    <span class="industry-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    <span class="industry-arrow"><i class="fas fa-chevron-right"></i></span>
                 </div>
             </div>
 
@@ -544,7 +538,7 @@ get_header();
                     </div>
                     <div class="industry-line"></div>
                     <p>Indigenous technology solutions are the backbone of secure, scalable e-commerce platforms that not just enhance online purchasing experiences but also make backend operations easier. Through the use of smart integrations and automation, Indigenous Owned and Operated businesses can, as a Certified Indigenous Business partner, manage their payments, inventory, and revenue growth efficiently. </p>
-                    <img src="/wp-content/uploads/2026/08/E-commerce.webp" alt="E-commerce" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/E-commerce.webp" alt="E-commerce" class="industry-image">
                 </div>
 
                 <!-- EDUCATION -->
@@ -555,7 +549,7 @@ get_header();
                     </div>
                     <div class="industry-line"></div>
                     <p>Education platforms such as e-learning systems, student management tools, and digital classrooms improve access and engagement. These Indigenous technology solutions support Aboriginal businesses and community-led institutions with tools that simplify teaching, progress tracking, and administration under a certified aboriginal business approach. </p>
-                    <img src="/wp-content/uploads/2026/08/Frame-2.webp" alt="Education" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Frame-2.webp" alt="Education" class="industry-image">
                 </div>
 
                 <!-- FINANCIAL SERVICES -->
@@ -566,7 +560,7 @@ get_header();
                     </div>
                     <div class="industry-line"></div>
                     <p>Secure fintech platforms and automation tools improve financial control, speed up transactions, and support compliance needs. These solutions protect sensitive data and reduce manual work, supporting Indigenous Business operations through Indigenous technology solutions aligned with security and regulatory requirements. </p>
-                    <img src="/wp-content/uploads/2026/08/Financial-Services.webp" alt="Financial Services" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Financial-Services.webp" alt="Financial Services" class="industry-image">
                 </div>
 
                 <!-- HEALTHCARE -->
@@ -577,7 +571,7 @@ get_header();
                     </div>
                     <div class="industry-line"></div>
                     <p>Healthcare systems via patient management tools, scheduling, digital records, and telemedicine platforms facilitate the care journey. These tools, designed as Indigenous technology solutions, not only enhance the productivity and effectiveness of operations but also support the Indigenous Owned and Indigenous Operated entities that render the critical services. </p>
-                    <img src="/wp-content/uploads/2026/08/Healthcare.webp" alt="Healthcare" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Healthcare.webp" alt="Healthcare" class="industry-image">
                 </div>
 
                 <!-- REAL ESTATE -->
@@ -588,7 +582,7 @@ get_header();
                     </div>
                     <div class="industry-line"></div>
                     <p>Digital platforms simplify property listings, management, documentation, and communication. Workflow automation improves day-to-day efficiency and creates smarter transaction processes. These Indigenous technology solutions support Indigenous Owned and Operated business teams by improving visibility, coordination, and client experiences. </p>
-                    <img src="/wp-content/uploads/2026/08/Real-Estate.webp" alt="Real Estate" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Real-Estate.webp" alt="Real Estate" class="industry-image">
                 </div>
 
                 <!-- TRAVEL -->
@@ -599,7 +593,7 @@ get_header();
                     </div>
                     <div class="industry-line"></div>
                     <p>Hospitality technology solutions improve guest engagement through the provision of simple reservations for the clients, automated communication, and personalized service delivery. These Native tech solutions give power to Native Business teams to manage bookings, services, and customer relationships in an efficient manner, while building brand loyalty and obtaining a gradual increase in their business is a good strategy for the future. </p>
-                    <img src="/wp-content/uploads/2026/08/Travel-and-Hospitality.webp" alt="Travel and Hospitality" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Travel-and-Hospitality.webp" alt="Travel and Hospitality" class="industry-image">
                 </div>
 
                 <!-- LOGISTICS -->
@@ -610,7 +604,7 @@ get_header();
                     </div>
                     <div class="industry-line"></div>
                     <p>Platforms for supply chains provide the features of tracking in real-time, visibility of delivery, and coordination of partners. Indigenous technologies are a great support to the Aboriginal Business and Indigenous Logistics teams, giving them less time-consuming, efficient and better communication through the entire supply chain, such as warehouses, fleets and distributing centers. </p>
-                    <img src="/wp-content/uploads/2026/08/Logistics.webp" alt="Logistics" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Logistics.webp" alt="Logistics" class="industry-image">
                 </div>
 
                 <!-- MANUFACTURING -->
@@ -621,7 +615,7 @@ get_header();
                     </div>
                     <div class="industry-line"></div>
                     <p>Hospitality technology solutions significantly improve guest interaction through providing users with effortless reservations, automated communication, and tailored service delivery. The Indigenous tech solutions not only enable the Indigenous Business team to manage reservations, services, and customer relations effortlessly but also help in building brand loyalty and accelerating growth over the period. </p>
-                    <img src="/wp-content/uploads/2026/08/Manufacturing.webp" alt="Manufacturing" class="industry-image">
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/08/Manufacturing.webp" alt="Manufacturing" class="industry-image">
                 </div>
             </div>
         </div>
@@ -645,14 +639,7 @@ get_header();
                 </div>
                 <!-- HubSpot Form -->
                 <div class="hubspot-form-wrapper">
-                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"> </script>
-                    <script>
-                        hbspt.forms.create({
-                            portalId: "22824688",
-                            formId: "45b7d1ce-b5de-45bc-b793-223818478cbb",
-                            region: "na1"
-                        });
-                    </script>
+                    <?php echo itech_hubspot_form('45b7d1ce-b5de-45bc-b793-223818478cbb'); ?>
                 </div>
             </div>
         </div>
@@ -750,7 +737,7 @@ get_header();
             </div>
             <!-- RIGHT IMAGE -->
             <div class="indigene-about-image">
-                <img src="/wp-content/uploads/2025/09/Paul-Morris-OLeary.webp" alt="Founder">
+                <img loading="lazy" decoding="async" src="/wp-content/uploads/2025/09/Paul-Morris-OLeary-1024x925.webp" srcset="/wp-content/uploads/2025/09/Paul-Morris-OLeary-300x271.webp 300w, /wp-content/uploads/2025/09/Paul-Morris-OLeary-768x694.webp 768w, /wp-content/uploads/2025/09/Paul-Morris-OLeary-1024x925.webp 1024w, /wp-content/uploads/2025/09/Paul-Morris-OLeary-1536x1388.webp 1536w" sizes="(max-width: 767px) 350px, 520px" alt="Founder">
             </div>
         </div>
     </div>
@@ -773,14 +760,7 @@ get_header();
                 </div>
                 <!-- HubSpot Form -->
                 <div class="hubspot-form-wrapper">
-                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"> </script>
-                    <script>
-                        hbspt.forms.create({
-                            portalId: "22824688",
-                            formId: "45b7d1ce-b5de-45bc-b793-223818478cbb",
-                            region: "na1"
-                        });
-                    </script>
+                    <?php echo itech_hubspot_form('45b7d1ce-b5de-45bc-b793-223818478cbb'); ?>
                 </div>
             </div>
         </div>
@@ -796,10 +776,10 @@ get_header();
         <div class="custom-faq">
             <!-- FAQ 1 -->
             <div class="custom-faq-item active">
-                <a href="javascript:void(0);" class="custom-faq-question">
+                <button type="button" class="custom-faq-question" aria-expanded="true">
                     <span>What is meant by the term "digital transformation" in relation to a business that is Indigenous Owned and Operated? </span>
                     <svg width="23" height="13" viewBox="0 0 23 13" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M1.25 1.25L11.25 11.0379L21.25 1.25" stroke="#339E9D" stroke-width="2.5" stroke-linecap="round"/> </svg>
-                </a>
+                </button>
                 <div class="custom-faq-answer">
                     <p>Digital transformation refers to the application of contemporary digital technology like software solutions, cloud infrastructures, automation, and AI to improve the performance of companies. An Indigenous Managed and Operated business digital transformation strategy is very much grounded in the identified areas of workflows, reporting, security, and service delivery. These areas are seen as the key to the long-term sustainability and growth of the business as well as the improvement in day-to-day efficiency at the same time. </p>
                 </div>
@@ -807,10 +787,10 @@ get_header();
 
             <!-- FAQ 2 -->
             <div class="custom-faq-item">
-                <a href="javascript:void(0);" class="custom-faq-question">
+                <button type="button" class="custom-faq-question" aria-expanded="false">
                     <span>In what ways do Indigenous technology solutions foster the growth of Aboriginal Businesses? </span>
                     <svg width="23" height="13" viewBox="0 0 23 13" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M1.25 1.25L11.25 11.0379L21.25 1.25" stroke="#339E9D" stroke-width="2.5" stroke-linecap="round"/> </svg>
-                </a>
+                </button>
                 <div class="custom-faq-answer">
                     <p>The Aboriginal Business organizations are able to function more productively, use fewer human resources, and generate more satisfied customers thanks to the Indigenous technical solutions. Quicker decision-making, better performance, and more scalability are the results of ERP, cloud platforms, data intelligence, and automation systems. This in turn lays a strong base for the growth of Indigenous Businesses and their digital operations being trustworthy over time. </p>
                 </div>
@@ -818,10 +798,10 @@ get_header();
 
             <!-- FAQ 3 -->
             <div class="custom-faq-item">
-                <a href="javascript:void(0);" class="custom-faq-question">
+                <button type="button" class="custom-faq-question" aria-expanded="false">
                     <span>What are the benefits of choosing a Certified Indigenous Business for tech and consulting services? </span>
                     <svg width="23" height="13" viewBox="0 0 23 13" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M1.25 1.25L11.25 11.0379L21.25 1.25" stroke="#339E9D" stroke-width="2.5" stroke-linecap="round"/> </svg>
-                </a>
+                </button>
                 <div class="custom-faq-answer">
                     <p>A Certified Indigenous Business and certified aboriginal business approach foster trust, accountability, and culturally aligned delivery. Services are designed to address real operational challenges while ensuring reliable execution, secure systems, and scalable outcomes. This is a valuable resource for the Indigenous Business teams that are looking for technology partners capable of long-term engagement with compliance and credibility. </p>
                 </div>
@@ -829,10 +809,10 @@ get_header();
 
             <!-- FAQ 4 -->
             <div class="custom-faq-item">
-                <a href="javascript:void(0);" class="custom-faq-question">
+                <button type="button" class="custom-faq-question" aria-expanded="false">
                     <span>Which industries are the major beneficiaries of the digital transformation of Indigenous businesses? </span>
                     <svg width="23" height="13" viewBox="0 0 23 13" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M1.25 1.25L11.25 11.0379L21.25 1.25" stroke="#339E9D" stroke-width="2.5" stroke-linecap="round"/> </svg>
-                </a>
+                </button>
                 <div class="custom-faq-answer">
                     <p>Digital transformation has dealings with a lot of industries, such as education, healthcare, financial services, manufacturing, logistics, tourism, real estate, and e-commerce. Indigenous Owned companies are able to see the good side of it through better reporting, customer experience, automation, cloud adoption, and integrated systems. Each solution is developed keeping in mind operational goals, compliance, and long-term sustainability planning. </p>
                 </div>
@@ -840,10 +820,10 @@ get_header();
 
             <!-- FAQ 5 -->
             <div class="custom-faq-item">
-                <a href="javascript:void(0);" class="custom-faq-question">
+                <button type="button" class="custom-faq-question" aria-expanded="false">
                     <span>How are data security and compliance managed in Indigenous Operated solutions? </span>
                     <svg width="23" height="13" viewBox="0 0 23 13" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M1.25 1.25L11.25 11.0379L21.25 1.25" stroke="#339E9D" stroke-width="2.5" stroke-linecap="round"/> </svg> 
-                </a>
+                </button>
                 <div class="custom-faq-answer">
                     <p>Data security is guaranteed by using the secure cloud infrastructure, access control, monitoring, encryption, and compliance-ready system design. In addition, Indigenous Operated solutions provide risk reduction measures such as audit trails, backup strategies, and policy-aligned architecture. This makes it easier for Aboriginal businesses and Indigenous Business organizations to secure their sensitive data and ensure the reliability of their systems over time. </p> 
                 </div>
@@ -852,7 +832,6 @@ get_header();
     </div>
 </section>
 
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"> </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const faqItems = document.querySelectorAll(".custom-faq-item");
@@ -865,6 +844,10 @@ get_header();
                 /* Close ALL */
                 faqItems.forEach(function (faq) {
                     faq.classList.remove("active");
+                    const faqButton = faq.querySelector(".custom-faq-question");
+                    if (faqButton) {
+                        faqButton.setAttribute("aria-expanded", "false");
+                    }
                     const faqIcon =
                         faq.querySelector(".custom-faq-question i");
                     if (faqIcon) {
@@ -875,8 +858,11 @@ get_header();
                 /* Open clicked */
                 if (!isActive) {
                     item.classList.add("active");
-                    icon.classList.remove("icon-down-arrow");
-                    icon.classList.add("icon-up-arrow");
+                    question.setAttribute("aria-expanded", "true");
+                    if (icon) {
+                        icon.classList.remove("icon-down-arrow");
+                        icon.classList.add("icon-up-arrow");
+                    }
                 }
             });
         });
@@ -1211,44 +1197,7 @@ get_header();
         });
 
 
-        /* =========================================================
-        POPUP
-        ========================================================= */
-        const popupOverlay = document.getElementById( "itechPopupOverlay" );
-        const closeBtn = document.getElementById( "itechClosePopup" );
-        if (!popupOverlay) { return; }
-        function openPopup() {
-            popupOverlay.classList.add("show");
-            document.body.classList.add(
-                "itech-popup-open"
-            );
-        }
-        function closePopup() {
-            popupOverlay.classList.remove("show");
-            document.body.classList.remove(
-                "itech-popup-open"
-            );
-        }
-        document .querySelectorAll(".itechOpenPopup") .forEach(function (btn) {
-            btn.addEventListener(
-                "click",
-                function (e) {
-                    e.preventDefault();
-                    openPopup();
-                }
-            );
-        });
-        if (closeBtn) {
-            closeBtn.addEventListener(
-                "click",
-                closePopup
-            );
-        }
-        popupOverlay.addEventListener( "click", function (e) {
-            if (e.target === popupOverlay) {
-                closePopup();
-            }
-        } );
+        /* Popup open/close is handled site-wide by itech-site.js. */
     });
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -1283,4 +1232,9 @@ get_header();
         });
     });
 </script>
-<?php //get_footer(); ?>
+<?php
+// On the front page this template is included by front-page.php, which calls
+// get_footer() itself; calling it here too would print the footer twice.
+if ( ! is_front_page() ) {
+    get_footer();
+}

@@ -34,13 +34,17 @@
 </div><!-- #page -->
 
 
-<a href="#" id="back-to-top" class="progress" data-tooltip="Back To Top">
+<a href="#page" id="back-to-top" class="progress" data-tooltip="Back To Top">
     <div class="arrow-top"></div>
     <div class="arrow-top-line"></div>
     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMinYMin meet"> <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/></svg> 
 </a>
 
-<?php //wp_footer(); ?>
+<?php
+// Required: prints enqueued footer scripts and the wp_footer hooks.
+// (While Header Footer Elementor's footer is active it replaces this file.)
+wp_footer();
+?>
 
 </body>
 </html>
