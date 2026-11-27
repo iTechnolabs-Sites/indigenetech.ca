@@ -68,7 +68,11 @@ get_header();
     .site-logo img { height: 32px; }
     .site-footer .site-inner { grid-template-columns: minmax(0, 1fr); }
     .site-footer nav { justify-content: flex-start; }
-  }
+  }p#itc-talk {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1d1e1e;
+}s
 </style>
 <style>
   /* Layout: one column statement sheet. Header band, fact strip, capabilities grid, results, company data, contact. */
@@ -1314,7 +1318,7 @@ get_header();
 
     <section class="itc-contact" aria-labelledby="itc-talk">
       <div>
-        <h2 id="itc-talk">Talk to us</h2>
+        <p id="itc-talk">Talk to us</p>
         <div class="itc-person">
           <strong>Paul Morris O'Leary</strong>
           Founder and Director
